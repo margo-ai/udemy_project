@@ -150,7 +150,7 @@ if (1 == 1) {
 // (условие) ? если true : если false;
 // (num === 50) ? console.log('Ok!') : console.log('Error');
 
-const num = 51;
+/* const num = 51;
 switch (num) {
   case 49: 
     console.log('Неверно');
@@ -164,4 +164,30 @@ switch (num) {
   default:
     console.log('Не в этот раз');
     break;
+} */
+
+
+// ЛЕКЦИЯ 14 "ЦИКЛЫ":  
+let num = 50;
+
+// Первый вариант цикла:
+// while (num <= 55) {
+//   console.log(num);
+//   num++;
+// }
+
+// Второй вариант цикла:
+// do {
+//   console.log(num);
+//   num++;
+// }
+// while (num < 55);
+
+// Третий вариант цикла:
+for (let i = 1; i < 10; i++) {
+  if (i === 6) {
+    // break;
+    continue;
+  }
+  console.log(i);   
 }
