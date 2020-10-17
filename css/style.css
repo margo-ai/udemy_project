@@ -1,0 +1,22 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+}
+
+.some-article {
+  cursor: pointer;
+  width: 200px;
+  height: 40px;  
+}
+
+.some-article:hover {
+  animation-name: rotate;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes rotate {
+  100% {
+    transform: translateX(300px) translateY(300px) scale(2) rotate(360deg);
+  }
+}
