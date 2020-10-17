@@ -23,7 +23,7 @@
 
 'use strict';
 
-let numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
+let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
 
 let personalMovieDB = {
   count: numberOfFilms,
@@ -33,20 +33,24 @@ let personalMovieDB = {
   privat: false
 };
 
-let lastWatchedMovie1 = prompt("Один из последних просмотренных фильмов?");
-console.log(lastWatchedMovie1);
+let lastWatchedMovie1 = prompt('Один из последних просмотренных фильмов?', '');
 
-let movieRating1 = prompt("На сколько оцените его?");
-console.log(movieRating1);
+let movieRating1 = prompt('На сколько оцените его?', '');
 
-let lastWatchedMovie2 = prompt("Один из последних просмотренных фильмов?");
-console.log(lastWatchedMovie2);
+let lastWatchedMovie2 = prompt('Один из последних просмотренных фильмов?', '');
 
-let movieRating2 = prompt("На сколько оцените его?");
-console.log(movieRating2);
+let movieRating2 = prompt('На сколько оцените его?', '');
 
-let movies = {
+
+// МОЙ ВАРИАНТ:
+/* let movies = {
   [lastWatchedMovie1]: movieRating1,
   [lastWatchedMovie2]: movieRating2 
 };
-console.log(movies);
+console.log(movies); */
+
+// ВАРИАНТ ЛЕКТРОА:
+personalMovieDB.movies[lastWatchedMovie1] = movieRating1;
+personalMovieDB.movies[lastWatchedMovie2] = movieRating2;
+
+console.log(personalMovieDB);
