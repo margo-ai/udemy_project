@@ -23,3 +23,30 @@
 
 'use strict';
 
+let numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
+
+let personalMovieDB = {
+  count: numberOfFilms,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false
+};
+
+let lastWatchedMovie1 = prompt("Один из последних просмотренных фильмов?");
+console.log(lastWatchedMovie1);
+
+let movieRating1 = prompt("На сколько оцените его?");
+console.log(movieRating1);
+
+let lastWatchedMovie2 = prompt("Один из последних просмотренных фильмов?");
+console.log(lastWatchedMovie2);
+
+let movieRating2 = prompt("На сколько оцените его?");
+console.log(movieRating2);
+
+let movies = {
+  [lastWatchedMovie1]: movieRating1,
+  [lastWatchedMovie2]: movieRating2 
+};
+console.log(movies);
