@@ -49,7 +49,7 @@ let movieRating2 = prompt('На сколько оцените его?', '');
 };
 console.log(movies); */
 
-// ВАРИАНТ ЛЕКТРОА:
+// ВАРИАНТ ЛЕКТОРА:
 personalMovieDB.movies[lastWatchedMovie1] = movieRating1;
 personalMovieDB.movies[lastWatchedMovie2] = movieRating2;
 
