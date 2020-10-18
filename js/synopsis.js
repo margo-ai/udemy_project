@@ -247,3 +247,50 @@ logger();
 const calc1 = (a, b) => a + b;
 
 console.log(calc1(5, 7));
+
+
+
+
+// ЛЕКЦИЯ 17 "МЕТОДЫ И СВОЙСТВА СТРОК И ЧИСЕЛ"
+// Методы - это вспомогательные функции, свойства - это вспомогательные значения
+const str = "test";
+const arr1 = [1, 2, 3, 4, 5];
+
+// в данном случае, свойство - это length. Свойства пишутся через точку. А методы - вызываются.
+// console.log(arr1.length);
+// console.log(str[2]);
+
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
+
+console.log(str);
+
+const fruit = "Some fruit";
+
+// Этот метод должен принимать какой-то аргумент в скобках
+console.log(fruit.indexOf("q"));
+
+const logg = "Hello world";
+
+// 6 - это начало строки (от), т.е. слова world, 10 - это конец строки (до), 10 не включается
+console.log(logg.slice(6, 10));
+console.log(logg.slice(-5, -1)); // то же самое
+
+// похоже на slice, не поддерживает отрицательные значения
+console.log(logg.substring(6, 11));
+
+// в отличие от slice, во втором аргументе указываем длину, а не индекс последнего символа
+console.log(logg.substr(6, 5));
+
+
+// ЧИСЛА (СВОЙСТВА И МЕТОДЫ):
+
+const num2 = 12.2;
+
+// округление к ближайшему целому
+console.log(Math.round(num2));
+
+
+const test = "12.2px";
+console.log(parseInt(test));
+console.log(parseFloat(test));
