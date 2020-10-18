@@ -332,6 +332,8 @@ function learnJS(lang, callback) {
  learnJS('Javascript', done);
 
 
+
+
  
 
 
@@ -392,3 +394,68 @@ console.log(Object.keys(options).length);
 console.log(Object.entries(options));
 
 
+
+
+
+
+
+
+// ЛЕКЦИЯ 21 "МАССИВЫ И ПСЕВДОМАССИВЫ"
+
+const array = [2, 13, 26, 8, 10];
+
+array.sort(compareNum);
+console.log(array);
+
+function compareNum(a, b) {
+  return a - b;
+}
+
+//array[99] = 0; // так лучше не делать!!!
+// console.log(array.length); // length состоит из "последнего индекса массива + 1"
+// console.log(array);
+
+
+// Метод, который удаляет последний элемент из массива:
+// array.pop();
+
+// Метод, который добавляет элемент в конец массива:
+array.push(10);
+console.log(array);
+
+// Перебор массива:
+for (let i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}
+
+// for of - другая конструкция перебора. Такая конструкция работает с массивами, псевдомассивами:
+for (let value of array) {
+  console.log(value);
+}
+
+// Метод перебора массива "for each":
+array.forEach(function(item, i, array) {
+  console.log(`${i}: ${item} внутри массива ${array}`);
+});
+
+
+// Метод "for each" используется чаще, но у метода "for of" есть плюс - здесь можно использоваться brake и continue.
+
+
+// Метод "split" (делает из строки массив):
+const string = prompt("", "");
+const products = string.split(", ");
+//console.log(products);
+
+// Метод "sort" - метод сортировки:
+products.sort(); // сортирует элементы как строки
+
+// Обратная операция - join (делает из массива строку)
+console.log(products.join('; '));
+
+
+/* Псевдомассив - это объект, который похож на массив.
+У него есть числовые свойства, как у массивов. А также свойство length.
+Хоть псевдомассивы и похожи на массивы, все же это обычные объекты. У них нет свойств,
+и методов массивов, таких как forEach, join, slice и др.:
+ */
