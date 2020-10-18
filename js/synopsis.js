@@ -168,7 +168,7 @@ switch (num) {
 
 
 // ЛЕКЦИЯ 14 "ЦИКЛЫ":  
-let num = 50;
+// let num = 50;
 
 // Первый вариант цикла:
 // while (num <= 55) {
@@ -191,3 +191,59 @@ for (let i = 1; i < 10; i++) {
   }
   console.log(i);   
 }
+
+
+
+// ЛЕКЦИЯ 16 "ФУНКЦИИ"
+
+// Функции - это наши действия в javascript
+// В скобках пишутся аргументы - это данные, которые функция использует внутри себя
+
+let num = 20;
+
+function showFirstMessage(text) {
+  console.log(text);
+  let num = 10;  
+  console.log(num);
+}
+
+showFirstMessage('Hello World!');
+
+console.log(num);
+
+// Замыкание функции - сама функция вместе со всеми внешними переменными, которые ей доступны
+
+
+// function decloration (вид функции) - создается до начала выполнения скрипта, можно вызвать перед объявлением:
+
+function calc(a, b) {
+  return (a + b);
+}
+
+console.log(calc(4, 3));
+console.log(calc(5, 6));
+console.log(calc(10, 6));
+
+
+function ret() {
+  let num = 50;
+  return num;
+}
+
+const anotherNum = ret();
+console.log(anotherNum);
+
+// function expression (вид функции) - создается только тогда, когда доходит поток кода,
+// можно вызвать только после объявления:
+
+const logger = function () {
+  console.log('Hello!');
+};
+
+logger();
+
+
+// Стрелочные функции:
+const calc1 = (a, b) => a + b;
+
+console.log(calc1(5, 7));
