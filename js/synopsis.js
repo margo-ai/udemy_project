@@ -459,3 +459,128 @@ console.log(products.join('; '));
 Хоть псевдомассивы и похожи на массивы, все же это обычные объекты. У них нет свойств,
 и методов массивов, таких как forEach, join, slice и др.:
  */
+
+
+
+
+
+
+
+ // ЛЕКЦИЯ 22 "ПЕРЕДАЧА ПО ССЫЛКЕ ИЛИ ПО ЗНАЧЕНИЮ, Spread оператор"
+
+let a = 5,
+    b = a;
+
+b = b + 5;
+
+console.log(b);
+console.log(a);
+
+
+const obj2 = {
+  a: 5,
+  b: 1
+};
+
+/* const copy = obj2; // сюда кладется ссылка на obj2
+copy.a = 10; // модифицируя копию, мы изменяем сам объект (называется "передача по ссылке")
+
+console.log(copy);
+console.log(obj2);
+ */
+// в объектах передается не сама структура объекта, а ссылка на объект
+
+
+
+// Но как скопировать объект (массивов и т.д.)?
+// Создаем копию объекта через "for... in"
+
+function copy (mainObj) {
+    let objCopy = {};
+
+    let key;
+    for (key in mainObj) {
+      objCopy[key] = mainObj[key];
+    }
+
+    return objCopy;
+}
+
+const numbers = {
+  a: 2,
+  b: 5,
+  c: {
+    x: 7,
+    y: 4
+  }
+};
+
+/* const newNumbers = copy(numbers);
+
+newNumbers.a = 10;
+newNumbers.c.x = 10; // в этом случае "c.x" поменялось в двух случаях, т.к. мы создали поверхностную копию
+
+console.log(newNumbers); // в копии значение ключа "a" поменялось на 10
+console.log(numbers);// а в оригинале не поменялось
+ */
+
+
+// второй способ копирования объекта - через Object.assign():
+
+const add = {
+  d: 17,
+  e: 20
+};
+// попробуем соединить объекты "numbers" и "add"
+console.log(Object.assign(numbers, add)); // первым аргументом - объект,
+// в который помещаем, а вторым - тот,
+// который помещаем в первый
+
+// таким же образом можно создать новый объект: в этом случае первым аргументом делаем пустой объект:
+const clone = Object.assign({}, add); 
+
+clone.d = 20;
+
+console.log(add); // здесь "d" не меняется
+console.log(clone); // а здесь меняется
+
+
+// Создание копии массива:
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[1] = 'daffcfdcfc';
+console.log(newArray);
+console.log(oldArray);
+
+
+// Использование оператора разворота (spread) - новый вариант создания копии объектов:
+const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+      console.log(internet);
+
+function log(a, b, c) {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+
+num = [2, 5, 7];
+
+log(...num); // с помощью spread, функция запустится не с массивом, а с тремя отдельными сущностями
+
+
+// еще один способ создания поверхностных копий объектов
+const array1 = ["a", "b"];
+
+const newArray2 = [...array1];
+
+const q = {
+  one: 1,
+  two: 2
+};
+
+const newObj = {...q};
+
