@@ -584,3 +584,54 @@ const q = {
 
 const newObj = {...q};
 
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 23 " ОСНОВЫ ООП, прототипно-ориентированное наследование"
+
+let str1 = "some";
+let strObj = new String(str1);
+
+// console.log(typeof(str1));
+// console.log(typeof(strObj));
+
+
+console.dir([1,2,3]);
+
+const soldier = {
+  health: 400,
+  armor: 100,
+  sayHello: function () {
+    console.log("Hello");
+  }
+};
+
+const john = Object.create(soldier); // создаем новый объект john, который будет наследоваться от soldier
+
+// const john = {
+//   health: 100
+// };
+
+// нам нужно сделать так, чтобы john наследовал все свойства soldier,
+// но оставлял свои индивидуальные свойства (например, здоровье)
+
+// устаревший формат (пока еще встречается, но лучше не использовать в новых проектах):
+// john.__proto__ = soldier;
+
+// Новый формат - object.create, object.getPrototypeOf, object.setPrototypeOf:
+Object.setPrototypeOf(john, soldier);// первый аргумент - кому назначаем прототип,
+// второй - объект, прототип которого устанавливаем
+// Установили прототип для john от soldier
+
+// console.log(john.armor);
+john.sayHello();
+
+
+
