@@ -647,3 +647,63 @@ Call stack - можем отследить операции, которые пр
 Scope - переменные, с которыми мы сейчас работаем (глобальные и локальные).
 Breakpoints - показывает, где установлены брэйкпоинты.
 С остальными познакомимся позже.*/
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 26 "ДИНАМИЧЕСКАЯ ТИПИЗАЦИЯ В JS"
+// Это возможность одного типа данных превращаться в другой
+
+// To string:
+// 1)
+console.log(typeof(String(null)));
+console.log(typeof(String(4)));
+
+// 2)
+console.log(typeof(5 + '')); // при сложении со строкой получается строка
+
+const number = 5;
+
+console.log("https://vk.com/catalog/" + number);
+
+const fontSize = 26 + 'px';
+
+
+// To number:
+// 1) 
+console.log(typeof(Number('5')));
+
+// 2) (унарный плюс)
+console.log(typeof(+'5'));
+
+// 3)
+console.log(typeof(parseInt("15px", 10)));
+
+
+let answ = +prompt("Hello", "");
+// всё, что мы получаем от пользователя, всегда типа данных "строка"
+
+
+// To boolean:
+// 0, '', null, undefined, NaN; // это всё false. Всё остальное в JS - это true (пустые массивы, строки и т.д.)
+
+// 1)
+let switcher = null;
+if (switcher) {
+  console.log('Working...');
+}
+
+switcher = 1;
+if (switcher) {
+  console.log('Working...');
+}
+
+// 2)
+console.log(typeof(Boolean('5')));
+
+// 3)
+console.log(typeof(!!"4444")); // !! - делают boolean
