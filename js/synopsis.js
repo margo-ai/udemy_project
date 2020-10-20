@@ -596,11 +596,11 @@ const newObj = {...q};
 
 // ЛЕКЦИЯ 23 " ОСНОВЫ ООП, прототипно-ориентированное наследование"
 
-let str1 = "some";
-let strObj = new String(str1);
+// let str1 = "some";
+// let strObj = new String(str1);
 
-// console.log(typeof(str1));
-// console.log(typeof(strObj));
+console.log(typeof(str1));
+console.log(typeof(strObj));
 
 
 console.dir([1,2,3]);
