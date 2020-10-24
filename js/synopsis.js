@@ -858,3 +858,143 @@ function loadScript(src) {
 
 loadScript("js/test.js");
 loadScript("js/some.js");
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 39 "Скрипты и время их выполнения, setTimeout и setInterval"
+
+// const timerId = setTimeout(function() {
+    //     console.log('Hello');
+    // }, 2000); // первый аргумент - функция. которая должна запуститься через определенный промежуток времени
+    // второй аргумент - таймаут вызова этой функции в миллисекундах
+    
+    // const timerId = setTimeout(function(text) {
+    //     console.log(text);
+    // }, 2000, 'Hello'); // в такой конструкции 3-им аргументом мы можем выводить текст, который передается в функцию
+
+    // const btn = document.querySelector('.btn');
+    // let timerId;
+    // let i = 0;
+
+    // function myAnimation() {
+    //     const elem = document.querySelector('.box');
+    //     let pos = 0;
+
+    //     const id = setInterval(frame, 10);
+    //     function frame() {
+    //         if (pos == 300) {
+    //             clearInterval(id);
+    //         } else {
+    //             pos++;
+    //             elem.style.top = pos + "px"; 
+    //             elem.style.left = pos + "px";
+    //         }
+    //     }
+    // }
+
+
+    // btn.addEventListener('click', myAnimation);
+    
+    // btn.addEventListener('click', () => {
+    //     // const timerId = setTimeout(logger, 2000);
+    //     timerId = setInterval(logger, 1000);
+    // });
+
+    // если функция logger занимает слишком много времени,
+    // то после первого "прогона" setInterval не будет ждать секунду, а сразу начнёт второй "круг"
+
+  
+
+    // function logger () {
+    //     if (i === 3) {
+    //         clearInterval(timerId); // остановить setTimeout
+    //     }
+    //     console.log('text');
+    //     i++;
+    // }
+
+    // Рекурсивный вызов setTimeout (в этом случае код всегда будет ждать отведенное ему время):
+    // let id = setTimeout(function log() {
+    //     console.log('Hello');
+    //     id = setTimeout(log, 500);
+    // }, 500);
+
+
+
+
+
+
+
+
+
+
+    // ЛЕКЦИЯ 40 "РАБОТА С ДАТАМИ"
+
+    // const now = new Date(); // текущее время 
+    // const now = new Date('2020-10-24');   
+    // const now = new Date(2020, 5, 1, 20); 
+    // const now = new Date(0); // передаем ноль миллисекунд; дата до 01.01.1970
+    // Если нужно получить дату до 1970 года, исопьлзуем отрицательное значение миллисекунд:
+    // const now = new Date(-99999999999);
+    
+    // const now = new Date();
+
+    // МЕТОДЫ С ДАТАМИ  :
+    // получение компонентов даты:
+    // console.log(now.getFullYear()); 
+    // месяц (они начинаются с нуля):
+    // console.log(now.getMonth()); // поэтому октябрь - это 9
+    // дата:
+    // console.log(now.getDate()); 
+    //getHours
+    //getMinutes
+    //getSeconds
+    //getMilliseconds
+
+    // номер дня недели (нумерация начинается с воскресенья - 0):
+    // console.log(now.getDay()); 
+
+    // все эти значения с местного часового поиска
+    // чтобы посмотреть время по гринвичу:
+    // console.log(now.getUTCHours()); 
+
+
+
+    // Другие методы для получения компонентов даты:
+
+    // разница между часовым поясом и UTC (в минутах):
+    // console.log(now.getTimezoneOffset());
+    // количество миллисикунд с 01.01.1970:
+    // console.log(now.getTime());
+
+
+
+    // Устанавливаем дату (сеттеры):
+    // const now = new Date();
+    console.log(now.setHours(18));
+    console.log(now);
+    
+    // браузер ориентируется на локальную дату, а консоль программная - на UTC
+    
+    const now = new Date('2020-05-01'); //(1) 
+    new Date.parse('2020-05-01'); // (2)
+    // (1) и (2) - это то же самое
+
+
+
+    let start = new Date();
+
+    for (let i = 0; i < 100000; i++) {
+      let some = i ** 3;
+    }
+
+    let end = new Date();
+
+    alert(`Цикл отработал за ${end - start} миллисекунд`)
