@@ -1220,3 +1220,64 @@ loadScript("js/some.js");
 // если тело функции помещается в одну строку, то его можно записать как:
 // const double = (a) => a * 2; // return при этом убираем
 // console.log(double(4));
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 47 "КЛАССЫ ES6" (появились в новом стандарте ES6)
+
+// Классы - это "красивая обертка" фунций-конструкторов; шаблон, показывающий, что будет делать конкретный компонент
+
+// class Rectangle {
+//   constructor(height, width) {
+//       this.height = height;
+//       this.width = width;  
+//   }
+
+//   // метод (посчитаем площадь): 
+//   calcArea() {
+//     return this.height * this.width;
+//   }
+// }
+
+// в следующем классе будут те же свойства и метод, как у просто Rectangle,
+// и снова дублировать код не нужно, может сделать наследоваемость (с помощью Extends):
+// class ColoredRectangleWithText extends Rectangle {
+//     constructor(height, width, text, bgColor) {
+//       super(height, width); // вызывает супер-конструктор родителя, вызывает то же самое,
+//       // чтобы не повторять строки. Одно правило - super всегда должен быть не первом месте!!
+//       // В скобках пишем свойства, которые хотим наследовать
+//       this.text = text;
+//       this.bgColor = bgColor;
+//     }
+
+//     //новый метод:
+//     showMyProps () {
+//       console.log(`Текст: ${this.text}, цвет: ${this.bgColor}`);
+//     }
+// }
+
+// const div = new ColoredRectangleWithText(25, 10, 'Hello world', 'red');
+
+// div.showMyProps();
+// console.log(div.calcArea());
+
+
+// const square = new Rectangle(10, 10);
+// const long = new Rectangle(20, 100);
+
+// console.log(square.calcArea());
+// console.log(long.calcArea());
+
+// с помощью классов создали 2 разные конструкции, сконструировали объекты, содержат они один и тот же метод
+
+// Принципы ООП:
+// (1) Абстракция - когд мы отделяем концепцию (шаблон, по которому что-то создаем)
+// от её экземпляра (созданы на основе концепции)
+// (2) Наследование - способность объекта или класса базироваться на другом объекте или классе
