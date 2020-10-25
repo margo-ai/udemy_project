@@ -1016,29 +1016,207 @@ loadScript("js/some.js");
 
 // ниже - функция-коструктор, и с ее помощью можем создавать новых пользователей;
 // такие функции предназначены для конструирования объектов, создания множественных копий
-function User(name, id) {
-  this.name = name;
-  this.id = id;
-  this.human = true;
-  // помимо свойств можем помещать сюда и методы, например:
-  this.hello = function() {
-      console.log(`Hello ${this.name}`);
-  };
-}
+// function User(name, id) {
+//   this.name = name;
+//   this.id = id;
+//   this.human = true;
+//   // помимо свойств можем помещать сюда и методы, например:
+//   this.hello = function() {
+//       console.log(`Hello ${this.name}`);
+//   };
+// }
 
 
-User.prototype.exit = function(name) {
-  console.log(`Пользователь ${this.name} ушел`);
-};
+// User.prototype.exit = function(name) {
+//   console.log(`Пользователь ${this.name} ушел`);
+// };
 
 
-const ivan = new User('Ivan', 28); // внутри переменной теперь не функция, а объект; с помощью new создаем новый объект
-const alex = new User('Alex', 20);
+// const ivan = new User('Ivan', 28); // внутри переменной теперь не функция, а объект; с помощью new создаем новый объект
+// const alex = new User('Alex', 20);
 
-ivan.exit();
+// ivan.exit();
 
-ivan.hello();
-alex.hello();
+// ivan.hello();
+// alex.hello();
 
-console.log(ivan);
-console.log(alex);
+// console.log(ivan);
+// console.log(alex);
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 46 "КОНТЕКСТ ВЫЗОВА. THIS"
+
+// THIS - это ссылка на объект, свойство контекста выполнения кода (global, function или eval),
+// которое в нестрогом режиме всегда является ссылкой на объект, а в строгом режиме может иметь любое значение.
+
+// Пример использования с developer.mozilla.org:
+// function Car (make, model, year, owner) {
+//     this.make = make;
+//     this.model = model;
+//     this.year = year;
+//     this.owner = owner;
+// }
+
+// function Person(name, age, sex) {
+//     this.name = name;
+//     this.age = age;
+//     this.sex = sex;
+// }
+
+// var rand = new Person("Rand McNally", 33, "M");
+// var ken = new Person("Ken Jones", 39, "M");
+
+// console.log(rand);
+
+// var car1 = new Car("Eagle", "Talon TSi", 1993, rand);
+
+// console.log(car1);
+
+
+// Функция может вызываться 4-мя способами (в каждом контекст вызова отличается):
+// (1) просто вызов функции
+// (2) если мы используем метод внутри объекта, то контекст вызова будет
+// ссылаться на этот объект, т.е. контекст у метода объекта - сам объект
+// (3) функции-конструкторы (через оператор new)
+// эта функция- конструктор создает новый объект
+// (4) ручное присваивание this любой функции: call, apply, bind
+
+// ОБО ВСЕХ ПОДРОБНЕЕ:
+
+// (1) просто вызов функции
+// function showThis(a, b) {
+//     console.log(this);
+//     function sum() {
+//         console.log(this);
+//         return a + b;
+//     }
+
+//     console.log(sum());
+// }
+// showThis(4, 5);
+// если функция просто запускается, то если мы используем в ней контекст,
+// то этот контекст будет ссылаться на глобальный объект window
+
+// Обычная функция: this = window, но если стоит 'use strict' - undefined
+
+// Замыкание это функция у которой есть доступ к своей внешней функции по области видимости,
+// даже после того, как внешняя функция прекратилась. Это говорит о том, 
+// что замыкание может запоминать и получать доступ к переменным, 
+// и аргументам своей внешней функции, даже после того, как та прекратит выполнение.
+
+
+// (2) если мы используем метод внутри объекта, то контекст вызова будет
+// ссылаться на этот объект, т.е. контекст у метода объекта - сам объект
+//  const obj = {
+//      a: 20,
+//      b: 15,
+//      sum: function() {
+//          console.log(this);
+//      }
+//  };
+//  obj.sum();
+
+
+// (3) функции-конструкторы (через оператор new)
+// эта функция- конструктор создает новый объект
+
+// this в конструкторах и классах - это новый экземпляр объекта
+
+// функция, которая задаст тип объекта:
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+// }
+// // экземпляр объекта, используя  new:
+// let ivan = new User('Ivan', 23);
+
+
+// (4) ручное присваивание this любой функции: call, apply, bind
+
+// function sayName(surname) {
+//     console.log(this); // контекст вызова - объект
+//     console.log(this.name + surname); // метод, показывающий имя объекта
+// }
+
+// const user = {
+//     name: 'John'
+// };
+
+// Как сделать так, чтобы в функции this ссылалось на user? Этими способами (они по функционалу одинаковые):
+// Разница только в способе передачи аргументов
+// sayName.call(user, 'Smith'); // через запятую
+// sayName.apply(user, ['Smith']); // в массиве
+
+
+// // Другой метод ручного присвоения контекста (он создает новую функцию):
+// function count(num) {
+//     return this*num;
+// }
+
+// const double = count.bind(2); // двойка передается вместо this
+// console.log(double(3)); // в double передаем один аргумент, который будет всегда удваиваться
+// console.log(double(13)); // в double передаем один аргумент, который будет всегда удваиваться
+
+
+// THIS можно применить для работы с обработчиком событий
+
+// const btn = document.querySelector('button');
+
+// btn.addEventListener('click', function(){
+//     console.log(this); // в этом случае this - это сам элемент, на котором сработало событие
+// });
+// когда обработчик события (как коллбэк функция) написан в классическом режиме (functino() {}),
+// то контекстом вызова будет сам этот элемент, на котором произошло событие
+
+// в этой функции this обращается к самому элементу:
+// btn.addEventListener('click', function(){
+//     this.style.backgroundColor = 'red'; // также, как через event.target.
+//     // Объект "событие" используется здесь чаще, чем контекст вызова
+// });
+
+// вариант с target:
+// btn.addEventListener('click', (e) => {
+//     e.target.style.backgroundColor = 'red'; // также, как через event.target.
+//     // Объект "событие" используется здесь чаще, чем контекст вызова
+// });
+
+// // в случае со стрелочной функцией:
+// btn.addEventListener('click', () => {
+//     this.style.backgroundColor = 'red';
+// }); // в этом случае контекст вызова потерялся
+
+// Обработчики событий:
+// Когда используем обычный синтаксис через function, мы имеем доступ к this,
+// если же используем стрелочную функцию, то контекст вызова меняется
+ 
+
+// Стрелочные функции (они не иемют контекста вызова. Она будет брать его у своего родителя):
+// const obj = {
+//     num: 5,
+//     sayNumber: function() {
+//         const say = () => {
+//             console.log(this);
+//         };
+
+//         say();
+//     }
+// };
+
+// obj.sayNumber();
+
+// const double = (a) => {
+//     return a * 2;
+// };
+
+// если тело функции помещается в одну строку, то его можно записать как:
+// const double = (a) => a * 2; // return при этом убираем
+// console.log(double(4));
