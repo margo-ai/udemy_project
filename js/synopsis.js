@@ -1362,3 +1362,56 @@ loadScript("js/some.js");
     // clone.parents.mom = 'Ann';
     // console.log(person);
     // console.log(clone);
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 52 "AJAX И ОБЩЕНИЕ С СЕРВЕРОМ"
+
+// 1) Самый первый вариент AJAX - Xmlhttprequest
+
+const inputRub = document.querySelector('#rub'),
+      inputUsd = document.querySelector('#usd');
+
+	// request.open(method, url, async, login, pass); // этот метод собирает настройки,
+	// которые помогут в будущем сделать запрос
+	// первый аргумент - метод (get, post), второй - путь к серверу (url),
+	// третий - асинхронность (асинхронный код - тот, который не блокирует остальной).
+	// Если вдруг нужно сделать запрос не асинхронным
+	// (чтобы сперва получили данные с сервера, а после отрабатывался остальной код), то 3-им аргументом ставим false
+	// AJAX запросы по умолчанию являются синхронным кодом.
+	// Некоторые запросы мы можем делать только имея логин и пароль.
+
+inputRub.addEventListener('input', () => {
+	// теперь нужно сделать запрос на сервер
+	const request = new XMLHttpRequest(); // конструктор, который создает новый объект
+	request.open('GET', 'js/current.json'); // настройки
+
+	// указываем, что именно мы передаем на сервер (или получаем):
+	request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+	// если POST:
+	// request.send(body);
+	request.send(); // отправляем запрос
+
+	request.addEventListener('load', () => { 
+		// это событие отслеживает готовность нашего запроса в текущий момент
+		if (request.status === 200) {
+			console.log(request.response);
+			const data = JSON.parse(request.response);
+			inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2); // сколько количество наков после точки - 2
+		} else {
+			inputUsd.value = "Что-то пошло не так";
+		}
+
+	});
+
+	// Свойства объекта XMLHttpRequest:
+	// status - статус запроса (404 и т.д.)
+	// statusText - текстовое описание ответа от сервера
+	// response - ответ от сервера (здесь лежит ответ, который задал нам бекенд разработчик)
+	// readyState - текущее состояние объекта
