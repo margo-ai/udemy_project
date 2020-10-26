@@ -22,7 +22,7 @@ console.log(obj);*/
 // описываем свойства объекта (формат "ключ-значение". Ключ - это свойство объекта)
 const obj = {
   name: "John",
-  age: 25,  
+  age: 25,
   isMarried: false
 };
 
@@ -73,7 +73,7 @@ const user = "Ivan";
 
 alert(`Привет, ${user}`); */
 
-/* Как работает интерполяция? 
+/* Как работает интерполяция?
 Мы просто создали одну строку и «вставили» в неё в нужные места
 константы с помощью знака доллара и фигурных скобок ${ }.
 Получился как будто бланк, куда внесены нужные значения.
@@ -129,7 +129,7 @@ const isChecked2 = false,
 console.log(isChecked2 || !isClose2);
 
 
-// ЛЕКЦИЯ 13 "УСЛОВИЯ":  
+// ЛЕКЦИЯ 13 "УСЛОВИЯ":
 
 if (1 == 1) {
   console.log('Ok!');
@@ -146,13 +146,13 @@ if (1 == 1) {
 //   console.log('Ok!');
 // }
 
-// тернарный оператор: 
+// тернарный оператор:
 // (условие) ? если true : если false;
 // (num === 50) ? console.log('Ok!') : console.log('Error');
 
 /* const num = 51;
 switch (num) {
-  case 49: 
+  case 49:
     console.log('Неверно');
     break;
   case 100:
@@ -167,7 +167,7 @@ switch (num) {
 } */
 
 
-// ЛЕКЦИЯ 14 "ЦИКЛЫ":  
+// ЛЕКЦИЯ 14 "ЦИКЛЫ":
 // let num = 50;
 
 // Первый вариант цикла:
@@ -189,7 +189,7 @@ for (let i = 1; i < 10; i++) {
     // break;
     continue;
   }
-  console.log(i);   
+  console.log(i);
 }
 
 
@@ -203,7 +203,7 @@ let num = 20;
 
 function showFirstMessage(text) {
   console.log(text);
-  let num = 10;  
+  let num = 10;
   console.log(num);
 }
 
@@ -320,7 +320,7 @@ second();
 // Callback-функция - это функция, которая должна быть
 // выполнена после того, как другая функция завершила свое выполнение
 
-function learnJS(lang, callback) { 
+function learnJS(lang, callback) {
   console.log(`Я учу: ${lang}`);
   callback();
  }
@@ -334,7 +334,7 @@ function learnJS(lang, callback) {
 
 
 
- 
+
 
 
  // ЛЕКЦИЯ 20 "ОБЪЕКТЫ, ДЕСТРУКТУРИЗАЦИЯ ОБЪЕКТОВ"
@@ -381,7 +381,7 @@ let counter = 0;
    } else {
     console.log(`Свойство ${key} имеет значение ${options[key]}`);
     counter++;
-   }  
+   }
  }
 
  console.log(counter);
@@ -537,7 +537,7 @@ console.log(Object.assign(numbers, add)); // первым аргументом -
 // который помещаем в первый
 
 // таким же образом можно создать новый объект: в этом случае первым аргументом делаем пустой объект:
-const clone = Object.assign({}, add); 
+const clone = Object.assign({}, add);
 
 clone.d = 20;
 
@@ -674,7 +674,7 @@ const fontSize = 26 + 'px';
 
 
 // To number:
-// 1) 
+// 1)
 console.log(typeof(Number('5')));
 
 // 2) (унарный плюс)
@@ -874,7 +874,7 @@ loadScript("js/some.js");
     //     console.log('Hello');
     // }, 2000); // первый аргумент - функция. которая должна запуститься через определенный промежуток времени
     // второй аргумент - таймаут вызова этой функции в миллисекундах
-    
+
     // const timerId = setTimeout(function(text) {
     //     console.log(text);
     // }, 2000, 'Hello'); // в такой конструкции 3-им аргументом мы можем выводить текст, который передается в функцию
@@ -893,7 +893,7 @@ loadScript("js/some.js");
     //             clearInterval(id);
     //         } else {
     //             pos++;
-    //             elem.style.top = pos + "px"; 
+    //             elem.style.top = pos + "px";
     //             elem.style.left = pos + "px";
     //         }
     //     }
@@ -901,7 +901,7 @@ loadScript("js/some.js");
 
 
     // btn.addEventListener('click', myAnimation);
-    
+
     // btn.addEventListener('click', () => {
     //     // const timerId = setTimeout(logger, 2000);
     //     timerId = setInterval(logger, 1000);
@@ -910,7 +910,7 @@ loadScript("js/some.js");
     // если функция logger занимает слишком много времени,
     // то после первого "прогона" setInterval не будет ждать секунду, а сразу начнёт второй "круг"
 
-  
+
 
     // function logger () {
     //     if (i === 3) {
@@ -937,33 +937,33 @@ loadScript("js/some.js");
 
     // ЛЕКЦИЯ 40 "РАБОТА С ДАТАМИ"
 
-    // const now = new Date(); // текущее время 
-    // const now = new Date('2020-10-24');   
-    // const now = new Date(2020, 5, 1, 20); 
+    // const now = new Date(); // текущее время
+    // const now = new Date('2020-10-24');
+    // const now = new Date(2020, 5, 1, 20);
     // const now = new Date(0); // передаем ноль миллисекунд; дата до 01.01.1970
     // Если нужно получить дату до 1970 года, исопьлзуем отрицательное значение миллисекунд:
     // const now = new Date(-99999999999);
-    
+
     // const now = new Date();
 
     // МЕТОДЫ С ДАТАМИ  :
     // получение компонентов даты:
-    // console.log(now.getFullYear()); 
+    // console.log(now.getFullYear());
     // месяц (они начинаются с нуля):
     // console.log(now.getMonth()); // поэтому октябрь - это 9
     // дата:
-    // console.log(now.getDate()); 
+    // console.log(now.getDate());
     //getHours
     //getMinutes
     //getSeconds
     //getMilliseconds
 
     // номер дня недели (нумерация начинается с воскресенья - 0):
-    // console.log(now.getDay()); 
+    // console.log(now.getDay());
 
     // все эти значения с местного часового поиска
     // чтобы посмотреть время по гринвичу:
-    // console.log(now.getUTCHours()); 
+    // console.log(now.getUTCHours());
 
 
 
@@ -980,10 +980,10 @@ loadScript("js/some.js");
     // const now = new Date();
     console.log(now.setHours(18));
     console.log(now);
-    
+
     // браузер ориентируется на локальную дату, а консоль программная - на UTC
-    
-    const now = new Date('2020-05-01'); //(1) 
+
+    const now = new Date('2020-05-01'); //(1)
     new Date.parse('2020-05-01'); // (2)
     // (1) и (2) - это то же самое
 
@@ -1004,7 +1004,7 @@ loadScript("js/some.js");
 
 
 
-    
+
 
 
 
@@ -1108,8 +1108,8 @@ loadScript("js/some.js");
 // Обычная функция: this = window, но если стоит 'use strict' - undefined
 
 // Замыкание это функция у которой есть доступ к своей внешней функции по области видимости,
-// даже после того, как внешняя функция прекратилась. Это говорит о том, 
-// что замыкание может запоминать и получать доступ к переменным, 
+// даже после того, как внешняя функция прекратилась. Это говорит о том,
+// что замыкание может запоминать и получать доступ к переменным,
 // и аргументам своей внешней функции, даже после того, как та прекратит выполнение.
 
 
@@ -1197,7 +1197,7 @@ loadScript("js/some.js");
 // Обработчики событий:
 // Когда используем обычный синтаксис через function, мы имеем доступ к this,
 // если же используем стрелочную функцию, то контекст вызова меняется
- 
+
 
 // Стрелочные функции (они не иемют контекста вызова. Она будет брать его у своего родителя):
 // const obj = {
@@ -1237,10 +1237,10 @@ loadScript("js/some.js");
 // class Rectangle {
 //   constructor(height, width) {
 //       this.height = height;
-//       this.width = width;  
+//       this.width = width;
 //   }
 
-//   // метод (посчитаем площадь): 
+//   // метод (посчитаем площадь):
 //   calcArea() {
 //     return this.height * this.width;
 //   }
@@ -1313,7 +1313,7 @@ loadScript("js/some.js");
 
 
 
-  
+
     // ЛЕКЦИЯ 50 "ЛОКАЛЬНЫЕ СЕРВЕРА"
     // http запросы - get и post
     // live server и browser async (html) не позволяют использовать post (live server может только get),
@@ -1323,7 +1323,7 @@ loadScript("js/some.js");
 
 
 
-    
+
 
      // ЛЕКЦИЯ 51 "JSON формат передачи данных, глубокоа клонирование объектов"
 
@@ -1342,8 +1342,8 @@ loadScript("js/some.js");
     //     }
     // };
 
-    // Браузеры имеют встроенные объекты JSON для работы с этими данными. 
-    // И в этом встроенном объекте у нас есть как свойства, так и методы. 
+    // Браузеры имеют встроенные объекты JSON для работы с этими данными.
+    // И в этом встроенном объекте у нас есть как свойства, так и методы.
     // Метода 2, и один из них stringify
     // Strinfify как раз и превращает объекты js в нужный нам формат.
     // console.log(JSON.parse(JSON.stringify(person)));
@@ -1358,7 +1358,7 @@ loadScript("js/some.js");
     // Как сделать глубокую копию объекта "person"? С помощью JSON
 
     // const clone = JSON.parse(JSON.stringify(person)); // таким образом будет создан глубокий клон
-    
+
     // clone.parents.mom = 'Ann';
     // console.log(person);
     // console.log(clone);
@@ -1398,7 +1398,7 @@ inputRub.addEventListener('input', () => {
 	// request.send(body);
 	request.send(); // отправляем запрос
 
-	request.addEventListener('load', () => { 
+	request.addEventListener('load', () => {
 		// это событие отслеживает готовность нашего запроса в текущий момент
 		if (request.status === 200) {
 			console.log(request.response);
@@ -1415,3 +1415,228 @@ inputRub.addEventListener('input', () => {
 	// statusText - текстовое описание ответа от сервера
 	// response - ответ от сервера (здесь лежит ответ, который задал нам бекенд разработчик)
 	// readyState - текущее состояние объекта
+
+
+
+
+
+
+// ЛЕКЦИЯ 55 "PROMISE (ES6)"^
+// Промисы:
+    // когда мы создаем промисы, то коллбек функция обычно принимает 2 аргумента - resolve и reject
+
+    // console.log('Запрос данных...');
+
+    // const req = new Promise(function(resolve, reject) {
+    //     setTimeout(() => {
+    //         console.log('Подготовка данных...');     
+    
+    //         const product = {
+    //             name: 'TV',
+    //             price: 2000
+    //         };
+    //         resolve(product);
+    //     }, 2000);
+    // });      
+
+    // // then нужен для того, чтобы отрабатывать положительный результат (resolve)
+    // // catch нужен для того, чтобы отрабатывать reject
+    // // finally нужен, чтобы показать какие действия произвести при любом исходе
+    // req.then((product) => {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             product.status = 'order';
+    //             resolve(product);
+    //         }, 2000);
+    //     }).then(data => {
+    //         data.modify = true;
+    //         return data;            
+    //     }).then((data) => {
+    //         console.log(data);
+    //     }).catch(() => { 
+    //         console.error('Произошла ошибка');
+    //     }).finally(() => {
+    //         console.log('Finally');
+    //     });
+    // });    
+
+
+    const test = time => {
+      return new Promise(resolve =>{
+          setTimeout(() => resolve(), time);
+      });
+  };
+
+  // test(1000).then(() => console.log('1000 ms'));
+  // test(2000).then(() => console.log('2000 ms'));
+
+  // первый метод промиса - all. Он ждет выполнение всех промисов, и уже потом что-то делает:
+  // Promise.all([test(1000), test(2000)]).then(() => {
+  //     console.log('All');
+  // });
+
+  // получаем All - значит, оба промиса выполнились
+
+  // второй метод промиса - race. Выполняется, когда самый первый промис отработал:
+  Promise.race([test(1000), test(2000)]).then(() => {
+      console.log('All');
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+  // ЛЕКЦИЯ 53 "РЕАЛИЗАЦИЯ СКРИПТА ОТПРАВКИ ДАННЫХ НА СЕРВЕР"
+
+  const forms = document.querySelectorAll('form');
+
+      const message = {
+          loading: 'Загрузка...',
+          success: 'Спасибо! Скоро мы с вами свяжемся',
+          failure: 'Что-то пошло не так...'
+      };
+
+      // осталось подвязать под каждую форму функцию postData
+      forms.forEach(item => {
+          postData(item);
+      });
+
+      // Но куда помещать это сообщение?
+      // Очень частая практика: при отправке запроса мы создаём блок на странице,
+      // куда выводим сообщение, картинку и т.д., и чаще всего он добавляется к форме
+
+      function postData(form) {
+          form.addEventListener('submit', (e) => {
+              e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
+              // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+
+              let statusMessage = document.createElement('div');
+              statusMessage.classList.add('status');
+              statusMessage.textContent = message.loading;
+              form.append(statusMessage);
+
+
+              const request = new XMLHttpRequest();
+              request.open('POST', 'server.php');
+
+              // можно было бы взять форму, все инпуты, взять их value,
+              // перебрать, сформировать объекты, но это очень муторно. Для этого всего есть механизмы
+              // Самый простой способ - объект formData .
+              // Не всегда нужно передавать в формате JSON. Есть всего2 формата:
+              // (1) formData
+              // (2) JSON
+              // В каком формате будем передавать, можно обговаривать уже непосредственно с бекендером, с которым работаем
+
+              // formData - объект, помогающий с определенной формы быстро сформировать все данные,
+              // которые заполнил пользователь (также в формате ключ-значение)
+
+              // заголовок запроса "что именно приходит на сервер?":
+              // request.setRequestHeader('Content-type', 'multipart/form-data');
+              // при отправке XMLHttp запроса через formData заголовок не нужен!!!
+
+              const formData = new FormData(form); // внутрь помещаем форму, из которой нужно собрать данные
+              // !!! Важный момент!!! если мы понимаем, что данные будут отправляться на сервер,
+              // то в верстке в инпуте ВСЕГДА нужно указывать атрибут name (например, name="name").
+              // Иначе formData не сможет найти этот инпут, взять из него value и сформировать правильно объект
+
+              request.send(formData); // отправляем данные на сервер; в скобочках уже есть body, и это объект formData
+              request.addEventListener('load', () => { // отслеживаем конечую загрузку нашего запроса
+                  if (request.status === 200) {
+                      console.log(request.response);
+                      statusMessage.textContent = message.success;
+                      form.reset(); //  очищаем форму после отправки на сервер
+                      setTimeout(() => {
+                          statusMessage.remove();
+                      }, 2000); // убираем сообщение о статусе через 2 секунды
+                      setTimeout(() => {
+                          closeModal();
+                      }, 4000); // модальное окно закрывается через 4 секунды
+                  } else {
+                      statusMessage.textContent = message.failure;
+                  }
+              });
+          });
+      }
+
+      // при работе на локальном сервере надо каждый раз (после каких-либо изменений) сбрасывать cash,
+      // чтобы все изменения применились, так как сервер запоминает старые изменения,
+      // чтобы каждый раз их не подгружать (это и называется cash)
+      // Чтобы сбросить кэш, нужно использовать комбинацию клавиш: shift + F5
+
+      // При отправке формы в консоли получаем array(0){}, это значит, что данные на сервер дошли (вроде как).
+      // Но сервер ответил пустыми данными. Это значит, что даные до него не дошли.
+      // Данные не дошли из-за заголовка (setRequestHeader).
+      // !!!ВНИМАНИЕ! Когда мы используем связку "XMLHttpRequest + formData",
+      // то заголовок устанавливать не нунжно, он устанавливается автоматически!!
+      // Именно из-за этой проблемы у нас произошла ошибка при отправке данных.
+
+
+      // Если сервер принимает данные не в обычном формате, а в JSON, то нужно немного переделать код
+      // PHP нативно не умеет работать с типом данных JSON. Чаще всего такие данные
+      // отправляются на сервера с использованием, например Node.js.
+      // Но с таким типом данных можно работать, сделав некоторые манипуляции в php
+
+
+      // Отправка через JSON:
+      const forms = document.querySelectorAll('form');
+
+    const message = {
+        loading: 'Загрузка...',
+        success: 'Спасибо! Скоро мы с вами свяжемся',
+        failure: 'Что-то пошло не так...'
+    };
+
+
+    forms.forEach(item => {
+        postData(item);
+    });
+
+    function postData(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let statusMessage = document.createElement('div');
+            statusMessage.classList.add('status');
+            statusMessage.textContent = message.loading;
+            form.append(statusMessage);
+
+
+            const request = new XMLHttpRequest();
+            request.open('POST', 'server.php');
+
+            request.setRequestHeader('Content-type', 'application/json');
+
+
+            const formData = new FormData(form);
+
+            const object = {};
+            formData.forEach(function(value, key){
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+
+            request.send(json);
+            request.addEventListener('load', () => {
+                if (request.status === 200) {
+                    console.log(request.response);
+                    statusMessage.textContent = message.success;
+                    form.reset();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 2000);
+                    setTimeout(() => {
+                        closeModal();
+                    }, 4000);
+                } else {
+                    statusMessage.textContent = message.failure;
+                }
+            });
+        });
+    }
