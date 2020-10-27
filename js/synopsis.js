@@ -1421,74 +1421,6 @@ inputRub.addEventListener('input', () => {
 
 
 
-// ЛЕКЦИЯ 55 "PROMISE (ES6)"^
-// Промисы:
-    // когда мы создаем промисы, то коллбек функция обычно принимает 2 аргумента - resolve и reject
-
-    // console.log('Запрос данных...');
-
-    // const req = new Promise(function(resolve, reject) {
-    //     setTimeout(() => {
-    //         console.log('Подготовка данных...');     
-    
-    //         const product = {
-    //             name: 'TV',
-    //             price: 2000
-    //         };
-    //         resolve(product);
-    //     }, 2000);
-    // });      
-
-    // // then нужен для того, чтобы отрабатывать положительный результат (resolve)
-    // // catch нужен для того, чтобы отрабатывать reject
-    // // finally нужен, чтобы показать какие действия произвести при любом исходе
-    // req.then((product) => {
-    //     return new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             product.status = 'order';
-    //             resolve(product);
-    //         }, 2000);
-    //     }).then(data => {
-    //         data.modify = true;
-    //         return data;            
-    //     }).then((data) => {
-    //         console.log(data);
-    //     }).catch(() => { 
-    //         console.error('Произошла ошибка');
-    //     }).finally(() => {
-    //         console.log('Finally');
-    //     });
-    // });    
-
-
-    const test = time => {
-      return new Promise(resolve =>{
-          setTimeout(() => resolve(), time);
-      });
-  };
-
-  // test(1000).then(() => console.log('1000 ms'));
-  // test(2000).then(() => console.log('2000 ms'));
-
-  // первый метод промиса - all. Он ждет выполнение всех промисов, и уже потом что-то делает:
-  // Promise.all([test(1000), test(2000)]).then(() => {
-  //     console.log('All');
-  // });
-
-  // получаем All - значит, оба промиса выполнились
-
-  // второй метод промиса - race. Выполняется, когда самый первый промис отработал:
-  Promise.race([test(1000), test(2000)]).then(() => {
-      console.log('All');
-  });
-
-
-
-
-
-
-
-
 
 
 
@@ -1640,3 +1572,128 @@ inputRub.addEventListener('input', () => {
             });
         });
     }
+
+
+
+    
+    
+
+
+
+
+
+// ЛЕКЦИЯ 55 "PROMISE (ES6)"^
+// Промисы:
+    // когда мы создаем промисы, то коллбек функция обычно принимает 2 аргумента - resolve и reject
+
+    // console.log('Запрос данных...');
+
+    // const req = new Promise(function(resolve, reject) {
+    //     setTimeout(() => {
+    //         console.log('Подготовка данных...');     
+    
+    //         const product = {
+    //             name: 'TV',
+    //             price: 2000
+    //         };
+    //         resolve(product);
+    //     }, 2000);
+    // });      
+
+    // // then нужен для того, чтобы отрабатывать положительный результат (resolve)
+    // // catch нужен для того, чтобы отрабатывать reject
+    // // finally нужен, чтобы показать какие действия произвести при любом исходе
+    // req.then((product) => {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             product.status = 'order';
+    //             resolve(product);
+    //         }, 2000);
+    //     }).then(data => {
+    //         data.modify = true;
+    //         return data;            
+    //     }).then((data) => {
+    //         console.log(data);
+    //     }).catch(() => { 
+    //         console.error('Произошла ошибка');
+    //     }).finally(() => {
+    //         console.log('Finally');
+    //     });
+    // });    
+
+
+    const test = time => {
+      return new Promise(resolve =>{
+          setTimeout(() => resolve(), time);
+      });
+  };
+
+  // test(1000).then(() => console.log('1000 ms'));
+  // test(2000).then(() => console.log('2000 ms'));
+
+  // первый метод промиса - all. Он ждет выполнение всех промисов, и уже потом что-то делает:
+  // Promise.all([test(1000), test(2000)]).then(() => {
+  //     console.log('All');
+  // });
+
+  // получаем All - значит, оба промиса выполнились
+
+  // второй метод промиса - race. Выполняется, когда самый первый промис отработал:
+  Promise.race([test(1000), test(2000)]).then(() => {
+      console.log('All');
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+    
+    // ЛЕКЦИЯ 56 "FETCH API"
+
+    // Fetch API - знание promise + общение с сервером
+    // API (application programming interface) - это набор данных и возможностей,
+    // которые предоставляет нам какое-то готовое решение.
+    // Самый банальный API, который мы уже встречали - DOM API - это различные методы,
+    // которые позволяют нам работать с элементами на странице
+
+    // https://jsonplaceholder.typicode.com/
+
+    fetch('https://jsonplaceholder.typicode.com/todos/1') // URL, на который будем посылать запрос
+    // Если больше никаких параметров не указывать, то это будет GET запрос
+    // Раньше мы использовали json.parse, чтобы отформатировать полученные данные,
+    // но у jsonplaceholder уже есть встроенные механизмы
+    .then(response => response.json()) // этот метод форматирует json в обычный
+    // javascript объект, который дальше можно использовать;
+    // эта команда возвращает нам промис
+    .then(json => console.log(json));
+
+
+
+    // Что касается POST запроса:
+    // URL оставляем такой же, и вторым аргументом - объект с настройками, которые мы будем задавать.
+    // Этот объект содержит много различных свойств, но самые обязательные только 2:
+    // (1) метод, (2) body, которое мы будем отправлять
+    
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: "POST",
+        // сюда можем поместить как строку, так и объект;
+        // форматируем его в JSON формат, и отправим его при помощи fetch;
+        // желательно указывать также и заголовки, которые будут определять, какой контент мы отправляем
+        body: JSON.stringify({name: 'Alex'}),
+        headers: {
+            'Content-type': 'application/json'
+        }
+        // теперь нужно выбрать url, куда будем все это отправлять    })
+    })
+    .then(response => response.json()) 
+    .then(json => console.log(json));
