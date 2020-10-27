@@ -1575,8 +1575,8 @@ inputRub.addEventListener('input', () => {
 
 
 
-    
-    
+
+
 
 
 
@@ -1590,15 +1590,15 @@ inputRub.addEventListener('input', () => {
 
     // const req = new Promise(function(resolve, reject) {
     //     setTimeout(() => {
-    //         console.log('Подготовка данных...');     
-    
+    //         console.log('Подготовка данных...');
+
     //         const product = {
     //             name: 'TV',
     //             price: 2000
     //         };
     //         resolve(product);
     //     }, 2000);
-    // });      
+    // });
 
     // // then нужен для того, чтобы отрабатывать положительный результат (resolve)
     // // catch нужен для того, чтобы отрабатывать reject
@@ -1611,15 +1611,15 @@ inputRub.addEventListener('input', () => {
     //         }, 2000);
     //     }).then(data => {
     //         data.modify = true;
-    //         return data;            
+    //         return data;
     //     }).then((data) => {
     //         console.log(data);
-    //     }).catch(() => { 
+    //     }).catch(() => {
     //         console.error('Произошла ошибка');
     //     }).finally(() => {
     //         console.log('Finally');
     //     });
-    // });    
+    // });
 
 
     const test = time => {
@@ -1654,10 +1654,10 @@ inputRub.addEventListener('input', () => {
 
 
 
-  
 
 
-    
+
+
     // ЛЕКЦИЯ 56 "FETCH API"
 
     // Fetch API - знание promise + общение с сервером
@@ -1683,7 +1683,7 @@ inputRub.addEventListener('input', () => {
     // URL оставляем такой же, и вторым аргументом - объект с настройками, которые мы будем задавать.
     // Этот объект содержит много различных свойств, но самые обязательные только 2:
     // (1) метод, (2) body, которое мы будем отправлять
-    
+
     fetch('https://jsonplaceholder.typicode.com/posts', {
         method: "POST",
         // сюда можем поместить как строку, так и объект;
@@ -1695,5 +1695,155 @@ inputRub.addEventListener('input', () => {
         }
         // теперь нужно выбрать url, куда будем все это отправлять    })
     })
-    .then(response => response.json()) 
+    .then(response => response.json())
     .then(json => console.log(json));
+
+
+
+
+
+
+
+
+
+    // Отправка запроса formData (обычный объект JS) через Fetch
+
+    function postData(form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
+                // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+
+                let statusMessage = document.createElement('img');
+                statusMessage.src = message.loading;
+                statusMessage.style.cssText = `
+                    display: block;
+                    margin: 0 auto;
+                `;
+
+                form.insertAdjacentElement('afterend', statusMessage);
+
+
+                const formData = new FormData(form);
+
+                // const object = {};
+                // formData.forEach(function(value, key){
+                //     object[key] = value;
+                // }); // когда мы получили обычный объект, а не Data, то уже на нём можем использовать ковертацию JSON
+                // const json = JSON.stringify(object);
+
+
+                fetch('server.php', {
+                    method: "POST",
+                    // headers: {
+                    //     'Content-type': 'application/json'
+                    // },
+                    body: formData
+                }).then(data => data.text())
+                .then(data => {
+                    console.log(data);
+                    showThanksModal(message.success);
+                    statusMessage.remove();
+                }).catch(() => {
+                    showThanksModal(message.failure);
+                }).finally(() => {
+                    form.reset();
+                });
+
+            });
+        }
+
+
+        function showThanksModal(message) {
+            const prevModalDialog = document.querySelector('.modal__dialog');
+            prevModalDialog.classList.add('hide');
+            openModal();
+
+            const thanksModal = document.createElement('div');
+            thanksModal.classList.add('modal__dialog');
+            thanksModal.innerHTML = `
+                <div class="modal__content">
+                    <div class="modal__close" data-close>×</div>
+                    <div class="modal__title">${message}</div>
+                </div>
+            `;
+
+            document.querySelector('.modal').append(thanksModal);
+            setTimeout(() => {
+                thanksModal.remove();
+                prevModalDialog.classList.add('show');
+                prevModalDialog.classList.remove('hide');
+                closeModal();
+            }, 4000);
+        }
+
+
+        // Отправка запроса в формате JSON через Fetch
+
+        function postData(form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
+                    // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+
+                    let statusMessage = document.createElement('img');
+                    statusMessage.src = message.loading;
+                    statusMessage.style.cssText = `
+                        display: block;
+                        margin: 0 auto;
+                    `;
+
+                    form.insertAdjacentElement('afterend', statusMessage);
+
+
+                    const formData = new FormData(form);
+
+                    const object = {};
+                    formData.forEach(function(value, key){
+                        object[key] = value;
+                    });
+
+
+
+
+                    fetch('server.php', {
+                        method: "POST",
+                        headers: {
+                            'Content-type': 'application/json'
+                        },
+                        body: JSON.stringify(object)
+                    }).then(data => data.text())
+                    .then(data => {
+                        console.log(data);
+                        showThanksModal(message.success);
+                        statusMessage.remove();
+                    }).catch(() => {
+                        showThanksModal(message.failure);
+                    }).finally(() => {
+                        form.reset();
+                    });
+
+                });
+            }
+
+
+            function showThanksModal(message) {
+                const prevModalDialog = document.querySelector('.modal__dialog');
+                prevModalDialog.classList.add('hide');
+                openModal();
+
+                const thanksModal = document.createElement('div');
+                thanksModal.classList.add('modal__dialog');
+                thanksModal.innerHTML = `
+                    <div class="modal__content">
+                        <div class="modal__close" data-close>×</div>
+                        <div class="modal__title">${message}</div>
+                    </div>
+                `;
+
+                document.querySelector('.modal').append(thanksModal);
+                setTimeout(() => {
+                    thanksModal.remove();
+                    prevModalDialog.classList.add('show');
+                    prevModalDialog.classList.remove('hide');
+                    closeModal();
+                }, 4000);
+            }
