@@ -849,15 +849,15 @@ console.log(p);
 
 
 
-function loadScript(src) {
-    const script = document.createElement('script');
-    script.src = src;
-    script.async = false; // скрипты ниже будут выполняться друг за другом
-    document.body.append(script);
-}
+// function loadScript(src) {
+//     const script = document.createElement('script');
+//     script.src = src;
+//     script.async = false; // скрипты ниже будут выполняться друг за другом
+//     document.body.append(script);
+// }
 
-loadScript("js/test.js");
-loadScript("js/some.js");
+// loadScript("js/test.js");
+// loadScript("js/some.js");
 
 
 
@@ -978,26 +978,26 @@ loadScript("js/some.js");
 
     // Устанавливаем дату (сеттеры):
     // const now = new Date();
-    console.log(now.setHours(18));
-    console.log(now);
+    // console.log(now.setHours(18));
+    // console.log(now);
 
     // браузер ориентируется на локальную дату, а консоль программная - на UTC
 
-    const now = new Date('2020-05-01'); //(1)
-    new Date.parse('2020-05-01'); // (2)
+    // const now = new Date('2020-05-01'); //(1)
+    // new Date.parse('2020-05-01'); // (2)
     // (1) и (2) - это то же самое
 
 
 
-    let start = new Date();
+    // let start = new Date();
 
-    for (let i = 0; i < 100000; i++) {
-      let some = i ** 3;
-    }
+    // for (let i = 0; i < 100000; i++) {
+    //   let some = i ** 3;
+    // }
 
-    let end = new Date();
+    // let end = new Date();
 
-    alert(`Цикл отработал за ${end - start} миллисекунд`)
+    // alert(`Цикл отработал за ${end - start} миллисекунд`)
 
 
 
@@ -1032,7 +1032,8 @@ loadScript("js/some.js");
 // };
 
 
-// const ivan = new User('Ivan', 28); // внутри переменной теперь не функция, а объект; с помощью new создаем новый объект
+// const ivan = new User('Ivan', 28); // внутри переменной теперь не функция, а объект;
+// с помощью new создаем новый объект
 // const alex = new User('Alex', 20);
 
 // ivan.exit();
@@ -1375,8 +1376,8 @@ loadScript("js/some.js");
 
 // 1) Самый первый вариент AJAX - Xmlhttprequest
 
-const inputRub = document.querySelector('#rub'),
-      inputUsd = document.querySelector('#usd');
+// const inputRub = document.querySelector('#rub'),
+//       inputUsd = document.querySelector('#usd');
 
 	// request.open(method, url, async, login, pass); // этот метод собирает настройки,
 	// которые помогут в будущем сделать запрос
@@ -1387,28 +1388,28 @@ const inputRub = document.querySelector('#rub'),
 	// AJAX запросы по умолчанию являются синхронным кодом.
 	// Некоторые запросы мы можем делать только имея логин и пароль.
 
-inputRub.addEventListener('input', () => {
-	// теперь нужно сделать запрос на сервер
-	const request = new XMLHttpRequest(); // конструктор, который создает новый объект
-	request.open('GET', 'js/current.json'); // настройки
+// inputRub.addEventListener('input', () => {
+// 	// теперь нужно сделать запрос на сервер
+// 	const request = new XMLHttpRequest(); // конструктор, который создает новый объект
+// 	request.open('GET', 'js/current.json'); // настройки
 
-	// указываем, что именно мы передаем на сервер (или получаем):
-	request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-	// если POST:
-	// request.send(body);
-	request.send(); // отправляем запрос
+// 	// указываем, что именно мы передаем на сервер (или получаем):
+// 	request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+// 	// если POST:
+// 	// request.send(body);
+// 	request.send(); // отправляем запрос
 
-	request.addEventListener('load', () => {
-		// это событие отслеживает готовность нашего запроса в текущий момент
-		if (request.status === 200) {
-			console.log(request.response);
-			const data = JSON.parse(request.response);
-			inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2); // сколько количество наков после точки - 2
-		} else {
-			inputUsd.value = "Что-то пошло не так";
-		}
+// 	request.addEventListener('load', () => {
+// 		// это событие отслеживает готовность нашего запроса в текущий момент
+// 		if (request.status === 200) {
+// 			console.log(request.response);
+// 			const data = JSON.parse(request.response);
+// 			inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2); // сколько количество наков после точки - 2
+// 		} else {
+// 			inputUsd.value = "Что-то пошло не так";
+// 		}
 
-	});
+// 	});
 
 	// Свойства объекта XMLHttpRequest:
 	// status - статус запроса (404 и т.д.)
@@ -1427,75 +1428,77 @@ inputRub.addEventListener('input', () => {
 
   // ЛЕКЦИЯ 53 "РЕАЛИЗАЦИЯ СКРИПТА ОТПРАВКИ ДАННЫХ НА СЕРВЕР"
 
-  const forms = document.querySelectorAll('form');
+  // const forms = document.querySelectorAll('form');
 
-      const message = {
-          loading: 'Загрузка...',
-          success: 'Спасибо! Скоро мы с вами свяжемся',
-          failure: 'Что-то пошло не так...'
-      };
+  //     const message = {
+  //         loading: 'Загрузка...',
+  //         success: 'Спасибо! Скоро мы с вами свяжемся',
+  //         failure: 'Что-то пошло не так...'
+  //     };
 
-      // осталось подвязать под каждую форму функцию postData
-      forms.forEach(item => {
-          postData(item);
-      });
+  //     // осталось подвязать под каждую форму функцию postData
+  //     forms.forEach(item => {
+  //         postData(item);
+  //     });
 
       // Но куда помещать это сообщение?
       // Очень частая практика: при отправке запроса мы создаём блок на странице,
       // куда выводим сообщение, картинку и т.д., и чаще всего он добавляется к форме
 
-      function postData(form) {
-          form.addEventListener('submit', (e) => {
-              e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
-              // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+      // function postData(form) {
+      //     form.addEventListener('submit', (e) => {
+      //         e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
+      //         // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
 
-              let statusMessage = document.createElement('div');
-              statusMessage.classList.add('status');
-              statusMessage.textContent = message.loading;
-              form.append(statusMessage);
+      //         let statusMessage = document.createElement('div');
+      //         statusMessage.classList.add('status');
+      //         statusMessage.textContent = message.loading;
+      //         form.append(statusMessage);
 
 
-              const request = new XMLHttpRequest();
-              request.open('POST', 'server.php');
+      //         const request = new XMLHttpRequest();
+      //         request.open('POST', 'server.php');
 
-              // можно было бы взять форму, все инпуты, взять их value,
-              // перебрать, сформировать объекты, но это очень муторно. Для этого всего есть механизмы
-              // Самый простой способ - объект formData .
-              // Не всегда нужно передавать в формате JSON. Есть всего2 формата:
-              // (1) formData
-              // (2) JSON
-              // В каком формате будем передавать, можно обговаривать уже непосредственно с бекендером, с которым работаем
+      //         // можно было бы взять форму, все инпуты, взять их value,
+      //         // перебрать, сформировать объекты, но это очень муторно. Для этого всего есть механизмы
+      //         // Самый простой способ - объект formData .
+      //         // Не всегда нужно передавать в формате JSON. Есть всего2 формата:
+      //         // (1) formData
+      //         // (2) JSON
+      //         // В каком формате будем передавать, можно обговаривать
+                    // уже непосредственно с бекендером, с которым работаем
 
-              // formData - объект, помогающий с определенной формы быстро сформировать все данные,
-              // которые заполнил пользователь (также в формате ключ-значение)
+      //         // formData - объект, помогающий с определенной формы быстро сформировать все данные,
+      //         // которые заполнил пользователь (также в формате ключ-значение)
 
-              // заголовок запроса "что именно приходит на сервер?":
-              // request.setRequestHeader('Content-type', 'multipart/form-data');
-              // при отправке XMLHttp запроса через formData заголовок не нужен!!!
+      //         // заголовок запроса "что именно приходит на сервер?":
+      //         // request.setRequestHeader('Content-type', 'multipart/form-data');
+      //         // при отправке XMLHttp запроса через formData заголовок не нужен!!!
 
-              const formData = new FormData(form); // внутрь помещаем форму, из которой нужно собрать данные
-              // !!! Важный момент!!! если мы понимаем, что данные будут отправляться на сервер,
-              // то в верстке в инпуте ВСЕГДА нужно указывать атрибут name (например, name="name").
-              // Иначе formData не сможет найти этот инпут, взять из него value и сформировать правильно объект
+      //         const formData = new FormData(form); // внутрь помещаем форму, из которой нужно собрать данные
+      //         // !!! Важный момент!!! если мы понимаем, что данные будут отправляться на сервер,
+      //         // то в верстке в инпуте ВСЕГДА нужно указывать атрибут name (например, name="name").
+      //         // Иначе formData не сможет найти этот инпут, взять из него value и сформировать правильно объект
 
-              request.send(formData); // отправляем данные на сервер; в скобочках уже есть body, и это объект formData
-              request.addEventListener('load', () => { // отслеживаем конечую загрузку нашего запроса
-                  if (request.status === 200) {
-                      console.log(request.response);
-                      statusMessage.textContent = message.success;
-                      form.reset(); //  очищаем форму после отправки на сервер
-                      setTimeout(() => {
-                          statusMessage.remove();
-                      }, 2000); // убираем сообщение о статусе через 2 секунды
-                      setTimeout(() => {
-                          closeModal();
-                      }, 4000); // модальное окно закрывается через 4 секунды
-                  } else {
-                      statusMessage.textContent = message.failure;
-                  }
-              });
-          });
-      }
+      //         request.send(formData); // отправляем данные на сервер;
+                // в скобочках уже есть body, и это объект formData
+      //         request.addEventListener('load', () => { // отслеживаем конечую загрузку нашего запроса
+      //             if (request.status === 200) {
+      //                 console.log(request.response);
+      //                 statusMessage.textContent = message.success;
+      //                 form.reset(); //  очищаем форму после отправки на сервер
+      //                 setTimeout(() => {
+      //                     statusMessage.remove();
+      //                 }, 2000); // убираем сообщение о статусе через 2 секунды
+      //                 setTimeout(() => {
+      //                     closeModal();
+      //                 }, 4000); // модальное окно закрывается через 4 секунды
+      //             } else {
+      //                 statusMessage.textContent = message.failure;
+      //             }
+      //         });
+      //     });
+      // }
 
       // при работе на локальном сервере надо каждый раз (после каких-либо изменений) сбрасывать cash,
       // чтобы все изменения применились, так как сервер запоминает старые изменения,
@@ -1517,61 +1520,61 @@ inputRub.addEventListener('input', () => {
 
 
       // Отправка через JSON:
-      const forms = document.querySelectorAll('form');
+    //   const forms = document.querySelectorAll('form');
 
-    const message = {
-        loading: 'Загрузка...',
-        success: 'Спасибо! Скоро мы с вами свяжемся',
-        failure: 'Что-то пошло не так...'
-    };
-
-
-    forms.forEach(item => {
-        postData(item);
-    });
-
-    function postData(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            let statusMessage = document.createElement('div');
-            statusMessage.classList.add('status');
-            statusMessage.textContent = message.loading;
-            form.append(statusMessage);
+    // const message = {
+    //     loading: 'Загрузка...',
+    //     success: 'Спасибо! Скоро мы с вами свяжемся',
+    //     failure: 'Что-то пошло не так...'
+    // };
 
 
-            const request = new XMLHttpRequest();
-            request.open('POST', 'server.php');
+    // forms.forEach(item => {
+    //     postData(item);
+    // });
 
-            request.setRequestHeader('Content-type', 'application/json');
+    // function postData(form) {
+    //     form.addEventListener('submit', (e) => {
+    //         e.preventDefault();
+
+    //         let statusMessage = document.createElement('div');
+    //         statusMessage.classList.add('status');
+    //         statusMessage.textContent = message.loading;
+    //         form.append(statusMessage);
 
 
-            const formData = new FormData(form);
+    //         const request = new XMLHttpRequest();
+    //         request.open('POST', 'server.php');
 
-            const object = {};
-            formData.forEach(function(value, key){
-                object[key] = value;
-            });
-            const json = JSON.stringify(object);
+    //         request.setRequestHeader('Content-type', 'application/json');
 
-            request.send(json);
-            request.addEventListener('load', () => {
-                if (request.status === 200) {
-                    console.log(request.response);
-                    statusMessage.textContent = message.success;
-                    form.reset();
-                    setTimeout(() => {
-                        statusMessage.remove();
-                    }, 2000);
-                    setTimeout(() => {
-                        closeModal();
-                    }, 4000);
-                } else {
-                    statusMessage.textContent = message.failure;
-                }
-            });
-        });
-    }
+
+    //         const formData = new FormData(form);
+
+    //         const object = {};
+    //         formData.forEach(function(value, key){
+    //             object[key] = value;
+    //         });
+    //         const json = JSON.stringify(object);
+
+    //         request.send(json);
+    //         request.addEventListener('load', () => {
+    //             if (request.status === 200) {
+    //                 console.log(request.response);
+    //                 statusMessage.textContent = message.success;
+    //                 form.reset();
+    //                 setTimeout(() => {
+    //                     statusMessage.remove();
+    //                 }, 2000);
+    //                 setTimeout(() => {
+    //                     closeModal();
+    //                 }, 4000);
+    //             } else {
+    //                 statusMessage.textContent = message.failure;
+    //             }
+    //         });
+    //     });
+    // }
 
 
 
@@ -1622,11 +1625,11 @@ inputRub.addEventListener('input', () => {
     // });
 
 
-    const test = time => {
-      return new Promise(resolve =>{
-          setTimeout(() => resolve(), time);
-      });
-  };
+  //   const test = time => {
+  //     return new Promise(resolve =>{
+  //         setTimeout(() => resolve(), time);
+  //     });
+  // };
 
   // test(1000).then(() => console.log('1000 ms'));
   // test(2000).then(() => console.log('2000 ms'));
@@ -1639,9 +1642,9 @@ inputRub.addEventListener('input', () => {
   // получаем All - значит, оба промиса выполнились
 
   // второй метод промиса - race. Выполняется, когда самый первый промис отработал:
-  Promise.race([test(1000), test(2000)]).then(() => {
-      console.log('All');
-  });
+  // Promise.race([test(1000), test(2000)]).then(() => {
+  //     console.log('All');
+  // });
 
 
 
@@ -1668,14 +1671,14 @@ inputRub.addEventListener('input', () => {
 
     // https://jsonplaceholder.typicode.com/
 
-    fetch('https://jsonplaceholder.typicode.com/todos/1') // URL, на который будем посылать запрос
-    // Если больше никаких параметров не указывать, то это будет GET запрос
-    // Раньше мы использовали json.parse, чтобы отформатировать полученные данные,
-    // но у jsonplaceholder уже есть встроенные механизмы
-    .then(response => response.json()) // этот метод форматирует json в обычный
-    // javascript объект, который дальше можно использовать;
-    // эта команда возвращает нам промис
-    .then(json => console.log(json));
+    // fetch('https://jsonplaceholder.typicode.com/todos/1') // URL, на который будем посылать запрос
+    // // Если больше никаких параметров не указывать, то это будет GET запрос
+    // // Раньше мы использовали json.parse, чтобы отформатировать полученные данные,
+    // // но у jsonplaceholder уже есть встроенные механизмы
+    // .then(response => response.json()) // этот метод форматирует json в обычный
+    // // javascript объект, который дальше можно использовать;
+    // // эта команда возвращает нам промис
+    // .then(json => console.log(json));
 
 
 
@@ -1684,19 +1687,19 @@ inputRub.addEventListener('input', () => {
     // Этот объект содержит много различных свойств, но самые обязательные только 2:
     // (1) метод, (2) body, которое мы будем отправлять
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: "POST",
-        // сюда можем поместить как строку, так и объект;
-        // форматируем его в JSON формат, и отправим его при помощи fetch;
-        // желательно указывать также и заголовки, которые будут определять, какой контент мы отправляем
-        body: JSON.stringify({name: 'Alex'}),
-        headers: {
-            'Content-type': 'application/json'
-        }
-        // теперь нужно выбрать url, куда будем все это отправлять    })
-    })
-    .then(response => response.json())
-    .then(json => console.log(json));
+    // fetch('https://jsonplaceholder.typicode.com/posts', {
+    //     method: "POST",
+    //     // сюда можем поместить как строку, так и объект;
+    //     // форматируем его в JSON формат, и отправим его при помощи fetch;
+    //     // желательно указывать также и заголовки, которые будут определять, какой контент мы отправляем
+    //     body: JSON.stringify({name: 'Alex'}),
+    //     headers: {
+    //         'Content-type': 'application/json'
+    //     }
+    //     // теперь нужно выбрать url, куда будем все это отправлять    })
+    // })
+    // .then(response => response.json())
+    // .then(json => console.log(json));
 
 
 
@@ -1708,142 +1711,242 @@ inputRub.addEventListener('input', () => {
 
     // Отправка запроса formData (обычный объект JS) через Fetch
 
-    function postData(form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
-                // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+    // function postData(form) {
+    //         form.addEventListener('submit', (e) => {
+    //             e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
+    //             // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
 
-                let statusMessage = document.createElement('img');
-                statusMessage.src = message.loading;
-                statusMessage.style.cssText = `
-                    display: block;
-                    margin: 0 auto;
-                `;
+    //             let statusMessage = document.createElement('img');
+    //             statusMessage.src = message.loading;
+    //             statusMessage.style.cssText = `
+    //                 display: block;
+    //                 margin: 0 auto;
+    //             `;
 
-                form.insertAdjacentElement('afterend', statusMessage);
-
-
-                const formData = new FormData(form);
-
-                // const object = {};
-                // formData.forEach(function(value, key){
-                //     object[key] = value;
-                // }); // когда мы получили обычный объект, а не Data, то уже на нём можем использовать ковертацию JSON
-                // const json = JSON.stringify(object);
+    //             form.insertAdjacentElement('afterend', statusMessage);
 
 
-                fetch('server.php', {
-                    method: "POST",
-                    // headers: {
-                    //     'Content-type': 'application/json'
-                    // },
-                    body: formData
-                }).then(data => data.text())
-                .then(data => {
-                    console.log(data);
-                    showThanksModal(message.success);
-                    statusMessage.remove();
-                }).catch(() => {
-                    showThanksModal(message.failure);
-                }).finally(() => {
-                    form.reset();
-                });
+    //             const formData = new FormData(form);
 
-            });
-        }
+    //             // const object = {};
+    //             // formData.forEach(function(value, key){
+    //             //     object[key] = value;
+    //             // }); // когда мы получили обычный объект, а не Data,
+                          // то уже на нём можем использовать ковертацию JSON
+    //             // const json = JSON.stringify(object);
 
 
-        function showThanksModal(message) {
-            const prevModalDialog = document.querySelector('.modal__dialog');
-            prevModalDialog.classList.add('hide');
-            openModal();
+    //             fetch('server.php', {
+    //                 method: "POST",
+    //                 // headers: {
+    //                 //     'Content-type': 'application/json'
+    //                 // },
+    //                 body: formData
+    //             }).then(data => data.text())
+    //             .then(data => {
+    //                 console.log(data);
+    //                 showThanksModal(message.success);
+    //                 statusMessage.remove();
+    //             }).catch(() => {
+    //                 showThanksModal(message.failure);
+    //             }).finally(() => {
+    //                 form.reset();
+    //             });
 
-            const thanksModal = document.createElement('div');
-            thanksModal.classList.add('modal__dialog');
-            thanksModal.innerHTML = `
-                <div class="modal__content">
-                    <div class="modal__close" data-close>×</div>
-                    <div class="modal__title">${message}</div>
-                </div>
-            `;
-
-            document.querySelector('.modal').append(thanksModal);
-            setTimeout(() => {
-                thanksModal.remove();
-                prevModalDialog.classList.add('show');
-                prevModalDialog.classList.remove('hide');
-                closeModal();
-            }, 4000);
-        }
+    //         });
+    //     }
 
 
-        // Отправка запроса в формате JSON через Fetch
+    //     function showThanksModal(message) {
+    //         const prevModalDialog = document.querySelector('.modal__dialog');
+    //         prevModalDialog.classList.add('hide');
+    //         openModal();
 
-        function postData(form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
-                    // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+    //         const thanksModal = document.createElement('div');
+    //         thanksModal.classList.add('modal__dialog');
+    //         thanksModal.innerHTML = `
+    //             <div class="modal__content">
+    //                 <div class="modal__close" data-close>×</div>
+    //                 <div class="modal__title">${message}</div>
+    //             </div>
+    //         `;
 
-                    let statusMessage = document.createElement('img');
-                    statusMessage.src = message.loading;
-                    statusMessage.style.cssText = `
-                        display: block;
-                        margin: 0 auto;
-                    `;
-
-                    form.insertAdjacentElement('afterend', statusMessage);
-
-
-                    const formData = new FormData(form);
-
-                    const object = {};
-                    formData.forEach(function(value, key){
-                        object[key] = value;
-                    });
-
+    //         document.querySelector('.modal').append(thanksModal);
+    //         setTimeout(() => {
+    //             thanksModal.remove();
+    //             prevModalDialog.classList.add('show');
+    //             prevModalDialog.classList.remove('hide');
+    //             closeModal();
+    //         }, 4000);
+    //     }
 
 
+    //     // Отправка запроса в формате JSON через Fetch
 
-                    fetch('server.php', {
-                        method: "POST",
-                        headers: {
-                            'Content-type': 'application/json'
-                        },
-                        body: JSON.stringify(object)
-                    }).then(data => data.text())
-                    .then(data => {
-                        console.log(data);
-                        showThanksModal(message.success);
-                        statusMessage.remove();
-                    }).catch(() => {
-                        showThanksModal(message.failure);
-                    }).finally(() => {
-                        form.reset();
-                    });
+    //     function postData(form) {
+    //             form.addEventListener('submit', (e) => {
+    //                 e.preventDefault(); // отменяем стандартное поведение браузера при submit,
+                        // т.е. перезагрузку страницы
+    //                 // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
 
-                });
-            }
+    //                 let statusMessage = document.createElement('img');
+    //                 statusMessage.src = message.loading;
+    //                 statusMessage.style.cssText = `
+    //                     display: block;
+    //                     margin: 0 auto;
+    //                 `;
+
+    //                 form.insertAdjacentElement('afterend', statusMessage);
 
 
-            function showThanksModal(message) {
-                const prevModalDialog = document.querySelector('.modal__dialog');
-                prevModalDialog.classList.add('hide');
-                openModal();
+    //                 const formData = new FormData(form);
 
-                const thanksModal = document.createElement('div');
-                thanksModal.classList.add('modal__dialog');
-                thanksModal.innerHTML = `
-                    <div class="modal__content">
-                        <div class="modal__close" data-close>×</div>
-                        <div class="modal__title">${message}</div>
-                    </div>
-                `;
+    //                 const object = {};
+    //                 formData.forEach(function(value, key){
+    //                     object[key] = value;
+    //                 });
 
-                document.querySelector('.modal').append(thanksModal);
-                setTimeout(() => {
-                    thanksModal.remove();
-                    prevModalDialog.classList.add('show');
-                    prevModalDialog.classList.remove('hide');
-                    closeModal();
-                }, 4000);
-            }
+
+
+
+    //                 fetch('server.php', {
+    //                     method: "POST",
+    //                     headers: {
+    //                         'Content-type': 'application/json'
+    //                     },
+    //                     body: JSON.stringify(object)
+    //                 }).then(data => data.text())
+    //                 .then(data => {
+    //                     console.log(data);
+    //                     showThanksModal(message.success);
+    //                     statusMessage.remove();
+    //                 }).catch(() => {
+    //                     showThanksModal(message.failure);
+    //                 }).finally(() => {
+    //                     form.reset();
+    //                 });
+
+    //             });
+    //         }
+
+
+    //         function showThanksModal(message) {
+    //             const prevModalDialog = document.querySelector('.modal__dialog');
+    //             prevModalDialog.classList.add('hide');
+    //             openModal();
+
+    //             const thanksModal = document.createElement('div');
+    //             thanksModal.classList.add('modal__dialog');
+    //             thanksModal.innerHTML = `
+    //                 <div class="modal__content">
+    //                     <div class="modal__close" data-close>×</div>
+    //                     <div class="modal__title">${message}</div>
+    //                 </div>
+    //             `;
+
+    //             document.querySelector('.modal').append(thanksModal);
+    //             setTimeout(() => {
+    //                 thanksModal.remove();
+    //                 prevModalDialog.classList.add('show');
+    //                 prevModalDialog.classList.remove('hide');
+    //                 closeModal();
+    //             }, 4000);
+    //         }
+
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 57 "МЕТОДЫ ПЕРЕБОРА МАССИВОВ"
+
+// Метод forEach никогда не возвращает нам новый массив.
+// Он просто перебрает какой-то массив.
+
+
+// Другие методы (они в отличие от forEach ВОЗАРАЩАЮТ НОВЫЙ МАССИВ с примененной фильтрацией):
+
+
+// (1) filter - фильтрует элементы внутри массива
+
+// const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
+
+// // получаем имена, длина который меньше 5 символов:
+// const shortNames = names.filter(function(name) { // name - это каждый отдельный элемент, находящийся внутри массива
+// 	return name.length < 5;
+// });
+
+// console.log(shortNames);
+
+
+
+// (2) map - позволяет взять исходный массив и изменить каждвй элемент внутри него
+
+// const answers = ['IvAn', 'AnnA', 'Hello'];
+// const result = answers.map(item => item.toLocaleLowerCase());
+// console.log(result);
+
+// Второй вариант, где оставим изначальную переменную (но лучше создавать отдельную переменную):
+// let answers = ['IvAn', 'AnnA', 'Hello'];
+// answers = answers.map(item => item.toLocaleLowerCase());
+// console.log(answers);
+
+
+// (3) every/some 
+// some берет массив, перебирает, и если хотя бы какой-то один элемент подходит по условию,
+// то мы получаем true или false
+
+// const some = [4, 5, 7];
+// console.log(some.some(item => typeof(item) === 'number')); // some - какой-либо элемент из массива
+
+// console.log(some.every(item => typeof(item) === 'number')); // every - каждый элемент массива
+
+
+
+// (4) reduce - "схлопывание" элементов массива
+
+// const array2 = [4, 5, 1, 3, 2, 6];
+
+// // Два аргумента, которые подставляются автоматически
+// // Первый аргумент - sum - сумма всех элементов аргумента
+// // current - текущая сумма, т.е.:
+// // Изначально sum = 0, но при каждом запуске функции сумма увеличивается засчет перехода к следующему числу.
+// // На первом "заходе" sum - 0, current = 4, а уже на втором заходе sum - 4, current 5, и так далее.
+// const res = array2.reduce((sum, current) => sum + current, 3); 
+// // метод reduce может принимать ещё один аргумент - начальное значение. В этом случае вместо sum будет 3
+// console.log(res);
+
+
+// Как работает reduce со строками?
+// const array2 = ['apple', 'pear', 'plum'];
+// // const res = array2.reduce((sum, current) => sum + ', ' + current); // первый способ - через сложение строк
+// // второй способ - через интерполяцию
+// const res = array2.reduce((sum, current) => `${sum}, ${current}`);
+
+// console.log(res);
+
+
+
+// Как можно применить на практике? Пример:
+// Например, нам нужно вытянуть имена людей.
+const object = {
+	ivan: 'person',
+	ann: 'person',
+	dog: 'animal',
+	cat: 'animal'
+};
+
+// const newArr = Object.entries(object); // получается массив, который содержит массивы
+const newArr = Object.entries(object)
+.filter(item => item[1] === 'person')// выводим только те массивы, которые содержат 'person 
+.map(item => item[0]); // получаем новый масив, где только имена
+//теперь нужно получить имена (первые элементы)
+console.log(newArr);
+
+
+
