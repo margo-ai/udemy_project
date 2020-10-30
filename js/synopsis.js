@@ -1284,6 +1284,92 @@ console.log(p);
 // (2) Наследование - способность объекта или класса базироваться на другом объекте или классе
 
 
+// Используем классы для карточек
+
+   // class MenuCard {
+   //     constructor(src, alt, title, descr, price, parentSelector, ...classes) {
+   //         this.src = src;
+   //         this.alt = alt;
+   //         this.title = title;
+   //         this.descr = descr;
+   //         this.price = price;
+   //         this.classes = classes;
+   //         this.parent = document.querySelector(parentSelector);
+   //         this.transfer = 27;
+   //         this.changeToUAH();
+   //     }
+   //
+   //     changeToUAH() {
+   //         this.price = this.price * this.transfer;
+   //     }
+   //
+   //     render() {
+   //         const element = document.createElement('div');
+   //         if (this.classes.length === 0) {
+   //             this.element = 'menu__item';
+   //             element.classList.add(this.element);
+   //         } else {
+   //             this.classes.forEach(className => element.classList.add(className));
+   //         }
+   //
+   //         element.innerHTML = `
+   //             <img src=${this.src} alt=${this.alt}>
+   //             <h3 class="menu__item-subtitle">${this.title}</h3>
+   //             <div class="menu__item-descr">${this.descr}</div>
+   //             <div class="menu__item-divider"></div>
+   //             <div class="menu__item-price">
+   //                 <div class="menu__item-cost">Цена:</div>
+   //                 <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+   //             </div>
+   //         `;
+   //         this.parent.append(element);
+   //     }
+   // }
+
+   // можно использовать такой синтаксис:
+   // const div = new MenuCard();
+   // div.render();
+
+   // другой способ (мы этот объект нигде не сохраняем как переменную, испоьлзуем один раз):
+   // new MenuCard(
+   //     "img/tabs/vegy.jpg",
+   //     "vegy",
+   //     'Меню "Фитнес"',
+   //     'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+   //     9,
+   //     '.menu .container',
+   //     'menu__item'
+   // ).render();
+   //
+   // new MenuCard(
+   //     "img/tabs/elite.jpg",
+   //     "elite",
+   //     'Меню “Премиум”',
+   //     'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+   //     14,
+   //     '.menu .container',
+   //     'menu__item'
+   // ).render();
+   //
+   // new MenuCard(
+   //     "img/tabs/post.jpg",
+   //     "post",
+   //     'Меню "Постное"',
+   //     'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
+   //     21,
+   //     '.menu .container',
+   //     'menu__item'
+   // ).render();
+   //
+   // new MenuCard(
+   //     "img/tabs/balance.jpg",
+   //     "balance",
+   //     'Меню "Сбалансированное"',
+   //     'Меню "Сбалансированное" - это соответствие вашего рациона всем научным рекомендациям. Мы тщательно просчитываем вашу потребность в к/б/ж/у и создаем лучшие блюда для вас.',
+   //     11,
+   //     '.menu .container',
+   //     'menu__item'
+   // ).render();
 
 
 
@@ -1897,7 +1983,7 @@ console.log(p);
 // console.log(answers);
 
 
-// (3) every/some 
+// (3) every/some
 // some берет массив, перебирает, и если хотя бы какой-то один элемент подходит по условию,
 // то мы получаем true или false
 
@@ -1917,7 +2003,7 @@ console.log(p);
 // // current - текущая сумма, т.е.:
 // // Изначально sum = 0, но при каждом запуске функции сумма увеличивается засчет перехода к следующему числу.
 // // На первом "заходе" sum - 0, current = 4, а уже на втором заходе sum - 4, current 5, и так далее.
-// const res = array2.reduce((sum, current) => sum + current, 3); 
+// const res = array2.reduce((sum, current) => sum + current, 3);
 // // метод reduce может принимать ещё один аргумент - начальное значение. В этом случае вместо sum будет 3
 // console.log(res);
 
@@ -1943,10 +2029,223 @@ const object = {
 
 // const newArr = Object.entries(object); // получается массив, который содержит массивы
 const newArr = Object.entries(object)
-.filter(item => item[1] === 'person')// выводим только те массивы, которые содержат 'person 
+.filter(item => item[1] === 'person')// выводим только те массивы, которые содержат 'person
 .map(item => item[0]); // получаем новый масив, где только имена
 //теперь нужно получить имена (первые элементы)
 console.log(newArr);
 
 
 
+
+// ЛЕКЦИЯ 59 "пОЛУЧЕНИЕ ДАННЫХ С СЕРВЕРА. ASYNC/AWAIT (ES8)"
+
+// первый вариант формирование карточек с данными с сервера
+// getResource('http://localhost:3000/menu')
+    //     .then(data => {
+    //         data.forEach(({img, altimg, title, descr, price} )=> {
+    //             // вызываем конструктор MenuCard
+    //             // последним аргументом указываем родителя, куда это все помещаем
+    //             new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+    //         });
+    //     });
+
+
+// второй вариант (больше подходит для того, чтобы что-то построить один раз).
+// он не создает классы, а формирует верстку "на лету"
+// getResource('http://localhost:3000/menu')
+//             .then(data => createCard(data));
+//
+//         function createCard(data) {
+//             data.forEach(({img, altimg, title, descr, price}) => {
+//                 const element = document.createElement('div');
+//
+//                 element.classList.add('menu__item');
+//                 element.innerHTML = `
+//                     <img src=${img} alt=${altimg}>
+//                     <h3 class="menu__item-subtitle">${title}</h3>
+//                     <div class="menu__item-descr">${descr}</div>
+//                     <div class="menu__item-divider"></div>
+//                     <div class="menu__item-price">
+//                         <div class="menu__item-cost">Цена:</div>
+//                         <div class="menu__item-total"><span>${price}</span> грн/день</div>
+//                     </div>
+//                 `;
+//
+//                 document.querySelector('.menu .container').append(element);
+//             });
+//         }
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 60 "ЧТО ТАКОЕ БИБЛИОТЕКИ. БИБЛИОТЕКА AXIOS"
+
+// Axios - библиотека, помогающая работать с запросами
+
+
+// Через Fetch:
+
+// class MenuCard {
+//         constructor(src, alt, title, descr, price, parentSelector, ...classes) {
+//             this.src = src;
+//             this.alt = alt;
+//             this.title = title;
+//             this.descr = descr;
+//             this.price = price;
+//             this.classes = classes;
+//             this.parent = document.querySelector(parentSelector);
+//             this.transfer = 27;
+//             this.changeToUAH();
+//         }
+//
+//         changeToUAH() {
+//             this.price = this.price * this.transfer;
+//         }
+//
+//         render() {
+//             const element = document.createElement('div');
+//             if (this.classes.length === 0) {
+//                 this.element = 'menu__item';
+//                 element.classList.add(this.element);
+//             } else {
+//                 this.classes.forEach(className => element.classList.add(className));
+//             }
+//
+//             element.innerHTML = `
+//                 <img src=${this.src} alt=${this.alt}>
+//                 <h3 class="menu__item-subtitle">${this.title}</h3>
+//                 <div class="menu__item-descr">${this.descr}</div>
+//                 <div class="menu__item-divider"></div>
+//                 <div class="menu__item-price">
+//                     <div class="menu__item-cost">Цена:</div>
+//                     <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+//                 </div>
+//             `;
+//             this.parent.append(element);
+//         }
+//     }
+//
+//     const getResource = async (url) => { // res - это промис
+//         const res = await fetch(url);
+//
+//         // свойства promise, которые скажут, что произошла ошибка при отправке запроса (reject).
+//         // т.к. fetch покажет ошибку, только если отсутствует соединение
+//         if (!res.ok) { // если результат res не ok
+//            throw new Error(`Could not fetch ${url}, status: ${res.status}`); // "выкидываем" ошибку
+//         }
+//
+//         return await res.json();
+//     };
+//
+//     getResource('http://localhost:3000/menu')
+//         .then(data => {
+//             data.forEach(({img, altimg, title, descr, price} )=> {
+//                 // вызываем конструктор MenuCard
+//                 // последним аргументом указываем родителя, куда это все помещаем
+//                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+//             });
+//         });
+
+
+
+
+
+// Через Anxios:
+
+// function bindPostData(form) {
+//   form.addEventListener('submit', (e) => {
+//       e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
+//       // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+
+//       let statusMessage = document.createElement('img');
+//       statusMessage.src = message.loading;
+//       statusMessage.style.cssText = `
+//           display: block;
+//           margin: 0 auto;
+//       `;
+      
+//       form.insertAdjacentElement('afterend', statusMessage);
+
+
+//       const formData = new FormData(form);
+
+//       const json = JSON.stringify(Object.fromEntries(formData.entries()));
+//       // entries берет каждое свойство и формирует из него массив
+//       // обратный метод - fromEntries
+
+                 
+//       postData('http://localhost:3000/requests', json)            
+//       .then(data => {
+//           console.log(data);
+//           showThanksModal(message.success);                
+//           statusMessage.remove();
+//       }).catch(() => {
+//           showThanksModal(message.failure);
+//       }).finally(() => {
+//           form.reset();
+//       });
+
+//   });
+
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 61 "СОЗДАЕМ СЛАЙДЕР НА САЙТЕ, ВАРИАНТ 1"
+
+// const slides = document.querySelectorAll('.offer__slide');
+// const prev = document.querySelector('.offer__slider-prev');
+// const next = document.querySelector('.offer__slider-next');
+// const total = document.querySelector('#total');
+// const current = document.querySelector('#current');
+// let slideIndex = 1;
+
+// showSlides(slideIndex);
+
+// if (slides.length < 10) {
+//     total.textContent = `0${slides.length}`;
+// } else {
+//     total.textContent = slides.length;
+// }
+
+// function showSlides(n) {
+//     if (n > slides.length) {
+//         slideIndex = 1;
+//     }
+//     if (n < 1) {
+//         slideIndex = slides.length;
+//     }
+
+//     slides.forEach(item => item.style.display = 'none');
+
+//     slides[slideIndex - 1].style.display = 'block';
+
+//     if (slides.length < 10) {
+//         current.textContent = `0${slideIndex}`;
+//     } else {
+//         current.textContent = slideIndex;
+//     }
+// }
+
+// function plusSlides(n) {
+//     showSlides(slideIndex += n);
+// }
+
+// prev.addEventListener('click', () => {
+//     plusSlides(-1);
+// });
+
+// next.addEventListener('click', () => {
+//     plusSlides(1);
+// });
