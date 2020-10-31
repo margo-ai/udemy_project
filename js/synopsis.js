@@ -20,21 +20,21 @@ console.log(obj);*/
 // данные в фигурных скобках - свойства объекта, действия в фигурных скобках - методы
 
 // описываем свойства объекта (формат "ключ-значение". Ключ - это свойство объекта)
-const obj = {
-  name: "John",
-  age: 25,
-  isMarried: false
-};
+// const obj = {
+//   name: "John",
+//   age: 25,
+//   isMarried: false
+// };
 
 // чтобы получить значение определенного свойства:
 // метод 1 (через точку):
-console.log(obj.name);
+// console.log(obj.name);
 // метод 2 (через квадратные скобки):
 // console.log(obj["name"]);
 
 // массив - это не отдельный тип данных, это частный случай обхъекта (одна из разновидностей)
-let arr = ['plum.png', 'orange.jpg', 6, 'apple.bmp', {}, []];
-console.log(arr[1]);
+// let arr = ['plum.png', 'orange.jpg', 6, 'apple.bmp', {}, []];
+// console.log(arr[1]);
 
 
 // запустить сообщение на сайте. Используется для предупреждения пользователя о чем-либо.
@@ -85,57 +85,57 @@ alert(`Привет, ${user}`); */
 
 // ЛЕКЦИЯ 9 "ОПЕРАТОРЫ":
 
-let incr = 10,
-    decr = 10;
+// let incr = 10,
+//     decr = 10;
 
-// оператор инкремента:
-incr++; //постфиксная форма записи
-++incr; //префиксная форма записи
+// // оператор инкремента:
+// incr++; //постфиксная форма записи
+// ++incr; //префиксная форма записи
 
-// оператор декремента:
-decr--; //постфиксная форма записи
---decr; //префиксная форма записи
+// // оператор декремента:
+// decr--; //постфиксная форма записи
+// --decr; //префиксная форма записи
 
-console.log(incr);
-console.log(decr);
+// console.log(incr);
+// console.log(decr);
 
-// % - возвращает остаток от операции
-console.log(5%2);
+// // % - возвращает остаток от операции
+// console.log(5%2);
 
-// == - знак равенства:
-console.log(2*4 == 8);
+// // == - знак равенства:
+// console.log(2*4 == 8);
 
-// === - строгое равенство:
-console.log(2*4 === 8);
+// // === - строгое равенство:
+// console.log(2*4 === 8);
 
-// && - оператор "и":
-const isChecked = true,
-      isClose = true;
+// // && - оператор "и":
+// const isChecked = true,
+//       isClose = true;
 
-console.log(isChecked && isClose);
-
-
-// || - оператор "или":
-const isChecked1 = true,
-      isClose1 = false;
-
-console.log(isChecked1 || isClose1);
+// console.log(isChecked && isClose);
 
 
-// ! - оператор отрицания:
-const isChecked2 = false,
-      isClose2 = false;
+// // || - оператор "или":
+// const isChecked1 = true,
+//       isClose1 = false;
 
-console.log(isChecked2 || !isClose2);
+// console.log(isChecked1 || isClose1);
+
+
+// // ! - оператор отрицания:
+// const isChecked2 = false,
+//       isClose2 = false;
+
+// console.log(isChecked2 || !isClose2);
 
 
 // ЛЕКЦИЯ 13 "УСЛОВИЯ":
 
-if (1 == 1) {
-  console.log('Ok!');
-} else {
-  console.log('Error');
-}
+// if (1 == 1) {
+//   console.log('Ok!');
+// } else {
+//   console.log('Error');
+// }
 
 
 // if (num < 49) {
@@ -184,13 +184,13 @@ switch (num) {
 // while (num < 55);
 
 // Третий вариант цикла:
-for (let i = 1; i < 10; i++) {
-  if (i === 6) {
-    // break;
-    continue;
-  }
-  console.log(i);
-}
+// for (let i = 1; i < 10; i++) {
+//   if (i === 6) {
+//     // break;
+//     continue;
+//   }
+//   console.log(i);
+// }
 
 
 
@@ -199,101 +199,101 @@ for (let i = 1; i < 10; i++) {
 // Функции - это наши действия в javascript
 // В скобках пишутся аргументы - это данные, которые функция использует внутри себя
 
-let num = 20;
+// let num = 20;
 
-function showFirstMessage(text) {
-  console.log(text);
-  let num = 10;
-  console.log(num);
-}
+// function showFirstMessage(text) {
+//   console.log(text);
+//   let num = 10;
+//   console.log(num);
+// }
 
-showFirstMessage('Hello World!');
+// showFirstMessage('Hello World!');
 
-console.log(num);
+// console.log(num);
 
 // Замыкание функции - сама функция вместе со всеми внешними переменными, которые ей доступны
 
 
 // function decloration (вид функции) - создается до начала выполнения скрипта, можно вызвать перед объявлением:
 
-function calc(a, b) {
-  return (a + b);
-}
+// function calc(a, b) {
+//   return (a + b);
+// }
 
-console.log(calc(4, 3));
-console.log(calc(5, 6));
-console.log(calc(10, 6));
+// console.log(calc(4, 3));
+// console.log(calc(5, 6));
+// console.log(calc(10, 6));
 
 
-function ret() {
-  let num = 50;
-  return num;
-}
+// function ret() {
+//   let num = 50;
+//   return num;
+// }
 
-const anotherNum = ret();
-console.log(anotherNum);
+// const anotherNum = ret();
+// console.log(anotherNum);
 
 // function expression (вид функции) - создается только тогда, когда доходит поток кода,
 // можно вызвать только после объявления:
 
-const logger = function () {
-  console.log('Hello!');
-};
-
-logger();
+// const logger = function () {
+//   console.log('Hello!');
+// };
+// 
+// logger();
 
 
 // Стрелочные функции:
-const calc1 = (a, b) => a + b;
+// const calc1 = (a, b) => a + b;
 
-console.log(calc1(5, 7));
+// console.log(calc1(5, 7));
 
 
 
 
 // ЛЕКЦИЯ 17 "МЕТОДЫ И СВОЙСТВА СТРОК И ЧИСЕЛ"
 // Методы - это вспомогательные функции, свойства - это вспомогательные значения
-const str = "test";
-const arr1 = [1, 2, 3, 4, 5];
+// const str = "test";
+// const arr1 = [1, 2, 3, 4, 5];
 
 // в данном случае, свойство - это length. Свойства пишутся через точку. А методы - вызываются.
 // console.log(arr1.length);
 // console.log(str[2]);
 
-console.log(str.toUpperCase());
-console.log(str.toLowerCase());
+// console.log(str.toUpperCase());
+// console.log(str.toLowerCase());
 
-console.log(str);
+// console.log(str);
 
-const fruit = "Some fruit";
+// const fruit = "Some fruit";
 
 // Этот метод должен принимать какой-то аргумент в скобках
-console.log(fruit.indexOf("q"));
+// console.log(fruit.indexOf("q"));
 
-const logg = "Hello world";
+// const logg = "Hello world";
 
 // 6 - это начало строки (от), т.е. слова world, 10 - это конец строки (до), 10 не включается
-console.log(logg.slice(6, 10));
-console.log(logg.slice(-5, -1)); // то же самое
+// console.log(logg.slice(6, 10));
+// console.log(logg.slice(-5, -1)); // то же самое
 
 // похоже на slice, не поддерживает отрицательные значения
-console.log(logg.substring(6, 11));
+// console.log(logg.substring(6, 11));
 
 // в отличие от slice, во втором аргументе указываем длину, а не индекс последнего символа
-console.log(logg.substr(6, 5));
+// console.log(logg.substr(6, 5));
 
 
 // ЧИСЛА (СВОЙСТВА И МЕТОДЫ):
 
-const num2 = 12.2;
+// const num2 = 12.2;
 
 // округление к ближайшему целому
-console.log(Math.round(num2));
+// console.log(Math.round(num2));
 
 
-const test = "12.2px";
-console.log(parseInt(test));
-console.log(parseFloat(test));
+// const test = "12.2px";
+// console.log(parseInt(test));
+// console.log(parseFloat(test));
 
 
 
@@ -303,33 +303,33 @@ console.log(parseFloat(test));
 
 
 // ЛЕКЦИЯ 19 "Callback-функции":
-function first() {
-  // Do something
-  setTimeout(function() {
-    console.log(1);
-  }, 500);
-}
+// function first() {
+//   // Do something
+//   setTimeout(function() {
+//     console.log(1);
+//   }, 500);
+// }
 
-function second() {
-  console.log(2);
-}
+// function second() {
+//   console.log(2);
+// }
 
-first();
-second();
+// first();
+// second();
 
 // Callback-функция - это функция, которая должна быть
 // выполнена после того, как другая функция завершила свое выполнение
 
-function learnJS(lang, callback) {
-  console.log(`Я учу: ${lang}`);
-  callback();
- }
+// function learnJS(lang, callback) {
+//   console.log(`Я учу: ${lang}`);
+//   callback();
+//  }
 
- function done() {
-  console.log('Я прошел этот урок');
- }
+//  function done() {
+//   console.log('Я прошел этот урок');
+//  }
 
- learnJS('Javascript', done);
+//  learnJS('Javascript', done);
 
 
 
@@ -340,24 +340,24 @@ function learnJS(lang, callback) {
  // ЛЕКЦИЯ 20 "ОБЪЕКТЫ, ДЕСТРУКТУРИЗАЦИЯ ОБЪЕКТОВ"
 
 
- const options = {
-   name: 'test',
-   width: 1024,
-   heigth: 1024,
-   colors: {
-     border: 'black',
-     bg: 'red'
-   },
-   makeTest: function() { // Можно создавать методы в объектах самостоятельно
-     console.log("Test");
-   }
- };
+//  const options = {
+//    name: 'test',
+//    width: 1024,
+//    heigth: 1024,
+//    colors: {
+//      border: 'black',
+//      bg: 'red'
+//    },
+//    makeTest: function() { // Можно создавать методы в объектах самостоятельно
+//      console.log("Test");
+//    }
+//  };
 
- options.makeTest();
+//  options.makeTest();
 
 // Деструктуризация объекта:
-const {border, bg} = options.colors;
-console.log(border);
+// const {border, bg} = options.colors;
+// console.log(border);
 
 
 
@@ -369,29 +369,29 @@ console.log(border);
 
 
 // Для счетчика свойств:
-let counter = 0;
+// let counter = 0;
 
-// for... in - цикл, проходящий через свойства объектов
- for (let key in options) {
-   if (typeof(options[key]) == 'object') {
-     for (let i in options[key]) {
-      console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-      counter++;
-     }
-   } else {
-    console.log(`Свойство ${key} имеет значение ${options[key]}`);
-    counter++;
-   }
- }
+// // for... in - цикл, проходящий через свойства объектов
+//  for (let key in options) {
+//    if (typeof(options[key]) == 'object') {
+//      for (let i in options[key]) {
+//       console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//       counter++;
+//      }
+//    } else {
+//     console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//     counter++;
+//    }
+//  }
 
- console.log(counter);
+//  console.log(counter);
 
  // Методы - это действия, которые можно совершить с объектами
 
  // Этот метод возвращает массив из перечисляемых свойств переданного обекта:
-console.log(Object.keys(options).length);
+// console.log(Object.keys(options).length);
 // Этот метод возвращает массив собственных перечисляемых свойств указанного объекта в формате [key, value]:
-console.log(Object.entries(options));
+// console.log(Object.entries(options));
 
 
 
@@ -402,14 +402,14 @@ console.log(Object.entries(options));
 
 // ЛЕКЦИЯ 21 "МАССИВЫ И ПСЕВДОМАССИВЫ"
 
-const array = [2, 13, 26, 8, 10];
+// const array = [2, 13, 26, 8, 10];
 
-array.sort(compareNum);
-console.log(array);
+// array.sort(compareNum);
+// console.log(array);
 
-function compareNum(a, b) {
-  return a - b;
-}
+// function compareNum(a, b) {
+//   return a - b;
+// }
 
 //array[99] = 0; // так лучше не делать!!!
 // console.log(array.length); // length состоит из "последнего индекса массива + 1"
@@ -420,38 +420,38 @@ function compareNum(a, b) {
 // array.pop();
 
 // Метод, который добавляет элемент в конец массива:
-array.push(10);
-console.log(array);
+// array.push(10);
+// console.log(array);
 
 // Перебор массива:
-for (let i = 0; i < array.length; i++) {
-  console.log(array[i]);
-}
+// for (let i = 0; i < array.length; i++) {
+//   console.log(array[i]);
+// }
 
 // for of - другая конструкция перебора. Такая конструкция работает с массивами, псевдомассивами:
-for (let value of array) {
-  console.log(value);
-}
+// for (let value of array) {
+//   console.log(value);
+// }
 
 // Метод перебора массива "for each":
-array.forEach(function(item, i, array) {
-  console.log(`${i}: ${item} внутри массива ${array}`);
-});
+// array.forEach(function(item, i, array) {
+//   console.log(`${i}: ${item} внутри массива ${array}`);
+// });
 
 
 // Метод "for each" используется чаще, но у метода "for of" есть плюс - здесь можно использоваться brake и continue.
 
 
 // Метод "split" (делает из строки массив):
-const string = prompt("", "");
-const products = string.split(", ");
+// const string = prompt("", "");
+// const products = string.split(", ");
 //console.log(products);
 
 // Метод "sort" - метод сортировки:
-products.sort(); // сортирует элементы как строки
+// products.sort(); // сортирует элементы как строки
 
 // Обратная операция - join (делает из массива строку)
-console.log(products.join('; '));
+// console.log(products.join('; '));
 
 
 /* Псевдомассив - это объект, который похож на массив.
@@ -468,19 +468,19 @@ console.log(products.join('; '));
 
  // ЛЕКЦИЯ 22 "ПЕРЕДАЧА ПО ССЫЛКЕ ИЛИ ПО ЗНАЧЕНИЮ, Spread оператор"
 
-let a = 5,
-    b = a;
+// let a = 5,
+//     b = a;
 
-b = b + 5;
+// b = b + 5;
 
-console.log(b);
-console.log(a);
+// console.log(b);
+// console.log(a);
 
 
-const obj2 = {
-  a: 5,
-  b: 1
-};
+// const obj2 = {
+//   a: 5,
+//   b: 1
+// };
 
 /* const copy = obj2; // сюда кладется ссылка на obj2
 copy.a = 10; // модифицируя копию, мы изменяем сам объект (называется "передача по ссылке")
@@ -495,25 +495,25 @@ console.log(obj2);
 // Но как скопировать объект (массивов и т.д.)?
 // Создаем копию объекта через "for... in"
 
-function copy (mainObj) {
-    let objCopy = {};
+// function copy (mainObj) {
+//     let objCopy = {};
 
-    let key;
-    for (key in mainObj) {
-      objCopy[key] = mainObj[key];
-    }
+//     let key;
+//     for (key in mainObj) {
+//       objCopy[key] = mainObj[key];
+//     }
 
-    return objCopy;
-}
+//     return objCopy;
+// }
 
-const numbers = {
-  a: 2,
-  b: 5,
-  c: {
-    x: 7,
-    y: 4
-  }
-};
+// const numbers = {
+//   a: 2,
+//   b: 5,
+//   c: {
+//     x: 7,
+//     y: 4
+//   }
+// };
 
 /* const newNumbers = copy(numbers);
 
@@ -527,62 +527,62 @@ console.log(numbers);// а в оригинале не поменялось
 
 // второй способ копирования объекта - через Object.assign():
 
-const add = {
-  d: 17,
-  e: 20
-};
+// const add = {
+//   d: 17,
+//   e: 20
+// };
 // попробуем соединить объекты "numbers" и "add"
-console.log(Object.assign(numbers, add)); // первым аргументом - объект,
+// console.log(Object.assign(numbers, add)); // первым аргументом - объект,
 // в который помещаем, а вторым - тот,
 // который помещаем в первый
 
 // таким же образом можно создать новый объект: в этом случае первым аргументом делаем пустой объект:
-const clone = Object.assign({}, add);
+// const clone = Object.assign({}, add);
 
-clone.d = 20;
+// clone.d = 20;
 
-console.log(add); // здесь "d" не меняется
-console.log(clone); // а здесь меняется
+// console.log(add); // здесь "d" не меняется
+// console.log(clone); // а здесь меняется
 
 
-// Создание копии массива:
-const oldArray = ['a', 'b', 'c'];
-const newArray = oldArray.slice();
+// // Создание копии массива:
+// const oldArray = ['a', 'b', 'c'];
+// const newArray = oldArray.slice();
 
-newArray[1] = 'daffcfdcfc';
-console.log(newArray);
-console.log(oldArray);
+// newArray[1] = 'daffcfdcfc';
+// console.log(newArray);
+// console.log(oldArray);
 
 
 // Использование оператора разворота (spread) - новый вариант создания копии объектов:
-const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'livejournal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'facebook'];
+// const video = ['youtube', 'vimeo', 'rutube'],
+//       blogs = ['wordpress', 'livejournal', 'blogger'],
+//       internet = [...video, ...blogs, 'vk', 'facebook'];
 
-      console.log(internet);
+//       console.log(internet);
 
-function log(a, b, c) {
-  console.log(a);
-  console.log(b);
-  console.log(c);
-}
+// function log(a, b, c) {
+//   console.log(a);
+//   console.log(b);
+//   console.log(c);
+// }
 
-num = [2, 5, 7];
+// num = [2, 5, 7];
 
-log(...num); // с помощью spread, функция запустится не с массивом, а с тремя отдельными сущностями
+// log(...num); // с помощью spread, функция запустится не с массивом, а с тремя отдельными сущностями
 
 
 // еще один способ создания поверхностных копий объектов
-const array1 = ["a", "b"];
+// const array1 = ["a", "b"];
 
-const newArray2 = [...array1];
+// const newArray2 = [...array1];
 
-const q = {
-  one: 1,
-  two: 2
-};
+// const q = {
+//   one: 1,
+//   two: 2
+// };
 
-const newObj = {...q};
+// const newObj = {...q};
 
 
 
@@ -599,21 +599,21 @@ const newObj = {...q};
 // let str1 = "some";
 // let strObj = new String(str1);
 
-console.log(typeof(str1));
-console.log(typeof(strObj));
+// console.log(typeof(str1));
+// console.log(typeof(strObj));
 
 
-console.dir([1,2,3]);
+// console.dir([1,2,3]);
 
-const soldier = {
-  health: 400,
-  armor: 100,
-  sayHello: function () {
-    console.log("Hello");
-  }
-};
+// const soldier = {
+//   health: 400,
+//   armor: 100,
+//   sayHello: function () {
+//     console.log("Hello");
+//   }
+// };
 
-const john = Object.create(soldier); // создаем новый объект john, который будет наследоваться от soldier
+// const john = Object.create(soldier); // создаем новый объект john, который будет наследоваться от soldier
 
 // const john = {
 //   health: 100
@@ -626,12 +626,12 @@ const john = Object.create(soldier); // создаем новый объект j
 // john.__proto__ = soldier;
 
 // Новый формат - object.create, object.getPrototypeOf, object.setPrototypeOf:
-Object.setPrototypeOf(john, soldier);// первый аргумент - кому назначаем прототип,
+// Object.setPrototypeOf(john, soldier);// первый аргумент - кому назначаем прототип,
 // второй - объект, прототип которого устанавливаем
 // Установили прототип для john от soldier
 
 // console.log(john.armor);
-john.sayHello();
+// john.sayHello();
 
 
 
@@ -660,31 +660,31 @@ Breakpoints - показывает, где установлены брэйкпо
 
 // To string:
 // 1)
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
+// console.log(typeof(String(null)));
+// console.log(typeof(String(4)));
 
 // 2)
-console.log(typeof(5 + '')); // при сложении со строкой получается строка
+// console.log(typeof(5 + '')); // при сложении со строкой получается строка
 
-const number = 5;
+// const number = 5;
 
-console.log("https://vk.com/catalog/" + number);
+// console.log("https://vk.com/catalog/" + number);
 
-const fontSize = 26 + 'px';
+// const fontSize = 26 + 'px';
 
 
 // To number:
 // 1)
-console.log(typeof(Number('5')));
+// console.log(typeof(Number('5')));
 
 // 2) (унарный плюс)
-console.log(typeof(+'5'));
+// console.log(typeof(+'5'));
 
 // 3)
-console.log(typeof(parseInt("15px", 10)));
+// console.log(typeof(parseInt("15px", 10)));
 
 
-let answ = +prompt("Hello", "");
+// let answ = +prompt("Hello", "");
 // всё, что мы получаем от пользователя, всегда типа данных "строка"
 
 
@@ -692,21 +692,21 @@ let answ = +prompt("Hello", "");
 // 0, '', null, undefined, NaN; // это всё false. Всё остальное в JS - это true (пустые массивы, строки и т.д.)
 
 // 1)
-let switcher = null;
-if (switcher) {
-  console.log('Working...');
-}
+// let switcher = null;
+// if (switcher) {
+//   console.log('Working...');
+// }
 
-switcher = 1;
-if (switcher) {
-  console.log('Working...');
-}
+// switcher = 1;
+// if (switcher) {
+//   console.log('Working...');
+// }
 
-// 2)
-console.log(typeof(Boolean('5')));
+// // 2)
+// console.log(typeof(Boolean('5')));
 
-// 3)
-console.log(typeof(!!"4444")); // !! - делают boolean
+// // 3)
+// console.log(typeof(!!"4444")); // !! - делают boolean
 
 
 
@@ -743,7 +743,7 @@ console.log(typeof(!!"4444")); // !! - делают boolean
 
 // (4)
 // Чему равна сумма [ ] + 1 + 2?
-console.log([] + 1 + 2);
+// console.log([] + 1 + 2);
 // Ответ: 12
 
 // (5)
@@ -754,7 +754,7 @@ console.log([] + 1 + 2);
 // (6)
 // Чему равно 2 && 1 && null && 0 && undefined ?
 
-console.log(2 && 1 && null && 0 && undefined); // "И" запинается на лжи
+// console.log(2 && 1 && null && 0 && undefined); // "И" запинается на лжи
 // Ответ: null
 
 // (7)
@@ -769,20 +769,20 @@ console.log(2 && 1 && null && 0 && undefined); // "И" запинается на
 
 // (9)
 // a = [1, 2, 3]; b = [1, 2, 3]; Правда ли что a == b ?
-const aaa = [1, 2, 3];
-const bbb = [1, 2, 3];
+// const aaa = [1, 2, 3];
+// const bbb = [1, 2, 3];
 
-console.log(aaa == bbb);
+// console.log(aaa == bbb);
 // Ответ: нет, не равны
 
 // (10)
 // Что выведет этот код: alert( +"Infinity" );?
-alert( +"Infinity");
+// alert( +"Infinity");
 // Ответ: Infinity (число)
 
 // (11)
 // Верно ли сравнение: "Ёжик" > "яблоко"?
-console.log("Ёжик" > "яблоко");
+// console.log("Ёжик" > "яблоко");
 // Ответ: нет, false
 
 // (12)
@@ -820,8 +820,8 @@ console.log("Ёжик" > "яблоко");
 // </body>
 
 // В JS:
-const p = document.querySelectorAll('p');
-console.log(p);
+// const p = document.querySelectorAll('p');
+// console.log(p);
 
 /* defer - сообщает браузеру, что он должен продолжать обрабатывать страницу
 и загружать скрипт в фоновом режиме, затем = запустить скрипт, когда он загрузится */
@@ -2020,19 +2020,19 @@ console.log(p);
 
 // Как можно применить на практике? Пример:
 // Например, нам нужно вытянуть имена людей.
-const object = {
-	ivan: 'person',
-	ann: 'person',
-	dog: 'animal',
-	cat: 'animal'
-};
+// const object = {
+// 	ivan: 'person',
+// 	ann: 'person',
+// 	dog: 'animal',
+// 	cat: 'animal'
+// };
 
-// const newArr = Object.entries(object); // получается массив, который содержит массивы
-const newArr = Object.entries(object)
-.filter(item => item[1] === 'person')// выводим только те массивы, которые содержат 'person
-.map(item => item[0]); // получаем новый масив, где только имена
-//теперь нужно получить имена (первые элементы)
-console.log(newArr);
+// // const newArr = Object.entries(object); // получается массив, который содержит массивы
+// const newArr = Object.entries(object)
+// .filter(item => item[1] === 'person')// выводим только те массивы, которые содержат 'person
+// .map(item => item[0]); // получаем новый масив, где только имена
+// //теперь нужно получить имена (первые элементы)
+// console.log(newArr);
 
 
 
@@ -2414,3 +2414,76 @@ console.log(newArr);
 // localStorage.setItem('Alex', person);
 
 // console.log(localStorage.getItem('Alex'));
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 65 "РЕГУЛЯРНЫЕ ВЫРАЖЕНИЯ"
+// Регулярные выражения работают со строками - удаляют, заменяют части слова,
+// ищут кусочки строк, ограничивают ввод определенных знаков и т.д.
+
+// Регуляное выражение состоит из 2-ух частей - паттерн и флаги.
+// Паттерн - это шаблон того, что мв ищем, удаляем и т.д.
+
+// Регулярные выражения можно создать несколькими синтаксисами:
+// (1) С помощью конструкторов:
+// new RegExp('pattern', 'flags'); // им обычно никто не пользуется, т.к. есть более короткий вариант:
+// /pattern/flags
+
+// первый метод - search:
+// const ans = prompt('Введите ваше имя');
+
+// мы хотим найти все маленькие буквы "н"
+// const reg = /n/ig; // шаблон того, что мы ищем
+// Классические флаги:
+// i - если мы хотим что-то найти вне зависимости от регистра
+// g - т.е. global, пытаемся найти сразц несколько вхождений (например, все буквы, а не только первую встретившуюся)
+// m - многострочный режим
+// флаги можно комбинировать, например, im, igm и т.д.
+// console.log(ans.search(reg)); // внутрь скобок мы помещаем то регулярное выражение, которое будем искать
+
+// например, вводим "Ann" и получаем 1, т.к. это первая позиция, по которой мы получили результат
+
+
+// Второй метод - match. Когда используем match, мы получаем массив
+// console.log(ans.match(reg));
+
+// Третий метод - replace:
+// const pass = prompt('Password');
+
+// console.log(pass.replace(/./g, "*")); // . - точка - абсолютно все элементы попадут в строку, * - то, на что заменяем
+// console.log(pass.replace(/\./g, "*")); // чтобы заменить именно точку,
+// нужо ее "экранировать" (поставить слеш перед ней)
+// в скобках 2 аргумента: первый - что мы заменяем, второй - на что мы изменяем. 
+// В первый аргумент мы можем поместить регулярное выражение
+
+
+// console.log('12-34-56'.replace(/-/g, ':')); // например, мы хотим убрать все дефисы и поменять на двоеточие
+
+
+// У регулярных выражений есть свои методы, например, метод test:
+// test возвращает либо true, либо false. Он ищет совпадения
+// const ans = prompt('Введите ваше имя');
+// const reg = /n/ig;
+// console.log(reg.test(ans));
+
+// В регулярных выражениях есть классы:
+// (1) \d - digit - цифры
+// (2) \w - word - ищем все слова и буквы
+// (3) \s - space - пробелы
+
+// Будем находить только числа:
+// const ans = prompt('Введите ваше число');
+// const reg = /\d/g;
+// console.log(ans.match(reg));
+
+// Еще пример:
+// const str = 'My name is R2D2';
+// console.log(str.match(/\w\d\w\d/i));
+
+// Обратные классы (не числа, не буквы, не пробелы):
+// \D, \W, \S - просто пишем большой регистр, и это становится "не цифры, не буквы, не пробелы"

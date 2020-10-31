@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/synopsis.css">
 </head>
 <body>
+    <div class="big-block">
+        <p>Просто блок</p>
+    </div>
     <script src="js/synopsis.js"></script>
+    <script>
+        let block = document.querySelector('.big-block');
+
+        block.addEventListener('mouseover', () => {
+            block.style.backgroundColor = '#24f0e2'
+        });
+
+        block.addEventListener('mouseout', () => {
+            block.style.backgroundColor = '#f0c322';
+        });
+
+        block.addEventListener('click', () => {
+            block.style.backgroundColor = '';           
+        });
+
+        block.addEventListener('click', () => {          
+        });
+        
+    </script>
 </body>
 </html>

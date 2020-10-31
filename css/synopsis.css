@@ -1,0 +1,23 @@
+body {
+  font-family: 'Sedgwick Ave', cursive;
+  margin: 0 auto;
+}
+
+
+
+.big-block {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 400px;
+  height: 200px;
+  background-color: pink;  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-block p {
+  text-transform: uppercase;
+  font-size: 20px;
+}
