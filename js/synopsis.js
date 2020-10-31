@@ -2168,7 +2168,7 @@ console.log(newArr);
 //           display: block;
 //           margin: 0 auto;
 //       `;
-      
+
 //       form.insertAdjacentElement('afterend', statusMessage);
 
 
@@ -2178,11 +2178,11 @@ console.log(newArr);
 //       // entries берет каждое свойство и формирует из него массив
 //       // обратный метод - fromEntries
 
-                 
-//       postData('http://localhost:3000/requests', json)            
+
+//       postData('http://localhost:3000/requests', json)
 //       .then(data => {
 //           console.log(data);
-//           showThanksModal(message.success);                
+//           showThanksModal(message.success);
 //           statusMessage.remove();
 //       }).catch(() => {
 //           showThanksModal(message.failure);
@@ -2249,3 +2249,168 @@ console.log(newArr);
 // next.addEventListener('click', () => {
 //     plusSlides(1);
 // });
+
+
+
+
+// ВТОРОЙ ВАРИАНТ СЛАЙДЕРА (БИБЛИОТЕКА SLICK): 
+// const slides = document.querySelectorAll('.offer__slide');
+//     const slider = document.querySelector('.offer__slider');
+//     const prev = document.querySelector('.offer__slider-prev');
+//     const next = document.querySelector('.offer__slider-next');
+//     const total = document.querySelector('#total');
+//     const current = document.querySelector('#current');
+//     let slideIndex = 1; // для первого варианта
+//
+//     const slidesWrapper = document.querySelector('.offer__slider-wrapper');
+//     const slidesField = document.querySelector('.offer__slider-inner');
+//     const width = window.getComputedStyle(slidesWrapper).width;
+//     let offset = 0; // для второго варианта, чтобы измерять количество слайдов и текущий слайд
+
+// if (slides.length < 10) {
+//         total.textContent = `0${slides.length}`;
+//         current.textContent = `0${slideIndex}`;
+//     } else {
+//         total.textContent = slides.length;
+//         current.textContent = slideIndex;
+//     }
+//
+//     slidesField.style.width = 100 * slides.length + '%';
+//     slidesField.style.display ='flex';
+//     slidesField.style.transition = '0.5s all';
+//
+//     slidesWrapper.style.overflow = 'hidden';
+//
+//     slides.forEach(slide => {
+//         slide.style.width = width;
+//     });
+//
+//     next.addEventListener('click', () => {
+//         if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+//             offset = 0;
+//         } else {
+//             offset += +width.slice(0, width.length - 2);
+//         }
+//
+//         slidesField.style.transform = `translateX(-${offset}px)`;
+//
+//         if (slideIndex == slides.length) {
+//             slideIndex = 1;
+//         } else {
+//             slideIndex++;
+//         }
+//
+//         if (slides.length < 10) {
+//             current.textContent = `0${slideIndex}`;
+//         } else {
+//             current.textContent = slideIndex;
+//         }
+//     });
+//
+//
+//
+//     prev.addEventListener('click', () => {
+//         if (offset == 0) {
+//             offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+//         } else {
+//             offset -= +width.slice(0, width.length - 2);
+//         }
+//
+//         slidesField.style.transform = `translateX(-${offset}px)`;
+//
+//         if (slideIndex == 1) {
+//             slideIndex = slides.length;
+//         } else {
+//             slideIndex--;
+//         }
+//
+//         if (slides.length < 10) {
+//             current.textContent = `0${slideIndex}`;
+//         } else {
+//             current.textContent = slideIndex;
+//         }
+//     });
+
+
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 64 "КАК СОХРАНИТЬ ДАННЫЕ БЕЗ БД. РАБОТА С LocalStorage"
+
+// LocalStorage можно использовать: 
+// если человек устанавливает настройки сайта, и при повторном заходе на сайт
+// все настройки останутся на местах (или данные формы, место просмотра видео, где пользователь остановился и т.д.)
+// объект localstorage находится внутри только одного домена и служит для хранения локальных данных
+// у localstorage есть ограничение - максимум 5 мб данных
+
+
+// чтобы записать новый ключ есть команда setItem:
+// localStorage.setItem('number', 5); // первый аргумент - название ключа, второй - значение
+
+// // вторая команда - получать данные из localstorage:
+// console.log(localStorage.getItem('number'));
+
+// // удалить ключ:
+// localStorage.removeItem('number');
+
+// console.log(localStorage.getItem('number')); // получаем null
+
+// // 4-ая команда - clear (полностью очищаем локальное хранилище)
+// localStorage.clear();
+
+
+// const checkbox = document.querySelector('#checkbox'),
+//       form = document.querySelector('form'),
+//       change = document.querySelector('#color');
+
+// задача: сохранить в локальных настройках чекбокс (чтобы всегда было отмечено "запомнить меня")
+// и смену цвета (чтобы он тоже сохранился)
+
+// сделаем так, что когда пользователь заходит на страницу, то идет автоиатическая проверка локалстореджа,
+// и если такм есть нужный нам ключ, то переставляем галочку в позицию cheched
+
+// if (localStorage.getItem('isChecked')) {
+// 	checkbox.checked = true;
+// }
+
+// if (localStorage.getItem('bg') === 'changed') {	
+// 	form.style.backgroundColor = 'pink';
+// } 
+
+// checkbox.addEventListener('change', () => {
+// 	localStorage.setItem('isChecked', true);
+// });
+
+// change.addEventListener('click', () => {
+// 	if (localStorage.getItem('bg') === 'changed') {
+// 		localStorage.removeItem('bg');
+// 		form.style.backgroundColor = '#fff';
+// 	} else {
+// 		localStorage.setItem('bg', 'changed');
+// 		form.style.backgroundColor = 'pink';
+// 	}
+// });
+
+// const person = {
+// 	name: 'Alex',
+// 	age: 25
+// };
+
+// через JSON.parse записываем в локалсторедж
+// const serializedPerson = JSON.stringify(person);
+// localStorage.setItem('Alex', serializedPerson);
+
+// console.log(JSON.parse(localStorage.getItem('Alex')));
+
+// вариант без JSON, а напрямую:
+// const serializedPerson = JSON.stringify(person);
+// localStorage.setItem('Alex', person);
+
+// console.log(localStorage.getItem('Alex'));
