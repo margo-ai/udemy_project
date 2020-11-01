@@ -239,7 +239,7 @@ switch (num) {
 // const logger = function () {
 //   console.log('Hello!');
 // };
-// 
+//
 // logger();
 
 
@@ -2253,7 +2253,7 @@ Breakpoints - показывает, где установлены брэйкпо
 
 
 
-// ВТОРОЙ ВАРИАНТ СЛАЙДЕРА (БИБЛИОТЕКА SLICK): 
+// ВТОРОЙ ВАРИАНТ СЛАЙДЕРА (БИБЛИОТЕКА SLICK):
 // const slides = document.querySelectorAll('.offer__slide');
 //     const slider = document.querySelector('.offer__slider');
 //     const prev = document.querySelector('.offer__slider-prev');
@@ -2344,7 +2344,7 @@ Breakpoints - показывает, где установлены брэйкпо
 
 // ЛЕКЦИЯ 64 "КАК СОХРАНИТЬ ДАННЫЕ БЕЗ БД. РАБОТА С LocalStorage"
 
-// LocalStorage можно использовать: 
+// LocalStorage можно использовать:
 // если человек устанавливает настройки сайта, и при повторном заходе на сайт
 // все настройки останутся на местах (или данные формы, место просмотра видео, где пользователь остановился и т.д.)
 // объект localstorage находится внутри только одного домена и служит для хранения локальных данных
@@ -2380,9 +2380,9 @@ Breakpoints - показывает, где установлены брэйкпо
 // 	checkbox.checked = true;
 // }
 
-// if (localStorage.getItem('bg') === 'changed') {	
+// if (localStorage.getItem('bg') === 'changed') {
 // 	form.style.backgroundColor = 'pink';
-// } 
+// }
 
 // checkbox.addEventListener('change', () => {
 // 	localStorage.setItem('isChecked', true);
@@ -2458,7 +2458,7 @@ Breakpoints - показывает, где установлены брэйкпо
 // console.log(pass.replace(/./g, "*")); // . - точка - абсолютно все элементы попадут в строку, * - то, на что заменяем
 // console.log(pass.replace(/\./g, "*")); // чтобы заменить именно точку,
 // нужо ее "экранировать" (поставить слеш перед ней)
-// в скобках 2 аргумента: первый - что мы заменяем, второй - на что мы изменяем. 
+// в скобках 2 аргумента: первый - что мы заменяем, второй - на что мы изменяем.
 // В первый аргумент мы можем поместить регулярное выражение
 
 
@@ -2555,7 +2555,7 @@ Breakpoints - показывает, где установлены брэйкпо
 // 	let userAge = age;
 
 // 	this.say = function() {
-// 	console.log(`Имя пользователя ${this.name}, возраст ${userAge}`);	
+// 	console.log(`Имя пользователя ${this.name}, возраст ${userAge}`);
 // 	};
 
 // 	this.getAge = function() {
@@ -2590,11 +2590,11 @@ Breakpoints - показывает, где установлены брэйкпо
 // 		this.name = name;
 // 		this._age = age;
 // 	}
-	
+
 // 	#surname = 'Petrov'; // с помощью решетки свойство становится приватным
 
 // 	say = () => {
-// 	console.log(`Имя пользователя ${this.name} ${this.#surname}, возраст ${this._age}`);	
+// 	console.log(`Имя пользователя ${this.name} ${this.#surname}, возраст ${this._age}`);
 // 	}
 
 // 	get age() {
@@ -2652,3 +2652,59 @@ Breakpoints - показывает, где установлены брэйкпо
 // }());
 
 // user.sayHello();
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 72 "ES6 Modules"
+
+// main.js:
+
+// export let one =1;
+//
+// // другой вариант экспорта:
+// let two = 2;
+//
+// export {two}; // обязательно фмгурные скобки
+//
+// // export function sayHi() {
+// //   console.log('Hello');
+// // }
+//
+// // экспорт по умолчанию:
+// export default function sayHi() {
+//   console.log('Hello');
+// }
+//
+//
+// // script.js:
+//
+// import {one, two} from './main';
+//
+// // когда импортируем файл можно его прям здесь и переименовать:
+// // import {one as first} from './main';
+// // console.log(first);
+// console.log(`${one} and ${two}`);
+//
+// // Затем собираем через webpack в терминале командой "npx webpack"
+//
+// // Можно испортировать всё (например, тут 2 переменные и функция) и назвать это:
+// import * as data from './main.js';
+//
+// // то, что мы экспортировали по умолчанию:
+// import sayHi from './main.js';
+// sayHi();
+
+
+// после настройки экспортов и импортов мы можем подключить скрипт на страницу:
+// <script type='module' src="./js/main.js"></script> // сперва подключ. main.js, т.к. из него идут импорты
+// <script type='module' src="./js/script.js"></script>
