@@ -2585,34 +2585,70 @@ Breakpoints - показывает, где установлены брэйкпо
 
 
 // Классы:
-class User {
-	constructor(name, age) {
-		this.name = name;
-		this._age = age;
-	}
+// class User {
+// 	constructor(name, age) {
+// 		this.name = name;
+// 		this._age = age;
+// 	}
 	
-	#surname = 'Petrov'; // с помощью решетки свойство становится приватным
+// 	#surname = 'Petrov'; // с помощью решетки свойство становится приватным
 
-	say = () => {
-	console.log(`Имя пользователя ${this.name} ${this.#surname}, возраст ${this._age}`);	
-	}
+// 	say = () => {
+// 	console.log(`Имя пользователя ${this.name} ${this.#surname}, возраст ${this._age}`);	
+// 	}
 
-	get age() {
-		return this._age;
-	}
+// 	get age() {
+// 		return this._age;
+// 	}
 
-	set age(age) {
-		if (typeof age === 'number' && age > 0 && age < 110) {
-			this._age = age;
-		} else {
-			console.log('Недопустимое значение!');
-		}
-	}
-}
+// 	set age(age) {
+// 		if (typeof age === 'number' && age > 0 && age < 110) {
+// 			this._age = age;
+// 		} else {
+// 			console.log('Недопустимое значение!');
+// 		}
+// 	}
+// }
 
-const ivan = new User('Ivan', 27);
-// console.log(ivan.age);
-// ivan.age = 99;
-// console.log(ivan.age);
-console.log(ivan.surname);
-ivan.say();
+// const ivan = new User('Ivan', 27);
+// // console.log(ivan.age);
+// // ivan.age = 99;
+// // console.log(ivan.age);
+// console.log(ivan.surname);
+// ivan.say();
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 70 "ПРИЕМ МОДУЛЬ, как и зачем его использовать"
+
+// Два способа создания модулей:
+// (1) Использование анонимной самовызывающейся функции
+// const number = 1; // записываем переменную в глобальную область видимости
+// (function(){
+// 	let number = 2;
+// 	console.log(number);
+// 	console.log(number + 3);
+// }()); // анонимная самовызывающаяся функция
+
+// console.log(number);
+
+
+// //(2) Испоьзование "объектного интерфейса"
+// const user = (function(){
+// 	const privat = function() {
+// 		console.log('I am privat!');
+// 	};
+
+// 	return {
+// 		sayHello: privat
+// 	};
+// }());
+
+// user.sayHello();
