@@ -2503,34 +2503,116 @@ Breakpoints - показывает, где установлены брэйкпо
 // (1) Свойства-данные (всё, что использовали до данного момента). Просто описывают объект
 // (2) Свойства-аксессоры. Комплекс, позволяющий как присваивать, так и получать значения
 
-const person = {
-  name: "Alex",
-  age: 25,
+// const person = {
+//   name: "Alex",
+//   age: 25,
 
-  get userAge() {
-    return this.age;
-  },
+//   get userAge() {
+//     return this.age;
+//   },
 
-  set userAge(num) {
-    this.age = num;
-  }
-};
+//   set userAge(num) {
+//     this.age = num;
+//   }
+// };
 
-console.log(person.userAge = 30);
-console.log(person.userAge);
+// console.log(person.userAge = 30);
+// console.log(person.userAge);
 
 // Т.е. свойства-аксессоры - это свойства, которые мы можем получить из уже имеющихся (как fullName из name и surname),
 // или присвоить (set)
 // Снаружи свойство-аксессор выглядит как обычное свойство.
 // В этом и заключается смысл свойств-аксессоров.
 // Мы не вызываем user.fullName как функцию, а читаем как обычное свойство
-let user = {
-  name: "John",
-  surname: "Smith",
+// let user = {
+//   name: "John",
+//   surname: "Smith",
 
-  get fullName() {
-	  return `${this.name} ${this.surname}`;
-  }
-};
+//   get fullName() {
+// 	  return `${this.name} ${this.surname}`;
+//   }
+// };
 
-console.log(user.fullName);
+// console.log(user.fullName);
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 69 "ИНКАПСУЛЯЦИЯ"
+// Инкапсуляция - один из принципов ООП
+
+// Инкапсуляция - отделение и сокрытие от внешнего мира внутренностей программы;
+// объект хранит свое состояние в приватном порядке; только методы объекта имеют доступ для его изменения
+
+
+// Функция-конструктор:
+// function User(name, age) {
+// 	this.name = name;
+// 	let userAge = age;
+
+// 	this.say = function() {
+// 	console.log(`Имя пользователя ${this.name}, возраст ${userAge}`);	
+// 	};
+
+// 	this.getAge = function() {
+// 		return userAge;
+// 	};
+
+// 	this.setAge = function(age) {
+// 		if (typeof age === 'number' && age > 0 && age < 110) {
+// 			userAge = age;
+// 		} else {
+// 			console.log('Недопустимое значение!');
+// 		}
+// 	};
+// }
+
+// const ivan = new User('Ivan', 27);
+// console.log(ivan.name);
+// console.log(ivan.getAge());
+
+
+// ivan.setAge(30);
+// ivan.setAge(300);
+// console.log(ivan.getAge());
+
+// ivan.say();
+
+
+
+// Классы:
+class User {
+	constructor(name, age) {
+		this.name = name;
+		this._age = age;
+	}
+	
+	#surname = 'Petrov'; // с помощью решетки свойство становится приватным
+
+	say = () => {
+	console.log(`Имя пользователя ${this.name} ${this.#surname}, возраст ${this._age}`);	
+	}
+
+	get age() {
+		return this._age;
+	}
+
+	set age(age) {
+		if (typeof age === 'number' && age > 0 && age < 110) {
+			this._age = age;
+		} else {
+			console.log('Недопустимое значение!');
+		}
+	}
+}
+
+const ivan = new User('Ivan', 27);
+// console.log(ivan.age);
+// ivan.age = 99;
+// console.log(ivan.age);
+console.log(ivan.surname);
+ivan.say();
