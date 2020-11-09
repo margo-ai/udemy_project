@@ -806,6 +806,79 @@ Breakpoints - показывает, где установлены брэйкпо
 
 
 
+// МОДАЛЬНОЕ ОКНО С ФОРМОЙ
+
+ // const modalTrigger = document.querySelectorAll('[data-modal]');
+ // const modal = document.querySelector('.modal');
+
+ // вариант через toggle:
+
+ // modalTrigger.addEventListener('click', () => {
+ //     // modal.classList.add('show');
+ //     // modal.classList.remove('hide');
+ //     modal.classList.toggle('show');
+ //     document.body.style.overflow = 'hidden';
+ // });
+
+ // modalCloseBtn.addEventListener('click', () => {
+ //     // modal.classList.add('hide');
+ //     // modal.classList.remove('show');
+ //     modal.classList.toggle('show');
+ //     document.body.style.overflow = '';
+ // });
+
+ // function openModal() {
+ //     modal.classList.add('show');
+ //     modal.classList.remove('hide');
+ //     document.body.style.overflow = 'hidden';
+ //     clearInterval(modalTimerId);
+ // }
+ //
+ // modalTrigger.forEach(btn => {
+ //         btn.addEventListener('click', openModal);
+ // });
+ //
+ // function closeModal() {
+ //     modal.classList.add('hide');
+ //     modal.classList.remove('show');
+ //     document.body.style.overflow = '';
+ // }
+ //
+ //
+ //
+ // modal.addEventListener('click', (e) => {
+ //     if (e.target === modal || e.target.getAttribute('data-close') == '') {
+ //         closeModal();
+ //     }
+ // });
+ //
+ //
+ // document.addEventListener('keydown', (e) => {
+ //     if (e.code === "Escape" && modal.classList.contains('show')) {
+ //         closeModal();
+ //     }
+ // });
+ //
+ //
+ // const modalTimerId = setTimeout(openModal, 50000);
+ //
+ // function showModalByScroll() {
+ //     if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+ //         openModal();
+ //         window.removeEventListener('scroll', showModalByScroll);
+ //     }
+ // }
+ //
+ // window.addEventListener('scroll', showModalByScroll);
+
+ //  {once: true}  // чтобы наше событие выполнилось только один раз
+
+
+
+
+
+
+
 
 
 
@@ -2708,3 +2781,131 @@ Breakpoints - показывает, где установлены брэйкпо
 // после настройки экспортов и импортов мы можем подключить скрипт на страницу:
 // <script type='module' src="./js/main.js"></script> // сперва подключ. main.js, т.к. из него идут импорты
 // <script type='module' src="./js/script.js"></script>
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 73 "ФИКСИМ БАГИ"
+// В скриптовых файлах новый стандарт экспорта:
+// export default calc; // default - значит по умолчанию
+
+// прежний формат:
+// module.exports = calc;
+
+
+
+
+
+
+// ЛЕКЦИЯ 75 "ОШИБКИ. КАК ИЗБЕЖАТЬ "ПОЛОМКИ" СВОЕГО КОДА"
+
+// try {
+// 	console.log('Normal');
+// 	console.log(a);
+// 	console.log('result');
+// } catch(error) {
+// 	console.log(error.name);
+// 	console.log(error.message);
+// 	console.log(error.stack);
+// } finally {
+	
+// }
+
+// // В случае ниже после ошибки дальнейший скрипт не выполнится
+// console.log(a);
+// console.log('Still normal');
+
+
+
+// ПРИМЕР
+// У нас 2 html файла - index и contacts
+
+// try {
+// 	document.querySelector('.active').addEventListener('cick', () => {
+// 		console.log('click');
+// 	});
+// } catch(e) {
+// 	console.log(e);
+// }
+
+// console.log('normal');
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 77 "СОВРЕМЕННЫЕ БИБЛИОТЕКИ И ФРЕЙМВОРКИ"
+
+
+// Отличие библиотеки от фрэймворка - библиотека более гибкое понятие.
+// Это готовое решение (Реакт и т.д.). В работе с библиотеками нет никаких ограничений: используем только тогда,
+// когда необходимо в любой части сайта или приложения. Мы подстраиваем библиотеку под свою работу.
+// С фреймворками - наоборот. Когда к проекту подключаем фрэймворк, то уже он будет диктовать все правила.
+// Фреймворк - обширное понятие, которое, можно сказать, формирует целую философию, как именно создавать проект.
+// Здесь уже невозможно отклоняться от какой-то структуры проекта, компонентов и т.п.
+// Фрэймворк диктует правила, как работать. 
+
+// Фреймворки создают SPA (single page application), которые работают прям в браузере
+
+
+
+
+// (1) Angular
+// Это javascript-фрэймворк, основанный на typesctipt.
+// Typescript - это отдельный язык программирования, который компилиуется в обычный javascript.
+// Пишем на typescript, и он превращается в обычный JS.
+// В плане производительности, Angular считается самым тяжелым из всех 3-х фрэймворков (включая React и Vue.js).
+// Он может работать немного медленнее, чем все остальные,
+// т.к. в него много чего включено.
+// Порог вхождения в Angular самый высокий. Разработчки Angular - Google.
+
+
+// Что необходимо выучить, чтобы начать работу с Angular:
+// (1) node.js
+// (2) Typescript
+// (3) Webpack
+// (4) MVC pattern (шаблон проектирования, используется для создания приложений)
+// (5) Angular
+
+
+
+
+// (2) React (это уже библиотека)
+// В своем синтаксисе он использует комбинацию JS и вёрстки.
+// Разработчик React - Facebook
+// По трендам и вакансиям реакт стоит на первом месте.
+
+// Что нужно знать, чтобы работать с React?
+// (1) JSX (препроцессор)
+// (2) Babel (при помощи него компилируется JSX)
+// (3) Webpack
+// (4) Node.js
+// (5) React
+
+
+
+
+// (3) Vue.js (это фрэймворк, достаточно молодой)
+// Vue довольно прост в обучении.
+
+// Что нужно знать, чтобы работать с Vue?
+// (1) Webpack
+// (2) Node.js
+// (3) Vue
+
+// ИТОГ:
+// 1 - Если хочется подробную документацию и поддержку, т.е. легче всего что-то загуглить,
+// не заморачиваться, а просто брать и использовать инструмент,
+// работать на крупномасштабных проектах, то лучше выбрать Angular.
+// 2 - Если вы цените гибкость и настройку под себя, под конкретный проект, под скорость работы,
+// любите писать всё на чистом JS и не боитесь смешивать его с html, то вам дорога в React.
+// 3 - Если хочется относительно легко и быстро научиться писать чистый красивый код,
+// использовать самый легковесный и быстрый инструмент, то нужно выбрать Vue.
