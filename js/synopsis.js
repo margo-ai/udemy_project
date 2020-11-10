@@ -3,7 +3,7 @@
 
 
 /*const obj = {
-  a: 50
+	a: 50
 };
 
 obj.a = 10;
@@ -152,18 +152,18 @@ alert(`Привет, ${user}`); */
 
 /* const num = 51;
 switch (num) {
-  case 49:
-    console.log('Неверно');
-    break;
-  case 100:
-    console.log('Неверно');
-    break;
-  case 50:
-    console.log('В точку!');
-    break;
-  default:
-    console.log('Не в этот раз');
-    break;
+	case 49:
+		console.log('Неверно');
+		break;
+	case 100:
+		console.log('Неверно');
+		break;
+	case 50:
+		console.log('В точку!');
+		break;
+	default:
+		console.log('Не в этот раз');
+		break;
 } */
 
 
@@ -944,133 +944,60 @@ Breakpoints - показывает, где установлены брэйкпо
 // ЛЕКЦИЯ 39 "Скрипты и время их выполнения, setTimeout и setInterval"
 
 // const timerId = setTimeout(function() {
-    //     console.log('Hello');
-    // }, 2000); // первый аргумент - функция. которая должна запуститься через определенный промежуток времени
-    // второй аргумент - таймаут вызова этой функции в миллисекундах
+		//     console.log('Hello');
+		// }, 2000); // первый аргумент - функция. которая должна запуститься через определенный промежуток времени
+		// второй аргумент - таймаут вызова этой функции в миллисекундах
 
-    // const timerId = setTimeout(function(text) {
-    //     console.log(text);
-    // }, 2000, 'Hello'); // в такой конструкции 3-им аргументом мы можем выводить текст, который передается в функцию
+		// const timerId = setTimeout(function(text) {
+		//     console.log(text);
+		// }, 2000, 'Hello'); // в такой конструкции 3-им аргументом мы можем выводить текст, который передается в функцию
 
-    // const btn = document.querySelector('.btn');
-    // let timerId;
-    // let i = 0;
+		// const btn = document.querySelector('.btn');
+		// let timerId;
+		// let i = 0;
 
-    // function myAnimation() {
-    //     const elem = document.querySelector('.box');
-    //     let pos = 0;
+		// function myAnimation() {
+		//     const elem = document.querySelector('.box');
+		//     let pos = 0;
 
-    //     const id = setInterval(frame, 10);
-    //     function frame() {
-    //         if (pos == 300) {
-    //             clearInterval(id);
-    //         } else {
-    //             pos++;
-    //             elem.style.top = pos + "px";
-    //             elem.style.left = pos + "px";
-    //         }
-    //     }
-    // }
-
-
-    // btn.addEventListener('click', myAnimation);
-
-    // btn.addEventListener('click', () => {
-    //     // const timerId = setTimeout(logger, 2000);
-    //     timerId = setInterval(logger, 1000);
-    // });
-
-    // если функция logger занимает слишком много времени,
-    // то после первого "прогона" setInterval не будет ждать секунду, а сразу начнёт второй "круг"
+		//     const id = setInterval(frame, 10);
+		//     function frame() {
+		//         if (pos == 300) {
+		//             clearInterval(id);
+		//         } else {
+		//             pos++;
+		//             elem.style.top = pos + "px";
+		//             elem.style.left = pos + "px";
+		//         }
+		//     }
+		// }
 
 
+		// btn.addEventListener('click', myAnimation);
 
-    // function logger () {
-    //     if (i === 3) {
-    //         clearInterval(timerId); // остановить setTimeout
-    //     }
-    //     console.log('text');
-    //     i++;
-    // }
+		// btn.addEventListener('click', () => {
+		//     // const timerId = setTimeout(logger, 2000);
+		//     timerId = setInterval(logger, 1000);
+		// });
 
-    // Рекурсивный вызов setTimeout (в этом случае код всегда будет ждать отведенное ему время):
-    // let id = setTimeout(function log() {
-    //     console.log('Hello');
-    //     id = setTimeout(log, 500);
-    // }, 500);
+		// если функция logger занимает слишком много времени,
+		// то после первого "прогона" setInterval не будет ждать секунду, а сразу начнёт второй "круг"
 
 
 
+		// function logger () {
+		//     if (i === 3) {
+		//         clearInterval(timerId); // остановить setTimeout
+		//     }
+		//     console.log('text');
+		//     i++;
+		// }
 
-
-
-
-
-
-
-    // ЛЕКЦИЯ 40 "РАБОТА С ДАТАМИ"
-
-    // const now = new Date(); // текущее время
-    // const now = new Date('2020-10-24');
-    // const now = new Date(2020, 5, 1, 20);
-    // const now = new Date(0); // передаем ноль миллисекунд; дата до 01.01.1970
-    // Если нужно получить дату до 1970 года, исопьлзуем отрицательное значение миллисекунд:
-    // const now = new Date(-99999999999);
-
-    // const now = new Date();
-
-    // МЕТОДЫ С ДАТАМИ  :
-    // получение компонентов даты:
-    // console.log(now.getFullYear());
-    // месяц (они начинаются с нуля):
-    // console.log(now.getMonth()); // поэтому октябрь - это 9
-    // дата:
-    // console.log(now.getDate());
-    //getHours
-    //getMinutes
-    //getSeconds
-    //getMilliseconds
-
-    // номер дня недели (нумерация начинается с воскресенья - 0):
-    // console.log(now.getDay());
-
-    // все эти значения с местного часового поиска
-    // чтобы посмотреть время по гринвичу:
-    // console.log(now.getUTCHours());
-
-
-
-    // Другие методы для получения компонентов даты:
-
-    // разница между часовым поясом и UTC (в минутах):
-    // console.log(now.getTimezoneOffset());
-    // количество миллисикунд с 01.01.1970:
-    // console.log(now.getTime());
-
-
-
-    // Устанавливаем дату (сеттеры):
-    // const now = new Date();
-    // console.log(now.setHours(18));
-    // console.log(now);
-
-    // браузер ориентируется на локальную дату, а консоль программная - на UTC
-
-    // const now = new Date('2020-05-01'); //(1)
-    // new Date.parse('2020-05-01'); // (2)
-    // (1) и (2) - это то же самое
-
-
-
-    // let start = new Date();
-
-    // for (let i = 0; i < 100000; i++) {
-    //   let some = i ** 3;
-    // }
-
-    // let end = new Date();
-
-    // alert(`Цикл отработал за ${end - start} миллисекунд`)
+		// Рекурсивный вызов setTimeout (в этом случае код всегда будет ждать отведенное ему время):
+		// let id = setTimeout(function log() {
+		//     console.log('Hello');
+		//     id = setTimeout(log, 500);
+		// }, 500);
 
 
 
@@ -1081,7 +1008,80 @@ Breakpoints - показывает, где установлены брэйкпо
 
 
 
-  //  ЛЕКЦИЯ 45 "ФУНКЦИИ-КОНСТРУКТОРЫ"
+		// ЛЕКЦИЯ 40 "РАБОТА С ДАТАМИ"
+
+		// const now = new Date(); // текущее время
+		// const now = new Date('2020-10-24');
+		// const now = new Date(2020, 5, 1, 20);
+		// const now = new Date(0); // передаем ноль миллисекунд; дата до 01.01.1970
+		// Если нужно получить дату до 1970 года, исопьлзуем отрицательное значение миллисекунд:
+		// const now = new Date(-99999999999);
+
+		// const now = new Date();
+
+		// МЕТОДЫ С ДАТАМИ  :
+		// получение компонентов даты:
+		// console.log(now.getFullYear());
+		// месяц (они начинаются с нуля):
+		// console.log(now.getMonth()); // поэтому октябрь - это 9
+		// дата:
+		// console.log(now.getDate());
+		//getHours
+		//getMinutes
+		//getSeconds
+		//getMilliseconds
+
+		// номер дня недели (нумерация начинается с воскресенья - 0):
+		// console.log(now.getDay());
+
+		// все эти значения с местного часового поиска
+		// чтобы посмотреть время по гринвичу:
+		// console.log(now.getUTCHours());
+
+
+
+		// Другие методы для получения компонентов даты:
+
+		// разница между часовым поясом и UTC (в минутах):
+		// console.log(now.getTimezoneOffset());
+		// количество миллисикунд с 01.01.1970:
+		// console.log(now.getTime());
+
+
+
+		// Устанавливаем дату (сеттеры):
+		// const now = new Date();
+		// console.log(now.setHours(18));
+		// console.log(now);
+
+		// браузер ориентируется на локальную дату, а консоль программная - на UTC
+
+		// const now = new Date('2020-05-01'); //(1)
+		// new Date.parse('2020-05-01'); // (2)
+		// (1) и (2) - это то же самое
+
+
+
+		// let start = new Date();
+
+		// for (let i = 0; i < 100000; i++) {
+		//   let some = i ** 3;
+		// }
+
+		// let end = new Date();
+
+		// alert(`Цикл отработал за ${end - start} миллисекунд`)
+
+
+
+
+
+
+
+
+
+
+	//  ЛЕКЦИЯ 45 "ФУНКЦИИ-КОНСТРУКТОРЫ"
 
 // const num = new Number(3);
 // const num = new Function(3); // созданием новой функции мы создаем новый объект
@@ -1359,113 +1359,111 @@ Breakpoints - показывает, где установлены брэйкпо
 
 // Используем классы для карточек
 
-   // class MenuCard {
-   //     constructor(src, alt, title, descr, price, parentSelector, ...classes) {
-   //         this.src = src;
-   //         this.alt = alt;
-   //         this.title = title;
-   //         this.descr = descr;
-   //         this.price = price;
-   //         this.classes = classes;
-   //         this.parent = document.querySelector(parentSelector);
-   //         this.transfer = 27;
-   //         this.changeToUAH();
-   //     }
-   //
-   //     changeToUAH() {
-   //         this.price = this.price * this.transfer;
-   //     }
-   //
-   //     render() {
-   //         const element = document.createElement('div');
-   //         if (this.classes.length === 0) {
-   //             this.element = 'menu__item';
-   //             element.classList.add(this.element);
-   //         } else {
-   //             this.classes.forEach(className => element.classList.add(className));
-   //         }
-   //
-   //         element.innerHTML = `
-   //             <img src=${this.src} alt=${this.alt}>
-   //             <h3 class="menu__item-subtitle">${this.title}</h3>
-   //             <div class="menu__item-descr">${this.descr}</div>
-   //             <div class="menu__item-divider"></div>
-   //             <div class="menu__item-price">
-   //                 <div class="menu__item-cost">Цена:</div>
-   //                 <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
-   //             </div>
-   //         `;
-   //         this.parent.append(element);
-   //     }
-   // }
+	 // class MenuCard {
+	 //     constructor(src, alt, title, descr, price, parentSelector, ...classes) {
+	 //         this.src = src;
+	 //         this.alt = alt;
+	 //         this.title = title;
+	 //         this.descr = descr;
+	 //         this.price = price;
+	 //         this.classes = classes;
+	 //         this.parent = document.querySelector(parentSelector);
+	 //         this.transfer = 27;
+	 //         this.changeToUAH();
+	 //     }
+	 //
+	 //     changeToUAH() {
+	 //         this.price = this.price * this.transfer;
+	 //     }
+	 //
+	 //     render() {
+	 //         const element = document.createElement('div');
+	 //         if (this.classes.length === 0) {
+	 //             this.element = 'menu__item';
+	 //             element.classList.add(this.element);
+	 //         } else {
+	 //             this.classes.forEach(className => element.classList.add(className));
+	 //         }
+	 //
+	 //         element.innerHTML = `
+	 //             <img src=${this.src} alt=${this.alt}>
+	 //             <h3 class="menu__item-subtitle">${this.title}</h3>
+	 //             <div class="menu__item-descr">${this.descr}</div>
+	 //             <div class="menu__item-divider"></div>
+	 //             <div class="menu__item-price">
+	 //                 <div class="menu__item-cost">Цена:</div>
+	 //                 <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+	 //             </div>
+	 //         `;
+	 //         this.parent.append(element);
+	 //     }
+	 // }
 
-   // можно использовать такой синтаксис:
-   // const div = new MenuCard();
-   // div.render();
+	 // можно использовать такой синтаксис:
+	 // const div = new MenuCard();
+	 // div.render();
 
-   // другой способ (мы этот объект нигде не сохраняем как переменную, испоьлзуем один раз):
-   // new MenuCard(
-   //     "img/tabs/vegy.jpg",
-   //     "vegy",
-   //     'Меню "Фитнес"',
-   //     'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
-   //     9,
-   //     '.menu .container',
-   //     'menu__item'
-   // ).render();
-   //
-   // new MenuCard(
-   //     "img/tabs/elite.jpg",
-   //     "elite",
-   //     'Меню “Премиум”',
-   //     'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
-   //     14,
-   //     '.menu .container',
-   //     'menu__item'
-   // ).render();
-   //
-   // new MenuCard(
-   //     "img/tabs/post.jpg",
-   //     "post",
-   //     'Меню "Постное"',
-   //     'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-   //     21,
-   //     '.menu .container',
-   //     'menu__item'
-   // ).render();
-   //
-   // new MenuCard(
-   //     "img/tabs/balance.jpg",
-   //     "balance",
-   //     'Меню "Сбалансированное"',
-   //     'Меню "Сбалансированное" - это соответствие вашего рациона всем научным рекомендациям. Мы тщательно просчитываем вашу потребность в к/б/ж/у и создаем лучшие блюда для вас.',
-   //     11,
-   //     '.menu .container',
-   //     'menu__item'
-   // ).render();
+	 // другой способ (мы этот объект нигде не сохраняем как переменную, испоьлзуем один раз):
+	 // new MenuCard(
+	 //     "img/tabs/vegy.jpg",
+	 //     "vegy",
+	 //     'Меню "Фитнес"',
+	 //     'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+	 //     9,
+	 //     '.menu .container',
+	 //     'menu__item'
+	 // ).render();
+	 //
+	 // new MenuCard(
+	 //     "img/tabs/elite.jpg",
+	 //     "elite",
+	 //     'Меню “Премиум”',
+	 //     'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+	 //     14,
+	 //     '.menu .container',
+	 //     'menu__item'
+	 // ).render();
+	 //
+	 // new MenuCard(
+	 //     "img/tabs/post.jpg",
+	 //     "post",
+	 //     'Меню "Постное"',
+	 //     'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
+	 //     21,
+	 //     '.menu .container',
+	 //     'menu__item'
+	 // ).render();
+	 //
+	 // new MenuCard(
+	 //     "img/tabs/balance.jpg",
+	 //     "balance",
+	 //     'Меню "Сбалансированное"',
+	 //     'Меню "Сбалансированное" - это соответствие вашего рациона всем научным рекомендациям. Мы тщательно просчитываем вашу потребность в к/б/ж/у и создаем лучшие блюда для вас.',
+	 //     11,
+	 //     '.menu .container',
+	 //     'menu__item'
+	 // ).render();
 
 
 
 
 // ЛЕКЦИЯ 49 "REST ОПЕРАТОР И ПАРАМЕТРЫ ПО УМОЛЧАНИЮ"
 // REST оператор и параметры по умолчанию (ES6)
-    // Обратный оператор - spread, он, наоборот, расскладывает массив на отдельные элементы
-  //   const log = function(a, b, ...rest) {
-  //     console.log(a, b, rest); // остальные параметры собираются в массив
-  // };
+		// Обратный оператор - spread, он, наоборот, расскладывает массив на отдельные элементы
+	//   const log = function(a, b, ...rest) {
+	//     console.log(a, b, rest); // остальные параметры собираются в массив
+	// };
 
-  // log('basic', 'rest', 'operator', 'usage');
+	// log('basic', 'rest', 'operator', 'usage');
 
-  // параметры по умолчанию (если не передан какой-то аргумент, то можем установить значение по умолчанию):
-  // function calcOrDouble(number, basis = 2) {
-  //     // basis = basis || 2; // 2 - значение по умолчанию
-  //     console.log(number * basis);
-  // }
-  // в стандарте ES6 параметр по умолчанию можно записывать прямо при объявлении функции (basis = 2, например)
+	// параметры по умолчанию (если не передан какой-то аргумент, то можем установить значение по умолчанию):
+	// function calcOrDouble(number, basis = 2) {
+	//     // basis = basis || 2; // 2 - значение по умолчанию
+	//     console.log(number * basis);
+	// }
+	// в стандарте ES6 параметр по умолчанию можно записывать прямо при объявлении функции (basis = 2, например)
 
-  // calcOrDouble(3);
-
-
+	// calcOrDouble(3);
 
 
 
@@ -1474,54 +1472,56 @@ Breakpoints - показывает, где установлены брэйкпо
 
 
 
-    // ЛЕКЦИЯ 50 "ЛОКАЛЬНЫЕ СЕРВЕРА"
-    // http запросы - get и post
-    // live server и browser async (html) не позволяют использовать post (live server может только get),
-    //  поэтому для тестирования проектов нужны локальные сервера
-    // На локальном сервере get и post запросы работают!
+
+
+		// ЛЕКЦИЯ 50 "ЛОКАЛЬНЫЕ СЕРВЕРА"
+		// http запросы - get и post
+		// live server и browser async (html) не позволяют использовать post (live server может только get),
+		//  поэтому для тестирования проектов нужны локальные сервера
+		// На локальном сервере get и post запросы работают!
 
 
 
 
 
 
-     // ЛЕКЦИЯ 51 "JSON формат передачи данных, глубокоа клонирование объектов"
+		 // ЛЕКЦИЯ 51 "JSON формат передачи данных, глубокоа клонирование объектов"
 
-    // JSON - это текстовый формат обмена данных, используется также для хранения данных.
-    // JSON - это набор пар "ключ-значение"
+		// JSON - это текстовый формат обмена данных, используется также для хранения данных.
+		// JSON - это набор пар "ключ-значение"
 
-    // Напрямую отправлять объекты на сервер мы не можем.
-    // Сначала мы форматируем на вариант, который можем транспортировать, и уже потом передаем с фронтенда на бекенд
+		// Напрямую отправлять объекты на сервер мы не можем.
+		// Сначала мы форматируем на вариант, который можем транспортировать, и уже потом передаем с фронтенда на бекенд
 
-    // const person = {
-    //     name: 'Alex',
-    //     tel: '+79999999999',
-    //     parents: {
-    //         mom: 'Olga',
-    //         dad: 'Mike'
-    //     }
-    // };
+		// const person = {
+		//     name: 'Alex',
+		//     tel: '+79999999999',
+		//     parents: {
+		//         mom: 'Olga',
+		//         dad: 'Mike'
+		//     }
+		// };
 
-    // Браузеры имеют встроенные объекты JSON для работы с этими данными.
-    // И в этом встроенном объекте у нас есть как свойства, так и методы.
-    // Метода 2, и один из них stringify
-    // Strinfify как раз и превращает объекты js в нужный нам формат.
-    // console.log(JSON.parse(JSON.stringify(person)));
+		// Браузеры имеют встроенные объекты JSON для работы с этими данными.
+		// И в этом встроенном объекте у нас есть как свойства, так и методы.
+		// Метода 2, и один из них stringify
+		// Strinfify как раз и превращает объекты js в нужный нам формат.
+		// console.log(JSON.parse(JSON.stringify(person)));
 
-    // Все сущности записыватся в двойные кавычки. Теперь эти данные можно отправить на сервер.
+		// Все сущности записыватся в двойные кавычки. Теперь эти данные можно отправить на сервер.
 
-    // Теперь обратная ситуация - нам с сервера приходят JSON,
-    // и нам нужно превратить его в обычный объект в нашем скрипте.
-    // За это отвечает JSON.parse
+		// Теперь обратная ситуация - нам с сервера приходят JSON,
+		// и нам нужно превратить его в обычный объект в нашем скрипте.
+		// За это отвечает JSON.parse
 
 
-    // Как сделать глубокую копию объекта "person"? С помощью JSON
+		// Как сделать глубокую копию объекта "person"? С помощью JSON
 
-    // const clone = JSON.parse(JSON.stringify(person)); // таким образом будет создан глубокий клон
+		// const clone = JSON.parse(JSON.stringify(person)); // таким образом будет создан глубокий клон
 
-    // clone.parents.mom = 'Ann';
-    // console.log(person);
-    // console.log(clone);
+		// clone.parents.mom = 'Ann';
+		// console.log(person);
+		// console.log(clone);
 
 
 
@@ -1585,155 +1585,155 @@ Breakpoints - показывает, где установлены брэйкпо
 
 
 
-  // ЛЕКЦИЯ 53 "РЕАЛИЗАЦИЯ СКРИПТА ОТПРАВКИ ДАННЫХ НА СЕРВЕР"
+	// ЛЕКЦИЯ 53 "РЕАЛИЗАЦИЯ СКРИПТА ОТПРАВКИ ДАННЫХ НА СЕРВЕР"
 
-  // const forms = document.querySelectorAll('form');
+	// const forms = document.querySelectorAll('form');
 
-  //     const message = {
-  //         loading: 'Загрузка...',
-  //         success: 'Спасибо! Скоро мы с вами свяжемся',
-  //         failure: 'Что-то пошло не так...'
-  //     };
+	//     const message = {
+	//         loading: 'Загрузка...',
+	//         success: 'Спасибо! Скоро мы с вами свяжемся',
+	//         failure: 'Что-то пошло не так...'
+	//     };
 
-  //     // осталось подвязать под каждую форму функцию postData
-  //     forms.forEach(item => {
-  //         postData(item);
-  //     });
+	//     // осталось подвязать под каждую форму функцию postData
+	//     forms.forEach(item => {
+	//         postData(item);
+	//     });
 
-      // Но куда помещать это сообщение?
-      // Очень частая практика: при отправке запроса мы создаём блок на странице,
-      // куда выводим сообщение, картинку и т.д., и чаще всего он добавляется к форме
+			// Но куда помещать это сообщение?
+			// Очень частая практика: при отправке запроса мы создаём блок на странице,
+			// куда выводим сообщение, картинку и т.д., и чаще всего он добавляется к форме
 
-      // function postData(form) {
-      //     form.addEventListener('submit', (e) => {
-      //         e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
-      //         // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+			// function postData(form) {
+			//     form.addEventListener('submit', (e) => {
+			//         e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
+			//         // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
 
-      //         let statusMessage = document.createElement('div');
-      //         statusMessage.classList.add('status');
-      //         statusMessage.textContent = message.loading;
-      //         form.append(statusMessage);
-
-
-      //         const request = new XMLHttpRequest();
-      //         request.open('POST', 'server.php');
-
-      //         // можно было бы взять форму, все инпуты, взять их value,
-      //         // перебрать, сформировать объекты, но это очень муторно. Для этого всего есть механизмы
-      //         // Самый простой способ - объект formData .
-      //         // Не всегда нужно передавать в формате JSON. Есть всего2 формата:
-      //         // (1) formData
-      //         // (2) JSON
-      //         // В каком формате будем передавать, можно обговаривать
-                    // уже непосредственно с бекендером, с которым работаем
-
-      //         // formData - объект, помогающий с определенной формы быстро сформировать все данные,
-      //         // которые заполнил пользователь (также в формате ключ-значение)
-
-      //         // заголовок запроса "что именно приходит на сервер?":
-      //         // request.setRequestHeader('Content-type', 'multipart/form-data');
-      //         // при отправке XMLHttp запроса через formData заголовок не нужен!!!
-
-      //         const formData = new FormData(form); // внутрь помещаем форму, из которой нужно собрать данные
-      //         // !!! Важный момент!!! если мы понимаем, что данные будут отправляться на сервер,
-      //         // то в верстке в инпуте ВСЕГДА нужно указывать атрибут name (например, name="name").
-      //         // Иначе formData не сможет найти этот инпут, взять из него value и сформировать правильно объект
-
-      //         request.send(formData); // отправляем данные на сервер;
-                // в скобочках уже есть body, и это объект formData
-      //         request.addEventListener('load', () => { // отслеживаем конечую загрузку нашего запроса
-      //             if (request.status === 200) {
-      //                 console.log(request.response);
-      //                 statusMessage.textContent = message.success;
-      //                 form.reset(); //  очищаем форму после отправки на сервер
-      //                 setTimeout(() => {
-      //                     statusMessage.remove();
-      //                 }, 2000); // убираем сообщение о статусе через 2 секунды
-      //                 setTimeout(() => {
-      //                     closeModal();
-      //                 }, 4000); // модальное окно закрывается через 4 секунды
-      //             } else {
-      //                 statusMessage.textContent = message.failure;
-      //             }
-      //         });
-      //     });
-      // }
-
-      // при работе на локальном сервере надо каждый раз (после каких-либо изменений) сбрасывать cash,
-      // чтобы все изменения применились, так как сервер запоминает старые изменения,
-      // чтобы каждый раз их не подгружать (это и называется cash)
-      // Чтобы сбросить кэш, нужно использовать комбинацию клавиш: shift + F5
-
-      // При отправке формы в консоли получаем array(0){}, это значит, что данные на сервер дошли (вроде как).
-      // Но сервер ответил пустыми данными. Это значит, что даные до него не дошли.
-      // Данные не дошли из-за заголовка (setRequestHeader).
-      // !!!ВНИМАНИЕ! Когда мы используем связку "XMLHttpRequest + formData",
-      // то заголовок устанавливать не нунжно, он устанавливается автоматически!!
-      // Именно из-за этой проблемы у нас произошла ошибка при отправке данных.
+			//         let statusMessage = document.createElement('div');
+			//         statusMessage.classList.add('status');
+			//         statusMessage.textContent = message.loading;
+			//         form.append(statusMessage);
 
 
-      // Если сервер принимает данные не в обычном формате, а в JSON, то нужно немного переделать код
-      // PHP нативно не умеет работать с типом данных JSON. Чаще всего такие данные
-      // отправляются на сервера с использованием, например Node.js.
-      // Но с таким типом данных можно работать, сделав некоторые манипуляции в php
+			//         const request = new XMLHttpRequest();
+			//         request.open('POST', 'server.php');
+
+			//         // можно было бы взять форму, все инпуты, взять их value,
+			//         // перебрать, сформировать объекты, но это очень муторно. Для этого всего есть механизмы
+			//         // Самый простой способ - объект formData .
+			//         // Не всегда нужно передавать в формате JSON. Есть всего2 формата:
+			//         // (1) formData
+			//         // (2) JSON
+			//         // В каком формате будем передавать, можно обговаривать
+										// уже непосредственно с бекендером, с которым работаем
+
+			//         // formData - объект, помогающий с определенной формы быстро сформировать все данные,
+			//         // которые заполнил пользователь (также в формате ключ-значение)
+
+			//         // заголовок запроса "что именно приходит на сервер?":
+			//         // request.setRequestHeader('Content-type', 'multipart/form-data');
+			//         // при отправке XMLHttp запроса через formData заголовок не нужен!!!
+
+			//         const formData = new FormData(form); // внутрь помещаем форму, из которой нужно собрать данные
+			//         // !!! Важный момент!!! если мы понимаем, что данные будут отправляться на сервер,
+			//         // то в верстке в инпуте ВСЕГДА нужно указывать атрибут name (например, name="name").
+			//         // Иначе formData не сможет найти этот инпут, взять из него value и сформировать правильно объект
+
+			//         request.send(formData); // отправляем данные на сервер;
+								// в скобочках уже есть body, и это объект formData
+			//         request.addEventListener('load', () => { // отслеживаем конечую загрузку нашего запроса
+			//             if (request.status === 200) {
+			//                 console.log(request.response);
+			//                 statusMessage.textContent = message.success;
+			//                 form.reset(); //  очищаем форму после отправки на сервер
+			//                 setTimeout(() => {
+			//                     statusMessage.remove();
+			//                 }, 2000); // убираем сообщение о статусе через 2 секунды
+			//                 setTimeout(() => {
+			//                     closeModal();
+			//                 }, 4000); // модальное окно закрывается через 4 секунды
+			//             } else {
+			//                 statusMessage.textContent = message.failure;
+			//             }
+			//         });
+			//     });
+			// }
+
+			// при работе на локальном сервере надо каждый раз (после каких-либо изменений) сбрасывать cash,
+			// чтобы все изменения применились, так как сервер запоминает старые изменения,
+			// чтобы каждый раз их не подгружать (это и называется cash)
+			// Чтобы сбросить кэш, нужно использовать комбинацию клавиш: shift + F5
+
+			// При отправке формы в консоли получаем array(0){}, это значит, что данные на сервер дошли (вроде как).
+			// Но сервер ответил пустыми данными. Это значит, что даные до него не дошли.
+			// Данные не дошли из-за заголовка (setRequestHeader).
+			// !!!ВНИМАНИЕ! Когда мы используем связку "XMLHttpRequest + formData",
+			// то заголовок устанавливать не нунжно, он устанавливается автоматически!!
+			// Именно из-за этой проблемы у нас произошла ошибка при отправке данных.
 
 
-      // Отправка через JSON:
-    //   const forms = document.querySelectorAll('form');
-
-    // const message = {
-    //     loading: 'Загрузка...',
-    //     success: 'Спасибо! Скоро мы с вами свяжемся',
-    //     failure: 'Что-то пошло не так...'
-    // };
+			// Если сервер принимает данные не в обычном формате, а в JSON, то нужно немного переделать код
+			// PHP нативно не умеет работать с типом данных JSON. Чаще всего такие данные
+			// отправляются на сервера с использованием, например Node.js.
+			// Но с таким типом данных можно работать, сделав некоторые манипуляции в php
 
 
-    // forms.forEach(item => {
-    //     postData(item);
-    // });
+			// Отправка через JSON:
+		//   const forms = document.querySelectorAll('form');
 
-    // function postData(form) {
-    //     form.addEventListener('submit', (e) => {
-    //         e.preventDefault();
-
-    //         let statusMessage = document.createElement('div');
-    //         statusMessage.classList.add('status');
-    //         statusMessage.textContent = message.loading;
-    //         form.append(statusMessage);
+		// const message = {
+		//     loading: 'Загрузка...',
+		//     success: 'Спасибо! Скоро мы с вами свяжемся',
+		//     failure: 'Что-то пошло не так...'
+		// };
 
 
-    //         const request = new XMLHttpRequest();
-    //         request.open('POST', 'server.php');
+		// forms.forEach(item => {
+		//     postData(item);
+		// });
 
-    //         request.setRequestHeader('Content-type', 'application/json');
+		// function postData(form) {
+		//     form.addEventListener('submit', (e) => {
+		//         e.preventDefault();
+
+		//         let statusMessage = document.createElement('div');
+		//         statusMessage.classList.add('status');
+		//         statusMessage.textContent = message.loading;
+		//         form.append(statusMessage);
 
 
-    //         const formData = new FormData(form);
+		//         const request = new XMLHttpRequest();
+		//         request.open('POST', 'server.php');
 
-    //         const object = {};
-    //         formData.forEach(function(value, key){
-    //             object[key] = value;
-    //         });
-    //         const json = JSON.stringify(object);
+		//         request.setRequestHeader('Content-type', 'application/json');
 
-    //         request.send(json);
-    //         request.addEventListener('load', () => {
-    //             if (request.status === 200) {
-    //                 console.log(request.response);
-    //                 statusMessage.textContent = message.success;
-    //                 form.reset();
-    //                 setTimeout(() => {
-    //                     statusMessage.remove();
-    //                 }, 2000);
-    //                 setTimeout(() => {
-    //                     closeModal();
-    //                 }, 4000);
-    //             } else {
-    //                 statusMessage.textContent = message.failure;
-    //             }
-    //         });
-    //     });
-    // }
+
+		//         const formData = new FormData(form);
+
+		//         const object = {};
+		//         formData.forEach(function(value, key){
+		//             object[key] = value;
+		//         });
+		//         const json = JSON.stringify(object);
+
+		//         request.send(json);
+		//         request.addEventListener('load', () => {
+		//             if (request.status === 200) {
+		//                 console.log(request.response);
+		//                 statusMessage.textContent = message.success;
+		//                 form.reset();
+		//                 setTimeout(() => {
+		//                     statusMessage.remove();
+		//                 }, 2000);
+		//                 setTimeout(() => {
+		//                     closeModal();
+		//                 }, 4000);
+		//             } else {
+		//                 statusMessage.textContent = message.failure;
+		//             }
+		//         });
+		//     });
+		// }
 
 
 
@@ -1746,64 +1746,64 @@ Breakpoints - показывает, где установлены брэйкпо
 
 // ЛЕКЦИЯ 55 "PROMISE (ES6)"^
 // Промисы:
-    // когда мы создаем промисы, то коллбек функция обычно принимает 2 аргумента - resolve и reject
+		// когда мы создаем промисы, то коллбек функция обычно принимает 2 аргумента - resolve и reject
 
-    // console.log('Запрос данных...');
+		// console.log('Запрос данных...');
 
-    // const req = new Promise(function(resolve, reject) {
-    //     setTimeout(() => {
-    //         console.log('Подготовка данных...');
+		// const req = new Promise(function(resolve, reject) {
+		//     setTimeout(() => {
+		//         console.log('Подготовка данных...');
 
-    //         const product = {
-    //             name: 'TV',
-    //             price: 2000
-    //         };
-    //         resolve(product);
-    //     }, 2000);
-    // });
+		//         const product = {
+		//             name: 'TV',
+		//             price: 2000
+		//         };
+		//         resolve(product);
+		//     }, 2000);
+		// });
 
-    // // then нужен для того, чтобы отрабатывать положительный результат (resolve)
-    // // catch нужен для того, чтобы отрабатывать reject
-    // // finally нужен, чтобы показать какие действия произвести при любом исходе
-    // req.then((product) => {
-    //     return new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             product.status = 'order';
-    //             resolve(product);
-    //         }, 2000);
-    //     }).then(data => {
-    //         data.modify = true;
-    //         return data;
-    //     }).then((data) => {
-    //         console.log(data);
-    //     }).catch(() => {
-    //         console.error('Произошла ошибка');
-    //     }).finally(() => {
-    //         console.log('Finally');
-    //     });
-    // });
+		// // then нужен для того, чтобы отрабатывать положительный результат (resolve)
+		// // catch нужен для того, чтобы отрабатывать reject
+		// // finally нужен, чтобы показать какие действия произвести при любом исходе
+		// req.then((product) => {
+		//     return new Promise((resolve, reject) => {
+		//         setTimeout(() => {
+		//             product.status = 'order';
+		//             resolve(product);
+		//         }, 2000);
+		//     }).then(data => {
+		//         data.modify = true;
+		//         return data;
+		//     }).then((data) => {
+		//         console.log(data);
+		//     }).catch(() => {
+		//         console.error('Произошла ошибка');
+		//     }).finally(() => {
+		//         console.log('Finally');
+		//     });
+		// });
 
 
-  //   const test = time => {
-  //     return new Promise(resolve =>{
-  //         setTimeout(() => resolve(), time);
-  //     });
-  // };
+	//   const test = time => {
+	//     return new Promise(resolve =>{
+	//         setTimeout(() => resolve(), time);
+	//     });
+	// };
 
-  // test(1000).then(() => console.log('1000 ms'));
-  // test(2000).then(() => console.log('2000 ms'));
+	// test(1000).then(() => console.log('1000 ms'));
+	// test(2000).then(() => console.log('2000 ms'));
 
-  // первый метод промиса - all. Он ждет выполнение всех промисов, и уже потом что-то делает:
-  // Promise.all([test(1000), test(2000)]).then(() => {
-  //     console.log('All');
-  // });
+	// первый метод промиса - all. Он ждет выполнение всех промисов, и уже потом что-то делает:
+	// Promise.all([test(1000), test(2000)]).then(() => {
+	//     console.log('All');
+	// });
 
-  // получаем All - значит, оба промиса выполнились
+	// получаем All - значит, оба промиса выполнились
 
-  // второй метод промиса - race. Выполняется, когда самый первый промис отработал:
-  // Promise.race([test(1000), test(2000)]).then(() => {
-  //     console.log('All');
-  // });
+	// второй метод промиса - race. Выполняется, когда самый первый промис отработал:
+	// Promise.race([test(1000), test(2000)]).then(() => {
+	//     console.log('All');
+	// });
 
 
 
@@ -1820,45 +1820,45 @@ Breakpoints - показывает, где установлены брэйкпо
 
 
 
-    // ЛЕКЦИЯ 56 "FETCH API"
+		// ЛЕКЦИЯ 56 "FETCH API"
 
-    // Fetch API - знание promise + общение с сервером
-    // API (application programming interface) - это набор данных и возможностей,
-    // которые предоставляет нам какое-то готовое решение.
-    // Самый банальный API, который мы уже встречали - DOM API - это различные методы,
-    // которые позволяют нам работать с элементами на странице
+		// Fetch API - знание promise + общение с сервером
+		// API (application programming interface) - это набор данных и возможностей,
+		// которые предоставляет нам какое-то готовое решение.
+		// Самый банальный API, который мы уже встречали - DOM API - это различные методы,
+		// которые позволяют нам работать с элементами на странице
 
-    // https://jsonplaceholder.typicode.com/
+		// https://jsonplaceholder.typicode.com/
 
-    // fetch('https://jsonplaceholder.typicode.com/todos/1') // URL, на который будем посылать запрос
-    // // Если больше никаких параметров не указывать, то это будет GET запрос
-    // // Раньше мы использовали json.parse, чтобы отформатировать полученные данные,
-    // // но у jsonplaceholder уже есть встроенные механизмы
-    // .then(response => response.json()) // этот метод форматирует json в обычный
-    // // javascript объект, который дальше можно использовать;
-    // // эта команда возвращает нам промис
-    // .then(json => console.log(json));
+		// fetch('https://jsonplaceholder.typicode.com/todos/1') // URL, на который будем посылать запрос
+		// // Если больше никаких параметров не указывать, то это будет GET запрос
+		// // Раньше мы использовали json.parse, чтобы отформатировать полученные данные,
+		// // но у jsonplaceholder уже есть встроенные механизмы
+		// .then(response => response.json()) // этот метод форматирует json в обычный
+		// // javascript объект, который дальше можно использовать;
+		// // эта команда возвращает нам промис
+		// .then(json => console.log(json));
 
 
 
-    // Что касается POST запроса:
-    // URL оставляем такой же, и вторым аргументом - объект с настройками, которые мы будем задавать.
-    // Этот объект содержит много различных свойств, но самые обязательные только 2:
-    // (1) метод, (2) body, которое мы будем отправлять
+		// Что касается POST запроса:
+		// URL оставляем такой же, и вторым аргументом - объект с настройками, которые мы будем задавать.
+		// Этот объект содержит много различных свойств, но самые обязательные только 2:
+		// (1) метод, (2) body, которое мы будем отправлять
 
-    // fetch('https://jsonplaceholder.typicode.com/posts', {
-    //     method: "POST",
-    //     // сюда можем поместить как строку, так и объект;
-    //     // форматируем его в JSON формат, и отправим его при помощи fetch;
-    //     // желательно указывать также и заголовки, которые будут определять, какой контент мы отправляем
-    //     body: JSON.stringify({name: 'Alex'}),
-    //     headers: {
-    //         'Content-type': 'application/json'
-    //     }
-    //     // теперь нужно выбрать url, куда будем все это отправлять    })
-    // })
-    // .then(response => response.json())
-    // .then(json => console.log(json));
+		// fetch('https://jsonplaceholder.typicode.com/posts', {
+		//     method: "POST",
+		//     // сюда можем поместить как строку, так и объект;
+		//     // форматируем его в JSON формат, и отправим его при помощи fetch;
+		//     // желательно указывать также и заголовки, которые будут определять, какой контент мы отправляем
+		//     body: JSON.stringify({name: 'Alex'}),
+		//     headers: {
+		//         'Content-type': 'application/json'
+		//     }
+		//     // теперь нужно выбрать url, куда будем все это отправлять    })
+		// })
+		// .then(response => response.json())
+		// .then(json => console.log(json));
 
 
 
@@ -1868,149 +1868,149 @@ Breakpoints - показывает, где установлены брэйкпо
 
 
 
-    // Отправка запроса formData (обычный объект JS) через Fetch
+		// Отправка запроса formData (обычный объект JS) через Fetch
 
-    // function postData(form) {
-    //         form.addEventListener('submit', (e) => {
-    //             e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
-    //             // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+		// function postData(form) {
+		//         form.addEventListener('submit', (e) => {
+		//             e.preventDefault(); // отменяем стандартное поведение браузера при submit, т.е. перезагрузку страницы
+		//             // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
 
-    //             let statusMessage = document.createElement('img');
-    //             statusMessage.src = message.loading;
-    //             statusMessage.style.cssText = `
-    //                 display: block;
-    //                 margin: 0 auto;
-    //             `;
+		//             let statusMessage = document.createElement('img');
+		//             statusMessage.src = message.loading;
+		//             statusMessage.style.cssText = `
+		//                 display: block;
+		//                 margin: 0 auto;
+		//             `;
 
-    //             form.insertAdjacentElement('afterend', statusMessage);
-
-
-    //             const formData = new FormData(form);
+		//             form.insertAdjacentElement('afterend', statusMessage);
+
+
+		//             const formData = new FormData(form);
 
-    //             // const object = {};
-    //             // formData.forEach(function(value, key){
-    //             //     object[key] = value;
-    //             // }); // когда мы получили обычный объект, а не Data,
-                          // то уже на нём можем использовать ковертацию JSON
-    //             // const json = JSON.stringify(object);
+		//             // const object = {};
+		//             // formData.forEach(function(value, key){
+		//             //     object[key] = value;
+		//             // }); // когда мы получили обычный объект, а не Data,
+													// то уже на нём можем использовать ковертацию JSON
+		//             // const json = JSON.stringify(object);
 
 
-    //             fetch('server.php', {
-    //                 method: "POST",
-    //                 // headers: {
-    //                 //     'Content-type': 'application/json'
-    //                 // },
-    //                 body: formData
-    //             }).then(data => data.text())
-    //             .then(data => {
-    //                 console.log(data);
-    //                 showThanksModal(message.success);
-    //                 statusMessage.remove();
-    //             }).catch(() => {
-    //                 showThanksModal(message.failure);
-    //             }).finally(() => {
-    //                 form.reset();
-    //             });
-
-    //         });
-    //     }
-
-
-    //     function showThanksModal(message) {
-    //         const prevModalDialog = document.querySelector('.modal__dialog');
-    //         prevModalDialog.classList.add('hide');
-    //         openModal();
-
-    //         const thanksModal = document.createElement('div');
-    //         thanksModal.classList.add('modal__dialog');
-    //         thanksModal.innerHTML = `
-    //             <div class="modal__content">
-    //                 <div class="modal__close" data-close>×</div>
-    //                 <div class="modal__title">${message}</div>
-    //             </div>
-    //         `;
-
-    //         document.querySelector('.modal').append(thanksModal);
-    //         setTimeout(() => {
-    //             thanksModal.remove();
-    //             prevModalDialog.classList.add('show');
-    //             prevModalDialog.classList.remove('hide');
-    //             closeModal();
-    //         }, 4000);
-    //     }
-
-
-    //     // Отправка запроса в формате JSON через Fetch
-
-    //     function postData(form) {
-    //             form.addEventListener('submit', (e) => {
-    //                 e.preventDefault(); // отменяем стандартное поведение браузера при submit,
-                        // т.е. перезагрузку страницы
-    //                 // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
-
-    //                 let statusMessage = document.createElement('img');
-    //                 statusMessage.src = message.loading;
-    //                 statusMessage.style.cssText = `
-    //                     display: block;
-    //                     margin: 0 auto;
-    //                 `;
-
-    //                 form.insertAdjacentElement('afterend', statusMessage);
-
-
-    //                 const formData = new FormData(form);
-
-    //                 const object = {};
-    //                 formData.forEach(function(value, key){
-    //                     object[key] = value;
-    //                 });
-
-
-
-
-    //                 fetch('server.php', {
-    //                     method: "POST",
-    //                     headers: {
-    //                         'Content-type': 'application/json'
-    //                     },
-    //                     body: JSON.stringify(object)
-    //                 }).then(data => data.text())
-    //                 .then(data => {
-    //                     console.log(data);
-    //                     showThanksModal(message.success);
-    //                     statusMessage.remove();
-    //                 }).catch(() => {
-    //                     showThanksModal(message.failure);
-    //                 }).finally(() => {
-    //                     form.reset();
-    //                 });
-
-    //             });
-    //         }
-
-
-    //         function showThanksModal(message) {
-    //             const prevModalDialog = document.querySelector('.modal__dialog');
-    //             prevModalDialog.classList.add('hide');
-    //             openModal();
-
-    //             const thanksModal = document.createElement('div');
-    //             thanksModal.classList.add('modal__dialog');
-    //             thanksModal.innerHTML = `
-    //                 <div class="modal__content">
-    //                     <div class="modal__close" data-close>×</div>
-    //                     <div class="modal__title">${message}</div>
-    //                 </div>
-    //             `;
-
-    //             document.querySelector('.modal').append(thanksModal);
-    //             setTimeout(() => {
-    //                 thanksModal.remove();
-    //                 prevModalDialog.classList.add('show');
-    //                 prevModalDialog.classList.remove('hide');
-    //                 closeModal();
-    //             }, 4000);
-    //         }
+		//             fetch('server.php', {
+		//                 method: "POST",
+		//                 // headers: {
+		//                 //     'Content-type': 'application/json'
+		//                 // },
+		//                 body: formData
+		//             }).then(data => data.text())
+		//             .then(data => {
+		//                 console.log(data);
+		//                 showThanksModal(message.success);
+		//                 statusMessage.remove();
+		//             }).catch(() => {
+		//                 showThanksModal(message.failure);
+		//             }).finally(() => {
+		//                 form.reset();
+		//             });
+
+		//         });
+		//     }
+
+
+		//     function showThanksModal(message) {
+		//         const prevModalDialog = document.querySelector('.modal__dialog');
+		//         prevModalDialog.classList.add('hide');
+		//         openModal();
+
+		//         const thanksModal = document.createElement('div');
+		//         thanksModal.classList.add('modal__dialog');
+		//         thanksModal.innerHTML = `
+		//             <div class="modal__content">
+		//                 <div class="modal__close" data-close>×</div>
+		//                 <div class="modal__title">${message}</div>
+		//             </div>
+		//         `;
+
+		//         document.querySelector('.modal').append(thanksModal);
+		//         setTimeout(() => {
+		//             thanksModal.remove();
+		//             prevModalDialog.classList.add('show');
+		//             prevModalDialog.classList.remove('hide');
+		//             closeModal();
+		//         }, 4000);
+		//     }
+
+
+		//     // Отправка запроса в формате JSON через Fetch
+
+		//     function postData(form) {
+		//             form.addEventListener('submit', (e) => {
+		//                 e.preventDefault(); // отменяем стандартное поведение браузера при submit,
+												// т.е. перезагрузку страницы
+		//                 // надо всегда ставить такую команду в AJAX-запросах, чтобы не было казусов
+
+		//                 let statusMessage = document.createElement('img');
+		//                 statusMessage.src = message.loading;
+		//                 statusMessage.style.cssText = `
+		//                     display: block;
+		//                     margin: 0 auto;
+		//                 `;
+
+		//                 form.insertAdjacentElement('afterend', statusMessage);
+
+
+		//                 const formData = new FormData(form);
+
+		//                 const object = {};
+		//                 formData.forEach(function(value, key){
+		//                     object[key] = value;
+		//                 });
+
+
+
+
+		//                 fetch('server.php', {
+		//                     method: "POST",
+		//                     headers: {
+		//                         'Content-type': 'application/json'
+		//                     },
+		//                     body: JSON.stringify(object)
+		//                 }).then(data => data.text())
+		//                 .then(data => {
+		//                     console.log(data);
+		//                     showThanksModal(message.success);
+		//                     statusMessage.remove();
+		//                 }).catch(() => {
+		//                     showThanksModal(message.failure);
+		//                 }).finally(() => {
+		//                     form.reset();
+		//                 });
+
+		//             });
+		//         }
+
+
+		//         function showThanksModal(message) {
+		//             const prevModalDialog = document.querySelector('.modal__dialog');
+		//             prevModalDialog.classList.add('hide');
+		//             openModal();
+
+		//             const thanksModal = document.createElement('div');
+		//             thanksModal.classList.add('modal__dialog');
+		//             thanksModal.innerHTML = `
+		//                 <div class="modal__content">
+		//                     <div class="modal__close" data-close>×</div>
+		//                     <div class="modal__title">${message}</div>
+		//                 </div>
+		//             `;
+
+		//             document.querySelector('.modal').append(thanksModal);
+		//             setTimeout(() => {
+		//                 thanksModal.remove();
+		//                 prevModalDialog.classList.add('show');
+		//                 prevModalDialog.classList.remove('hide');
+		//                 closeModal();
+		//             }, 4000);
+		//         }
 
 
 
@@ -2114,13 +2114,13 @@ Breakpoints - показывает, где установлены брэйкпо
 
 // первый вариант формирование карточек с данными с сервера
 // getResource('http://localhost:3000/menu')
-    //     .then(data => {
-    //         data.forEach(({img, altimg, title, descr, price} )=> {
-    //             // вызываем конструктор MenuCard
-    //             // последним аргументом указываем родителя, куда это все помещаем
-    //             new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
-    //         });
-    //     });
+		//     .then(data => {
+		//         data.forEach(({img, altimg, title, descr, price} )=> {
+		//             // вызываем конструктор MenuCard
+		//             // последним аргументом указываем родителя, куда это все помещаем
+		//             new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+		//         });
+		//     });
 
 
 // второй вариант (больше подходит для того, чтобы что-то построить один раз).
@@ -2954,3 +2954,68 @@ Breakpoints - показывает, где установлены брэйкпо
 // console.log(counter.next().value);
 // console.log(counter.next().value);
 // console.log(counter.next().value);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 81 "Event loop, подробная работа асинхронных и синхонных операций"
+
+// console.log(1);
+
+// setTimeout(() => {
+// 	console.log('timeout');
+// }, 4000);
+
+// setTimeout(() => {
+// 	console.log('timeout_4000');
+// }, 4000);
+
+// console.log(2);
+
+// Асинхронные операции это:
+//(1) Операции, которые запускаются через какое-то определенное количество времени (setTimeout, setInterval)
+// (2) Любые запросы на сервер
+// (3) Коллбэки - тоже асинхронные (click, scroll submit и т.д. происходят асинхронно)
+
+// http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
+
+
+// Web Apis - контейнер, который служит для запоминания информации
+// (например, что какая-то функция должна выполниться через такое-то количество времени)
+// Call Stack - там, где в данный момент обрабатываются операции
+// Callback Queue - "очередь" операций (параллельно выполняться они не могут)
+
+// let k = 0;
+
+// function count() {
+// 	for (let i = 0; i < 1e9; i++) {
+// 		k++;
+// 	}	
+
+// 	alert('done');
+// }
+// count();
+
+
+// Что выполнится сначала?
+
+// setTimeout(() => {
+// 	console.log(1);
+// }, 0);
+
+// console.log(2);
+
+// Ответ: 2 1
+
+// Почему?
+// 1- сперва выполнится синхронный код, т.к. асинхронный сперва попадает в Web Apis
+// 2 - когда JS видит 0, он автоматически подставляет 4 миллисекунды
