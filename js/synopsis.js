@@ -2909,3 +2909,48 @@ Breakpoints - показывает, где установлены брэйкпо
 // любите писать всё на чистом JS и не боитесь смешивать его с html, то вам дорога в React.
 // 3 - Если хочется относительно легко и быстро научиться писать чистый красивый код,
 // использовать самый легковесный и быстрый инструмент, то нужно выбрать Vue.
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 79 "ФУНКЦИИ-ГЕНЕРАТОРЫ"
+// function* generator() {
+// 	yield 'S';
+// 	yield 'c';
+// 	yield 'r';
+// 	yield 'i';
+// 	yield 'p';
+// 	yield 't';
+// }
+
+// const str = generator();
+
+// console.log(str.next());
+
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next().value);
+
+
+// function* count(n) {
+// 	for (let i = 0; i < n; i++) {
+// 		yield i;
+// 	}
+// }
+
+// for (let k of count(7)) {
+// 	console.log(k);
+// }
+
+// const counter = count(7);
+// console.log(counter.next().value);
+// console.log(counter.next().value);
+// console.log(counter.next().value);
