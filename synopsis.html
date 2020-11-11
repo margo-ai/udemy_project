@@ -5,31 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
     <link rel="stylesheet" href="css/synopsis.css">
 </head>
-<body>
-    <div class="big-block">
-        <p>Просто блок</p>
+<body>   
+    <div class="my-slider">
+        <div>
+            <img src="img/luffy.jpg" alt="luffy"></img>
+        </div>
+        <div>
+            <img src="img/zoro.jpg" alt="zoro"></img>
+        </div>
+        <div>
+            <img src="img/one-piece.png" alt="mugiwara"></img>
+        </div>
     </div>
-    <script src="js/synopsis.js"></script>
-    <script>
-        let block = document.querySelector('.big-block');
-
-        block.addEventListener('mouseover', () => {
-            block.style.backgroundColor = '#24f0e2'
-        });
-
-        block.addEventListener('mouseout', () => {
-            block.style.backgroundColor = '#f0c322';
-        });
-
-        block.addEventListener('click', () => {
-            block.style.backgroundColor = '';           
-        });
-
-        block.addEventListener('click', () => {          
-        });
-        
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <script src="js/synopsis.js"></script>    
 </body>
 </html>

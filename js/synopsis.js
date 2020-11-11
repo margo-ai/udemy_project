@@ -3019,3 +3019,233 @@ Breakpoints - показывает, где установлены брэйкпо
 // Почему?
 // 1- сперва выполнится синхронный код, т.к. асинхронный сперва попадает в Web Apis
 // 2 - когда JS видит 0, он автоматически подставляет 4 миллисекунды
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ЛЕКЦИЯ 82 "РАБОТАЕМ С ГОТОВЫМ КОДОМ (ГОТОВЫМИ РЕШЕНИЯМИ)"
+
+// Лучше использовать те плагины и те готовые решения, которые не используют какие-то завивсимости.
+// Слайдеры:
+// 1 - tiny slider (на чистом JS)
+// 2 - slick slider (подтягивает jQuery)
+// 3 - Owl Carousel (подтягивает jQuery)
+// 4 - Galleria.js 
+// 5 - Fotorama
+// 6 - Glide.js
+// 7 - Swiper.js
+
+
+// Попробуем установить tiny-slider:
+
+// import { tns } from "./node_modules/tiny-slider/src/tiny-slider";
+
+
+
+tns({
+    container: '.my-slider',
+    items: 1,
+    slideBy: 'page',
+    autoplay: true
+  });
+
+
+
+  // Библиотека для работы с touch событиями - Hammer.js
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	// ЗНАКОМИМСЯ С REACT.JS. СТАНДАРТЫ ES6-8
+
+	
+// Современное значение переменных:
+// let a = 0;
+// console.log(a);
+
+
+
+// Использование стрелочных функций: 
+
+// let obj = {
+// 	number: 5,
+// 	sayNumber: function() {
+// 		say = () => {
+// 			console.log(this);
+// 		}
+// 		say();
+// 	}
+// }
+
+// obj.sayNumber();
+
+
+
+// // Метод перебора массива filter:
+// let names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
+
+// let shortNames = names.filter((name) => {
+// 	return name.length < 5
+// });
+
+// console.log(shortNames);
+
+
+
+// // Метод перебора массива Map:
+// let answers = ['IvAn', 'AnnA', 'HeLLo'];
+
+// answers = answers.map((item) => item.toLowerCase());
+
+// console.log(answers);
+
+
+// // Использование интерполяции:
+// console.log(`Пользователь ${name}, ${age} лет`);
+
+
+// // Использование значения по умолчанию:
+// function fetchData(data, count) {
+// 	count = count || 0;
+// 	console.log(`Данные: ${data} в количестве ${count}`);
+// }
+
+// fetchData('something');
+
+
+
+// // REST оператор для того, чтобы сворачивать аргументы:
+// function max (a, b, ...numbers) {
+// 	console.log(numbers);
+// }
+
+// max(3, 4, 67, 97);
+
+
+// // Spread операторы для разворота массивов:
+// const arr1 = [1, 2, 5];
+// const arr2 = [43, 2, 6];
+
+// const res = Math.max(...arr1, ...arr2);
+// console.log(res);
+
+
+// // Spread операторы для разворота объектов:
+// const avatar = 'Photo';
+
+// const user = {
+// 	name: 'default',
+// 	pass: 'qwerty',
+// 	rights: 'user'
+// }
+
+// const admin = {
+// 	name: 'admin',
+// 	pass: 'root'
+// }
+
+// // const result = Object.assign({}, user, admin);
+// const result = {...user, ...admin, avatar}
+
+// console.log(result);
+
+// const x = 25, y = 10;
+
+// // Как объект создавался раньше:
+// const coords = {
+// 	x: x,
+// 	y: y,
+// 	calcSq: function () {
+// 		console.log(this.x*this.y);
+// 	}
+// }
+
+// // Как его можно создать сейчас:
+// const coords = {x, y,
+// 	calcSq() {
+// 		console.log(this.x*this.y);
+// 	}
+// }
+
+// coords.calcSq();
+
+// console.log(coords);
+
+
+
+// // Деструктуризация объектов:
+
+// const user = {
+// 	name: {
+// 		first: 'Sam',
+// 		second: 'Smith'
+// 	},
+// 	pass: 'qwerty',
+// 	rights: 'user'
+// }
+
+// // const userName = user.name;
+
+// const {name:{first, second}, pass, rights} = user; // после знака присваивания - название объекта, из которого вытаискиваем данные и "отдаем" в переменные
+
+// console.log(first, second);
+
+
+// // Классический паттерн при работе с функциями:
+// function  connect({
+// 	host = 'localhost',
+// 	port = 3000,
+// 	user = 'default'} = {}) {
+// 		console.log(`host: ${host}, port: ${port}, user: ${user}`);
+// }
+
+// connect();
+
+
+
+
+// // Деструктуризация массивов:
+
+// const numbers = [[3, 5], [6, 6]];
+
+// const [[a, b], [c, d]] = numbers;
+
+// console.log(a, b, c, d);
+
+
+
+
+// const country = {
+// 	name: 'England',
+// 	population: 2000000,
+// 	gender: {
+// 		male: ['15%', '40%'], // население до 18 лет и после
+// 		female: ['16%', '29%']
+// 	}	
+// }
+
+// const {gender: {male: [maleUnder18, maleAdult], female: [femUnder18, femAdult]}} = country;
+
+// console.log(maleUnder18, femAdult);
